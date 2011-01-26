@@ -4,7 +4,16 @@
 # default rules
 homepage:
   url:   /
-  param: { module: default, action: index }
+  param: { module: question, action: index }
+
+question_show:
+  url:	/question/:id/:title
+  class:   sfDoctrineRoute
+  options: { model: Question, type: object }
+  param: { module: question, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
 
 # generic rules
 # please, remove them by adding more specific rules

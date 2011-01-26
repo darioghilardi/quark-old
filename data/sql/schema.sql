@@ -1,0 +1,12 @@
+CREATE TABLE answer (id BIGINT AUTO_INCREMENT, question_id BIGINT NOT NULL, user_id BIGINT NOT NULL, body TEXT, created_at DATETIME NOT NULL, INDEX question_id_idx (question_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE interest (id BIGINT AUTO_INCREMENT, question_id BIGINT NOT NULL, user_id BIGINT NOT NULL, created_at DATETIME NOT NULL, INDEX question_id_idx (question_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE question (id BIGINT AUTO_INCREMENT, user_id BIGINT NOT NULL, title VARCHAR(255) NOT NULL, body TEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE relevancy (id BIGINT AUTO_INCREMENT, answer_id BIGINT NOT NULL, user_id BIGINT NOT NULL, score BIGINT NOT NULL, created_at DATETIME NOT NULL, INDEX answer_id_idx (answer_id), INDEX user_id_idx (user_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE user (id BIGINT AUTO_INCREMENT, nickname VARCHAR(50) NOT NULL, first_name VARCHAR(100) NOT NULL, last_name VARCHAR(100) NOT NULL, created_at DATETIME NOT NULL, PRIMARY KEY(id)) ENGINE = INNODB;
+ALTER TABLE answer ADD CONSTRAINT answer_user_id_user_id FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE;
+ALTER TABLE answer ADD CONSTRAINT answer_question_id_question_id FOREIGN KEY (question_id) REFERENCES question(id) ON DELETE CASCADE;
+ALTER TABLE interest ADD CONSTRAINT interest_user_id_user_id FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE;
+ALTER TABLE interest ADD CONSTRAINT interest_question_id_question_id FOREIGN KEY (question_id) REFERENCES question(id) ON DELETE CASCADE;
+ALTER TABLE question ADD CONSTRAINT question_user_id_user_id FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE;
+ALTER TABLE relevancy ADD CONSTRAINT relevancy_user_id_user_id FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE;
+ALTER TABLE relevancy ADD CONSTRAINT relevancy_answer_id_answer_id FOREIGN KEY (answer_id) REFERENCES answer(id) ON DELETE CASCADE;

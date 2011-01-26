@@ -1,0 +1,48 @@
+Question:
+  columns:
+    id:						{type: integer, notnull: true, autoincrement: true, primary: true}
+    user_id:			{type: integer, notnull: true}
+    title:				{type: string(255), notnull: true}
+    body:         {type: string(1000)}
+    created_at:   {type: timestamp, notnull: true}
+    updated_at:   {type: timestamp, notnull: true}
+  relations:
+    User:					{onDelete: CASCADE, local: user_id, foreign: id, foreignAlias: ask_user}
+
+Answer:
+  columns:
+    id:						{type: integer, notnull: true, autoincrement: true, primary: true}
+    question_id:  {type: integer, notnull: true}
+    user_id:      {type: integer, notnull: true}
+    body:         {type: string(1000)}
+    created_at:   {type: timestamp, notnull: true}
+  relations:
+    Question:			{onDelete: CASCADE, local: question_id, foreign: id, foreignAlias: ask_question}
+    User:					{onDelete: CASCADE, local: user_id, foreign: id, foreignAlias: ask_user}
+
+User:
+  columns:
+    id:						{type: integer, notnull: true, autoincrement: true, primary: true}
+    nickname:			{type: string(50), notnull: true}
+    first_name:		{type: string(100), notnull: true}
+    last_name:		{type: string(100), notnull: true}
+    created_at:   {type: timestamp, notnull: true}
+
+Interest:
+  columns:
+    question_id:	{type: integer, notnull: true}
+    user_id:			{type: integer, notnull: true}
+    created_at:   {type: timestamp, notnull: true}
+  relations:
+    Question:			{onDelete: CASCADE, local: question_id, foreign: id}
+    User:					{onDelete: CASCADE, local: user_id, foreign: id}
+
+Relevancy:
+  columns:
+    answer_id:		{type: integer, notnull: true}
+    user_id:			{type: integer, notnull: true}
+    score:				{type: integer, notnull: true}
+    created_at:   {type: timestamp, notnull: true}
+  relations:
+    Answer:				{onDelete: CASCADE, local: answer_id, foreign: id}
+    User:					{onDelete: CASCADE, local: user_id, foreign: id}
