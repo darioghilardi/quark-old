@@ -19,8 +19,7 @@ class questionActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->question = Doctrine_Core::getTable('Question')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->question);
+    $this->question = $this->getRoute()->getObject();
   }
 
   public function executeNew(sfWebRequest $request)

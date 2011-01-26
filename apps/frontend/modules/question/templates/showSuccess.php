@@ -2,6 +2,9 @@
 <?php use_helper('Text') ?>
 
 <div id="question">
+
+	<?php include_partial('question/question_votes', array('question' => $question)) ?>
+
   <h1><?php echo $question->getTitle() ?></h1>
 
   <div class="description">
@@ -18,4 +21,18 @@
       Edit
     </a>
   </div>
+</div>
+
+
+<div id="answers">
+<?php foreach ($question->getAskQuestion() as $answer): ?>
+  <div class="answer">
+	<div>
+      <?php echo $answer->getBody() ?>
+
+    </div>
+    posted by <?php echo $answer->getUser() ?>
+    on <?php echo $answer->getDateTimeObject('created_at')->format('d/m/Y') ?>
+  </div>
+<?php endforeach; ?>
 </div>

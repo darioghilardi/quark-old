@@ -12,7 +12,7 @@
  */
 class Question extends BaseQuestion {
 
-	public function getQuestionSlug() {
+	public function getTitleSlug() {
 		return Quark::slugify($this->getTitle());
 	}
 }

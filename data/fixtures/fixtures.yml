@@ -46,3 +46,11 @@ Answer:
     User: pippo
     body: I don't know.
     created_at: '2011-01-26'
+
+Interest:
+  like1:
+    User: ingo
+    Question: php
+  like2:
+    User: kiuz
+    Question: symfony

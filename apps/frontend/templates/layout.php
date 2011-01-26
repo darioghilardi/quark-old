@@ -19,7 +19,7 @@
             <div class="post">
               <h2>Ask a question</h2>
               <div>
-                <a href="<?php echo url_for('quark/index') ?>">Ask a question</a>
+                <a href="<?php echo url_for('@homepage') ?>">Ask a question</a>
               </div>
             </div>
 

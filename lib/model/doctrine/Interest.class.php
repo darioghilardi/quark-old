@@ -10,6 +10,22 @@
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Interest extends BaseInterest
-{
+class Interest extends BaseInterest {
+
+	public function save(Doctrine_Connection $conn = null) {
+		$conn = Doctrine_Manager::getInstance()->getCurrentConnection();
+		$conn->beginTransaction();
+		try {
+			$ret = parent::save($conn);
+			$question = $this->getQuestion();
+			$interested_users = $question->getInterestedUsers();
+			$question->setInterestedUsers($interested_users + 1);
+			$question->save($conn);
+			$conn->commit();
+			return $ret;
+		} catch (Exception $e) {
+			$conn->rollBack();
+			throw $e;
+		}
+	}
 }

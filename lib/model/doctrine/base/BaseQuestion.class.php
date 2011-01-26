@@ -11,28 +11,31 @@
  * @property string $body
  * @property timestamp $created_at
  * @property timestamp $updated_at
+ * @property integer $interested_users
  * @property User $User
  * @property Doctrine_Collection $ask_question
  * @property Doctrine_Collection $Interest
  * 
- * @method integer             getId()           Returns the current record's "id" value
- * @method integer             getUserId()       Returns the current record's "user_id" value
- * @method string              getTitle()        Returns the current record's "title" value
- * @method string              getBody()         Returns the current record's "body" value
- * @method timestamp           getCreatedAt()    Returns the current record's "created_at" value
- * @method timestamp           getUpdatedAt()    Returns the current record's "updated_at" value
- * @method User                getUser()         Returns the current record's "User" value
- * @method Doctrine_Collection getAskQuestion()  Returns the current record's "ask_question" collection
- * @method Doctrine_Collection getInterest()     Returns the current record's "Interest" collection
- * @method Question            setId()           Sets the current record's "id" value
- * @method Question            setUserId()       Sets the current record's "user_id" value
- * @method Question            setTitle()        Sets the current record's "title" value
- * @method Question            setBody()         Sets the current record's "body" value
- * @method Question            setCreatedAt()    Sets the current record's "created_at" value
- * @method Question            setUpdatedAt()    Sets the current record's "updated_at" value
- * @method Question            setUser()         Sets the current record's "User" value
- * @method Question            setAskQuestion()  Sets the current record's "ask_question" collection
- * @method Question            setInterest()     Sets the current record's "Interest" collection
+ * @method integer             getId()               Returns the current record's "id" value
+ * @method integer             getUserId()           Returns the current record's "user_id" value
+ * @method string              getTitle()            Returns the current record's "title" value
+ * @method string              getBody()             Returns the current record's "body" value
+ * @method timestamp           getCreatedAt()        Returns the current record's "created_at" value
+ * @method timestamp           getUpdatedAt()        Returns the current record's "updated_at" value
+ * @method integer             getInterestedUsers()  Returns the current record's "interested_users" value
+ * @method User                getUser()             Returns the current record's "User" value
+ * @method Doctrine_Collection getAskQuestion()      Returns the current record's "ask_question" collection
+ * @method Doctrine_Collection getInterest()         Returns the current record's "Interest" collection
+ * @method Question            setId()               Sets the current record's "id" value
+ * @method Question            setUserId()           Sets the current record's "user_id" value
+ * @method Question            setTitle()            Sets the current record's "title" value
+ * @method Question            setBody()             Sets the current record's "body" value
+ * @method Question            setCreatedAt()        Sets the current record's "created_at" value
+ * @method Question            setUpdatedAt()        Sets the current record's "updated_at" value
+ * @method Question            setInterestedUsers()  Sets the current record's "interested_users" value
+ * @method Question            setUser()             Sets the current record's "User" value
+ * @method Question            setAskQuestion()      Sets the current record's "ask_question" collection
+ * @method Question            setInterest()         Sets the current record's "Interest" collection
  * 
  * @package    quark
  * @subpackage model
@@ -69,6 +72,10 @@ abstract class BaseQuestion extends sfDoctrineRecord
         $this->hasColumn('updated_at', 'timestamp', null, array(
              'type' => 'timestamp',
              'notnull' => true,
+             ));
+        $this->hasColumn('interested_users', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 0,
              ));
     }
 

@@ -4,6 +4,7 @@
   <tbody>
     <?php foreach ($questions as $question): ?>
     <tr>
+	  <td><?php include_partial('question/question_votes', array('question' => $question)) ?></td>
       <td><a href="<?php echo url_for('question_show', $question)?>"><?php echo $question->getTitle()?></a></td>
 	  <td>Author: <?php echo $question->User->getNickname() ?></td>
       <td>Created at: <?php echo $question->getDateTimeObject('created_at')->format('d/m/Y') ?></td>
