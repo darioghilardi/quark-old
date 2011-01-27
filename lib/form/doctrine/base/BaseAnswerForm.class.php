@@ -20,6 +20,7 @@ abstract class BaseAnswerForm extends BaseFormDoctrine
       'user_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => false)),
       'body'        => new sfWidgetFormTextarea(),
       'created_at'  => new sfWidgetFormDateTime(),
+      'votes'       => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -28,6 +29,7 @@ abstract class BaseAnswerForm extends BaseFormDoctrine
       'user_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'))),
       'body'        => new sfValidatorString(array('max_length' => 1000, 'required' => false)),
       'created_at'  => new sfValidatorDateTime(),
+      'votes'       => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('answer[%s]');

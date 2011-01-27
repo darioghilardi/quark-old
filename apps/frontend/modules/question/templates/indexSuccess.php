@@ -2,7 +2,7 @@
 
 <table>
   <tbody>
-    <?php foreach ($questions as $question): ?>
+    <?php foreach ($pager->getResults() as $question): ?>
     <tr>
 	  <td><?php include_partial('question/question_votes', array('question' => $question)) ?></td>
       <td><a href="<?php echo url_for('question_show', $question)?>"><?php echo $question->getTitle()?></a></td>
@@ -13,3 +13,5 @@
     <?php endforeach; ?>
   </tbody>
 </table>
+
+<?php include_partial('question/question_pager', array('pager' => $pager)) ?>

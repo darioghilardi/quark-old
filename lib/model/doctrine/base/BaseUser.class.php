@@ -12,7 +12,7 @@
  * @property timestamp $created_at
  * @property Doctrine_Collection $ask_user
  * @property Doctrine_Collection $Interest
- * @property Doctrine_Collection $Relevancy
+ * @property Doctrine_Collection $Rating
  * 
  * @method integer             getId()         Returns the current record's "id" value
  * @method string              getNickname()   Returns the current record's "nickname" value
@@ -21,7 +21,7 @@
  * @method timestamp           getCreatedAt()  Returns the current record's "created_at" value
  * @method Doctrine_Collection getAskUser()    Returns the current record's "ask_user" collection
  * @method Doctrine_Collection getInterest()   Returns the current record's "Interest" collection
- * @method Doctrine_Collection getRelevancy()  Returns the current record's "Relevancy" collection
+ * @method Doctrine_Collection getRating()     Returns the current record's "Rating" collection
  * @method User                setId()         Sets the current record's "id" value
  * @method User                setNickname()   Sets the current record's "nickname" value
  * @method User                setFirstName()  Sets the current record's "first_name" value
@@ -29,7 +29,7 @@
  * @method User                setCreatedAt()  Sets the current record's "created_at" value
  * @method User                setAskUser()    Sets the current record's "ask_user" collection
  * @method User                setInterest()   Sets the current record's "Interest" collection
- * @method User                setRelevancy()  Sets the current record's "Relevancy" collection
+ * @method User                setRating()     Sets the current record's "Rating" collection
  * 
  * @package    quark
  * @subpackage model
@@ -78,7 +78,7 @@ abstract class BaseUser extends sfDoctrineRecord
              'local' => 'id',
              'foreign' => 'user_id'));
 
-        $this->hasMany('Relevancy', array(
+        $this->hasMany('Rating', array(
              'local' => 'id',
              'foreign' => 'user_id'));
     }

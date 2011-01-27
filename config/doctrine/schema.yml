@@ -17,6 +17,7 @@ Answer:
     user_id:				{type: integer, notnull: true}
     body:						{type: string(1000)}
     created_at:			{type: timestamp, notnull: true}
+    votes:					{type: integer, default:0}
   relations:
     Question:				{onDelete: CASCADE, local: question_id, foreign: id, foreignAlias: ask_question}
     User:						{onDelete: CASCADE, local: user_id, foreign: id, foreignAlias: ask_user}
@@ -38,11 +39,10 @@ Interest:
     Question:				{onDelete: CASCADE, local: question_id, foreign: id}
     User:						{onDelete: CASCADE, local: user_id, foreign: id}
 
-Relevancy:
+Rating:
   columns:
     answer_id:			{type: integer, notnull: true}
     user_id:				{type: integer, notnull: true}
-    score:					{type: integer, notnull: true}
     created_at:			{type: timestamp, notnull: true}
   relations:
     Answer:					{onDelete: CASCADE, local: answer_id, foreign: id}

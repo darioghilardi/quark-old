@@ -27,6 +27,7 @@
 <div id="answers">
 <?php foreach ($question->getAskQuestion() as $answer): ?>
   <div class="answer">
+	Votes: <?php echo $answer->getVotes() ?>
 	<div>
       <?php echo $answer->getBody() ?>
 

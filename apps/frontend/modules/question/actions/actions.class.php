@@ -12,9 +12,10 @@ class questionActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->questions = Doctrine_Core::getTable('Question')
-      ->createQuery('a')
-      ->execute();
+   	$this->pager = new sfDoctrinePager('Question', sfConfig::get('app_default_question_for_page'));
+		$this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a'));
+		$this->pager->setPage($request->getParameter('page', 1));
+		$this->pager->init();
   }
 
   public function executeShow(sfWebRequest $request)

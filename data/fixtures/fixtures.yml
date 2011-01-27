@@ -34,6 +34,14 @@ Question:
     body: Hello, what does php mean?
     created_at: '2011-01-25'
     updated_at: '2011-01-25'
+<?php for ($i = 0; $i <= 130; $i++): ?>
+  question_<?php echo $i ?>:
+    User: kiuz
+    title: Question_<?php echo $i."\n" ?>
+    body: Hello, what does php mean?
+    created_at: '2011-01-25'
+    updated_at: '2011-01-25'
+<?php endfor ?>
 
 Answer:
   hypertext:
@@ -54,3 +62,14 @@ Interest:
   like2:
     User: kiuz
     Question: symfony
+
+Rating:
+  vote1:
+    User: ingo
+    Answer: hypertext
+  vote2:
+    User: pippo
+    Answer: hypertext
+  vote3:
+    User: ingo
+    Answer: don_t_know
