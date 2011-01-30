@@ -4,7 +4,6 @@
   <head>
     <title><?php include_slot('title', 'Quark - Open Source Question and Answer software.') ?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
-    <?php include_javascripts() ?>
     <?php include_stylesheets() ?>
   </head>
   <body>
@@ -58,5 +57,6 @@
         </div>
       </div>
     </div>
+    <?php include_javascripts() ?>
   </body>
 </html>
