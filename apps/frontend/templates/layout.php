@@ -7,25 +7,23 @@
     <?php include_stylesheets() ?>
   </head>
   <body>
-    <div id="container">
-      <div id="header">
-        <div class="content">
-          <h1><a href="<?php echo url_for('@homepage') ?>">
-            <img src="/images/logo.jpg" alt="Quark" />
-          </a></h1>
-
-          <div id="sub_header">
-            <div class="post">
-              <h2>Ask a question</h2>
-              <div>
-                <a href="<?php echo url_for('@question_new') ?>">Ask a question</a>
-              </div>
-            </div>
-          </div>
+  
+    <div class="container">
+      <div id="header" class="col-24">
+        <div id="sub_header_one">
+          <h1>
+            <a href="<?php echo url_for('@homepage') ?>">
+              <img src="/images/logo.jpg" alt="Quark" />
+            </a>
+          </h1>
+        </div>
+        <div id="sub_header_two">
+          <h2>Ask a question</h2>
+          <a href="<?php echo url_for('@question_new') ?>">Ask a question</a>
         </div>
       </div>
-
-      <div id="content">
+      
+      <div id="middle">
         <?php if ($sf_user->hasFlash('notice')): ?>
           <div class="flash_notice">
             <?php echo $sf_user->getFlash('notice') ?>
@@ -38,13 +36,13 @@
           </div>
         <?php endif ?>
 
-        <div class="content">
+        <div id="content">
           <?php echo $sf_content ?>
         </div>
       </div>
 
       <div id="footer">
-        <div class="content">
+
           <span class="symfony">
             <img src="/images/quark-mini.png" alt="Quark" />
             powered by <a href="http://www.symfony-project.org/">
@@ -54,7 +52,7 @@
           <ul>
             <li><a href="">About Quark</a></li>
           </ul>
-        </div>
+
       </div>
     </div>
     <?php include_javascripts() ?>
