@@ -22,18 +22,6 @@
                 <a href="<?php echo url_for('@question_new') ?>">Ask a question</a>
               </div>
             </div>
-
-            <div class="search">
-              <h2>Search</h2>
-              <form action="" method="get">
-                <input type="text" name="keywords"
-                  id="search_keywords" />
-                <input type="submit" value="search" />
-                <div class="help">
-                  Enter some keywords
-                </div>
-              </form>
-            </div>
           </div>
         </div>
       </div>
@@ -66,9 +54,6 @@
           </span>
           <ul>
             <li><a href="">About Quark</a></li>
-            <li class="feed"><a href="">Full feed</a></li>
-            <li><a href="">Quark API</a></li>
-            <li class="last"><a href="">Affiliates</a></li>
           </ul>
         </div>
       </div>

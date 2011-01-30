@@ -12,10 +12,23 @@ class questionActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-   	$this->pager = new sfDoctrinePager('Question', sfConfig::get('app_default_question_for_page'));
-		$this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a'));
-		$this->pager->setPage($request->getParameter('page', 1));
-		$this->pager->init();
+    $this->pager = new sfDoctrinePager('Question', sfConfig::get('app_default_question_for_page'));
+    $this->order = $request->getParameter('order', 'oldest');
+    if ($this->order == 'oldest')
+    {
+      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('created_at ASC'));
+    } 
+    elseif($this->order == 'newest')
+    {
+      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('created_at DESC'));
+    }
+    elseif($this->order == 'rated')
+    {
+      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('interested_users DESC'));
+    }
+
+    $this->pager->setPage($request->getParameter('page', 1));
+    $this->pager->init();
   }
 
   public function executeShow(sfWebRequest $request)
