@@ -12,7 +12,7 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:    [grid.css,grid-pull-push.css,misc.css,typography.css,main.css]
 
   javascripts:    []
 
