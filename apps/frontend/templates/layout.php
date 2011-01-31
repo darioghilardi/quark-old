@@ -7,7 +7,6 @@
     <?php include_stylesheets() ?>
   </head>
   <body>
-  
     <div class="container">
       <div id="header" class="col-24">
         <div id="sub_header_one">
