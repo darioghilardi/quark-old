@@ -1,0 +1,10 @@
+all:
+  sf_guard_plugin:
+     remember_key_expiration_age:  2592000   # 30 days in seconds
+     remember_cookie_name:         quarkRememberMe
+
+
+  sfApplyPlugin:
+    from:
+      email: "your@emailaddress.com"
+      fullname: "the staff at yoursite.com"

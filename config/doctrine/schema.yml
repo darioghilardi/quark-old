@@ -8,7 +8,7 @@ Question:
     updated_at:				{type: timestamp, notnull: true}
     interested_users:	{type: integer, default: 0}
   relations:
-    User:							{onDelete: CASCADE, local: user_id, foreign: id, foreignAlias: ask_user}
+    User:							{onDelete: CASCADE, local: user_id, class: sfGuardUser}
 
 Answer:
   columns:
@@ -20,15 +20,7 @@ Answer:
     votes:					{type: integer, default:0}
   relations:
     Question:				{onDelete: CASCADE, local: question_id, foreign: id, foreignAlias: ask_question}
-    User:						{onDelete: CASCADE, local: user_id, foreign: id, foreignAlias: ask_user}
-
-User:
-  columns:
-    id:							{type: integer, notnull: true, autoincrement: true, primary: true}
-    nickname:				{type: string(50), notnull: true}
-    first_name:			{type: string(100), notnull: true}
-    last_name:			{type: string(100), notnull: true}
-    created_at:			{type: timestamp, notnull: true}
+    User:						{onDelete: CASCADE, local: user_id, class: sfGuardUser}
 
 Interest:
   columns:
@@ -37,7 +29,7 @@ Interest:
     created_at:			{type: timestamp, notnull: true}
   relations:
     Question:				{onDelete: CASCADE, local: question_id, foreign: id}
-    User:						{onDelete: CASCADE, local: user_id, foreign: id}
+    User:						{onDelete: CASCADE, local: user_id, class: sfGuardUser}
 
 Rating:
   columns:
@@ -46,4 +38,4 @@ Rating:
     created_at:			{type: timestamp, notnull: true}
   relations:
     Answer:					{onDelete: CASCADE, local: answer_id, foreign: id}
-    User:						{onDelete: CASCADE, local: user_id, foreign: id}
+    User:						{onDelete: CASCADE, local: user_id, class: sfGuardUser}

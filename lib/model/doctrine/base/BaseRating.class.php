@@ -9,18 +9,18 @@
  * @property integer $user_id
  * @property timestamp $created_at
  * @property Answer $Answer
- * @property User $User
+ * @property sfGuardUser $User
  * 
- * @method integer   getAnswerId()   Returns the current record's "answer_id" value
- * @method integer   getUserId()     Returns the current record's "user_id" value
- * @method timestamp getCreatedAt()  Returns the current record's "created_at" value
- * @method Answer    getAnswer()     Returns the current record's "Answer" value
- * @method User      getUser()       Returns the current record's "User" value
- * @method Rating    setAnswerId()   Sets the current record's "answer_id" value
- * @method Rating    setUserId()     Sets the current record's "user_id" value
- * @method Rating    setCreatedAt()  Sets the current record's "created_at" value
- * @method Rating    setAnswer()     Sets the current record's "Answer" value
- * @method Rating    setUser()       Sets the current record's "User" value
+ * @method integer     getAnswerId()   Returns the current record's "answer_id" value
+ * @method integer     getUserId()     Returns the current record's "user_id" value
+ * @method timestamp   getCreatedAt()  Returns the current record's "created_at" value
+ * @method Answer      getAnswer()     Returns the current record's "Answer" value
+ * @method sfGuardUser getUser()       Returns the current record's "User" value
+ * @method Rating      setAnswerId()   Sets the current record's "answer_id" value
+ * @method Rating      setUserId()     Sets the current record's "user_id" value
+ * @method Rating      setCreatedAt()  Sets the current record's "created_at" value
+ * @method Rating      setAnswer()     Sets the current record's "Answer" value
+ * @method Rating      setUser()       Sets the current record's "User" value
  * 
  * @package    quark
  * @subpackage model
@@ -54,7 +54,7 @@ abstract class BaseRating extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $this->hasOne('User', array(
+        $this->hasOne('sfGuardUser as User', array(
              'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));

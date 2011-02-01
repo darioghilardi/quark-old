@@ -24,6 +24,10 @@ test:
 
 all:
   .settings:
+
+    # Enable i18n
+    i18n: true
+
     # Form security secret (CSRF protection)
     csrf_secret:            bd1f6ab14a017ee6a1c09e068168caf55ae964d2
 
@@ -35,8 +39,12 @@ all:
     use_database:           true
 
     # Enable login module
-    enabled_modules: [default, sfGuardAuth]
+    enabled_modules: [default, sfGuardAuth, sfApply]
 
   .actions:
     login_module:    sfGuardAuth
     login_action:    signin
+
+    secure_module:   sfGuardAuth
+    secure_action:   secure
+

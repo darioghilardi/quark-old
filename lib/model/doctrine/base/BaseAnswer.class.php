@@ -12,7 +12,7 @@
  * @property timestamp $created_at
  * @property integer $votes
  * @property Question $Question
- * @property User $User
+ * @property sfGuardUser $User
  * @property Doctrine_Collection $Rating
  * 
  * @method integer             getId()          Returns the current record's "id" value
@@ -22,7 +22,7 @@
  * @method timestamp           getCreatedAt()   Returns the current record's "created_at" value
  * @method integer             getVotes()       Returns the current record's "votes" value
  * @method Question            getQuestion()    Returns the current record's "Question" value
- * @method User                getUser()        Returns the current record's "User" value
+ * @method sfGuardUser         getUser()        Returns the current record's "User" value
  * @method Doctrine_Collection getRating()      Returns the current record's "Rating" collection
  * @method Answer              setId()          Sets the current record's "id" value
  * @method Answer              setQuestionId()  Sets the current record's "question_id" value
@@ -79,7 +79,7 @@ abstract class BaseAnswer extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $this->hasOne('User', array(
+        $this->hasOne('sfGuardUser as User', array(
              'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));

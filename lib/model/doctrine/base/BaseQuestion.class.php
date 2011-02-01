@@ -12,7 +12,7 @@
  * @property timestamp $created_at
  * @property timestamp $updated_at
  * @property integer $interested_users
- * @property User $User
+ * @property sfGuardUser $User
  * @property Doctrine_Collection $ask_question
  * @property Doctrine_Collection $Interest
  * 
@@ -23,7 +23,7 @@
  * @method timestamp           getCreatedAt()        Returns the current record's "created_at" value
  * @method timestamp           getUpdatedAt()        Returns the current record's "updated_at" value
  * @method integer             getInterestedUsers()  Returns the current record's "interested_users" value
- * @method User                getUser()             Returns the current record's "User" value
+ * @method sfGuardUser         getUser()             Returns the current record's "User" value
  * @method Doctrine_Collection getAskQuestion()      Returns the current record's "ask_question" collection
  * @method Doctrine_Collection getInterest()         Returns the current record's "Interest" collection
  * @method Question            setId()               Sets the current record's "id" value
@@ -82,7 +82,7 @@ abstract class BaseQuestion extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('User', array(
+        $this->hasOne('sfGuardUser as User', array(
              'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));

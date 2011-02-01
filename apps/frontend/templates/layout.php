@@ -16,6 +16,14 @@
             </a>
           </h1>
         </div>
+
+        <?php if ($sf_user->isAuthenticated()): ?>
+          <div class="loggedin-menu">
+            Utente <?php echo $sf_user ?> loggato nel sito. <?php echo link_to('Logout', 'sf_guard_signout') ?>
+          </div>
+        <?php endif; ?>
+
+
         <div id="sub_header_two">
           <h2>Ask a question</h2>
           <a href="<?php echo url_for('@question_new') ?>">Ask a question</a>

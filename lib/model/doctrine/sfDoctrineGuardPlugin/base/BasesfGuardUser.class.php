@@ -21,6 +21,11 @@
  * @property Doctrine_Collection $sfGuardUserGroup
  * @property sfGuardRememberKey $RememberKeys
  * @property sfGuardForgotPassword $ForgotPassword
+ * @property sfGuardUserProfile $Profile
+ * @property Doctrine_Collection $Question
+ * @property Doctrine_Collection $Answer
+ * @property Doctrine_Collection $Interest
+ * @property Doctrine_Collection $Rating
  * 
  * @method string                getFirstName()             Returns the current record's "first_name" value
  * @method string                getLastName()              Returns the current record's "last_name" value
@@ -38,6 +43,11 @@
  * @method Doctrine_Collection   getSfGuardUserGroup()      Returns the current record's "sfGuardUserGroup" collection
  * @method sfGuardRememberKey    getRememberKeys()          Returns the current record's "RememberKeys" value
  * @method sfGuardForgotPassword getForgotPassword()        Returns the current record's "ForgotPassword" value
+ * @method sfGuardUserProfile    getProfile()               Returns the current record's "Profile" value
+ * @method Doctrine_Collection   getQuestion()              Returns the current record's "Question" collection
+ * @method Doctrine_Collection   getAnswer()                Returns the current record's "Answer" collection
+ * @method Doctrine_Collection   getInterest()              Returns the current record's "Interest" collection
+ * @method Doctrine_Collection   getRating()                Returns the current record's "Rating" collection
  * @method sfGuardUser           setFirstName()             Sets the current record's "first_name" value
  * @method sfGuardUser           setLastName()              Sets the current record's "last_name" value
  * @method sfGuardUser           setEmailAddress()          Sets the current record's "email_address" value
@@ -54,6 +64,11 @@
  * @method sfGuardUser           setSfGuardUserGroup()      Sets the current record's "sfGuardUserGroup" collection
  * @method sfGuardUser           setRememberKeys()          Sets the current record's "RememberKeys" value
  * @method sfGuardUser           setForgotPassword()        Sets the current record's "ForgotPassword" value
+ * @method sfGuardUser           setProfile()               Sets the current record's "Profile" value
+ * @method sfGuardUser           setQuestion()              Sets the current record's "Question" collection
+ * @method sfGuardUser           setAnswer()                Sets the current record's "Answer" collection
+ * @method sfGuardUser           setInterest()              Sets the current record's "Interest" collection
+ * @method sfGuardUser           setRating()                Sets the current record's "Rating" collection
  * 
  * @package    quark
  * @subpackage model
@@ -146,6 +161,26 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
              'foreign' => 'user_id'));
 
         $this->hasOne('sfGuardForgotPassword as ForgotPassword', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasOne('sfGuardUserProfile as Profile', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('Question', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('Answer', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('Interest', array(
+             'local' => 'id',
+             'foreign' => 'user_id'));
+
+        $this->hasMany('Rating', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 

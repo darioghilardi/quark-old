@@ -1,0 +1,43 @@
+sfGuardUser:
+  admin:
+    first_name:     John
+    last_name:      Doe
+    email_address:  john.doe@gmail.com
+    username:       admin
+    password:       admin
+    is_super_admin: true
+    Groups:         [Group_admin]
+  ingo:
+    first_name:     Ingo
+    last_name:      Donots
+    email_address:  ingo@example.com
+    username:       ingo
+    password:       ingo
+    is_super_admin: false
+    Groups:         [Group_authenticated]
+  kiuz:
+    first_name:     Kiuz
+    last_name:      Kiuz
+    email_address:  kiuz@example.com
+    username:       kiuz
+    password:       kiuz
+    is_super_admin: false
+    Groups:         [Group_authenticated]
+
+sfGuardGroup:
+  Group_admin:
+    name:           admin
+    description:    Administrator group
+    Permissions:    [Permission_admin]
+  Group_authenticated:
+    name:           authenticated
+    description:    Authenticated group
+    Permissions:    [Permission_authenticated]
+
+sfGuardPermission:
+  Permission_admin:
+    name:           admin
+    description:    Administrator permission
+  Permission_authenticated:
+    name:           authenticated
+    description:    Authenticated permission
