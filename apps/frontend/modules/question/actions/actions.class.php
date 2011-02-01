@@ -34,6 +34,8 @@ class questionActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
     $this->question = $this->getRoute()->getObject();
+    
+    $this->form = new AnswerForm();
   }
 
   public function executeNew(sfWebRequest $request)

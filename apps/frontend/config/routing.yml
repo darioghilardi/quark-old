@@ -6,6 +6,10 @@ question:
   class:   sfDoctrineRouteCollection
   options: { model: Question }
 
+answer:
+  class:   sfDoctrineRouteCollection
+  options: { model: Answer }
+
 question_show:
   url:	/question/:id/:title_slug
   class:   sfDoctrineRoute

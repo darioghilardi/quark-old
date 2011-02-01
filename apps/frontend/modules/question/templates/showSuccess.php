@@ -25,15 +25,25 @@
 
 
 <div id="answers">
-<?php foreach ($question->getAskQuestion() as $answer): ?>
-  <div class="answer">
-	Votes: <?php echo $answer->getVotes() ?>
-	<div>
-      <?php echo $answer->getBody() ?>
+  <h3>Answer List</h3>
+  <?php foreach ($question->getAskQuestion() as $answer): ?>
+    <div class="answer">
+    Votes: <?php echo $answer->getVotes() ?>
+    <div>
+        <?php echo $answer->getBody() ?>
 
+      </div>
+      posted by <?php echo $answer->getUser() ?>
+      on <?php echo $answer->getDateTimeObject('created_at')->format('d/m/Y') ?>
     </div>
-    posted by <?php echo $answer->getUser() ?>
-    on <?php echo $answer->getDateTimeObject('created_at')->format('d/m/Y') ?>
-  </div>
-<?php endforeach; ?>
+  <?php endforeach; ?>
+</div>
+
+<div id="answer-form">
+  <h3>Post a new answer</h3>
+  <?php if ($sf_user->isAuthenticated()): ?>
+    <?php include_partial('answer/answer_form', array('form' => $form)) ?>
+  <?php else: ?>
+    You need to be logged in to post a new answer.
+  <?php endif; ?>
 </div>
