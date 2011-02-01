@@ -1,3 +1,60 @@
-* test {
-	
+/*
+ * Main Css Style
+ * Quark Project - Questions & Answers Management System
+ *
+ **/
+
+/*Globals*/
+a,
+a:visited{
+  color:#111;
 }
+
+
+/*Header*/
+
+
+/*Tabs List Question*/
+#tabs-question-list ul{
+  padding: 0px;
+}
+
+#tabs-question-list ul li{
+  margin-right:34px;
+}
+
+#tabs-question-list ul li{
+  font:size:12px;
+  text-transform:uppercase;
+}
+
+
+/*Question List Content*/
+#question-list-content .item{
+}
+
+
+.field.votes,
+.field.views,
+.field.answers{
+	height:65px;
+	width:65px;
+	margin-right:15px;
+}
+
+.field.votes,
+.field.views,
+.field.answers{
+  text-align:center;
+}
+
+.field.votes{
+  background:#8cc63f; 
+}
+.field.views{
+  background:#f2f2f2; 
+}
+field.answers{
+  background:#8cc63f; 
+}
+
