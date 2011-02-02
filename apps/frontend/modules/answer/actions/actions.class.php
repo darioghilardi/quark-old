@@ -68,12 +68,16 @@ class answerActions extends sfActions
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+    $values = $request->getParameter($form->getName());
+    $question_id = $values["question_id"];
+    $values["user_id"] = $this->getUser()->getGuardUser()->getId();
+    $form->bind($values);
+
     if ($form->isValid())
     {
       $answer = $form->save();
-
-      $this->redirect('answer/edit?id='.$answer->getId());
+      $question = Doctrine_Core::getTable('Question')->find(array($question_id));
+      $this->redirect('question/show?id='.$question->getId().'&title_slug='.$question->getTitleSlug());
     }
   }
 }

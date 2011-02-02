@@ -34,8 +34,10 @@ class questionActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
     $this->question = $this->getRoute()->getObject();
-    
+
+    // Pre-populate form with the correct question
     $this->form = new AnswerForm();
+    $this->form->setDefault('question_id', $this->question->getId());
   }
 
   public function executeNew(sfWebRequest $request)
