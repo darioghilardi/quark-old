@@ -33,7 +33,7 @@
       <span class="content-field"><?php echo $question->getUser() ?></span>
     </div>
     
-    <div>
+    <div class="field created">
       <span class="label-field">Created at:</span>
       <?php echo $question->getDateTimeObject('created_at')->format('H:i d/m/Y') ?>
     </div>
