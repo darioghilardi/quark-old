@@ -42,5 +42,7 @@
     </div>
   </div>
 	<?php endforeach; ?>
-
-	<?php include_partial('question/question_pager', array('pager' => $pager, 'order' => $order)) ?>
+  
+  <div id="pagination">
+    <?php include_partial('question/question_pager', array('pager' => $pager, 'order' => $order)) ?>
+  </div>

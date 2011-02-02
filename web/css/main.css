@@ -30,7 +30,7 @@ a:visited{
 
 
 /*Question List Content*/
-#question-list-content .item{
+#question-list-content > .item{
 	border-bottom: 1px solid #ccc;
   padding-bottom:5px;
 }
@@ -70,4 +70,22 @@ a:visited{
 
 .field.title h2{
 	margin-bottom:5px;
+}
+
+/*Pager*/
+
+ul#pager li{
+	display:inline-block;
+	float:none;
+}
+
+ul#pager{
+	margin-top:15px;
+}
+
+ul#pager li.item{
+	height:22px;
+	width:22px;
+	margin-right:2px;
+	background:#f1f7ef;
 }

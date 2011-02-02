@@ -13,7 +13,7 @@
         <div id="sub_header_one">
           <h1>
             <a href="<?php echo url_for('@homepage') ?>">
-              <img src="/images/logo.jpg" alt="Quark" />
+              <img src="/images/logo.jpg" alt="Quark Project" />
             </a>
           </h1>
         </div>
