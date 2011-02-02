@@ -12,7 +12,7 @@
     <span class="field title">
       <h2><a href="<?php echo url_for('question_show', $question)?>"><?php echo $question->getTitle()?></a></h2>
     </span>
-    <div class="first-grop-fields col-6 boxleft">
+    <div class="first-grop-fields col-5 boxleft">
 	    <span class="field votes boxleft">
 	      <?php include_partial('question/question_votes', array('question' => $question)) ?>
 	    </span>
@@ -26,7 +26,7 @@
 	    </span>
     </div>
     
-    <div class="second-grop-fields col-12 boxleft">
+    <div class="second-grop-fields col-13 boxleft">
     
     <div class="field author">
       <span class="label-field">Author:</span>

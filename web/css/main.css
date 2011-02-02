@@ -39,9 +39,9 @@ a:visited{
 .field.votes,
 .field.views,
 .field.answers{
-	height:65px;
-	width:65px;
-	margin-right:15px;
+	height:45px;
+	width:45px;
+	margin-right:20px;
 }
 
 .field.votes,
@@ -57,7 +57,8 @@ a:visited{
   background:#f2f2f2; 
 }
 .field.answers{
-  background:#79aaf1; 
+  background:#79aaf1;
+	 margin-right:25px;
 }
 
 .field.author,
@@ -77,9 +78,9 @@ a:visited{
 }
 .field > .count {
 	clear: both;
-	margin-top:8px;
+	margin-top:6px;
 	display: block;
-	font-size: 36px;
+	font-size: 21px;
 }
 .field > .desc {}
 
