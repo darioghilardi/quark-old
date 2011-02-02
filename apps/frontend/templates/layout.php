@@ -46,16 +46,16 @@
         </div>
       </div>
 
-      <div id="footer">
-
+      <div id="footer" class="col-24">
+      
           <span class="symfony">
             <img src="/images/quark-mini.png" alt="Quark" />
             powered by <a href="http://www.symfony-project.org/">
             <img src="/images/symfony.gif" alt="symfony framework" />
             </a>
           </span>
-          <ul>
-            <li><a href="">About Quark</a></li>
+          <ul class="nonelist nonespace">
+            <li class="boxleft"><a href="">About Quark</a></li>
           </ul>
 
       </div>

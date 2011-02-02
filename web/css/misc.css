@@ -42,3 +42,8 @@ ul.nonelist li{
     list-style-image: none;
     list-style-type: none;
 }
+
+.nonespace{
+	margin:0px;
+	padding:0px;
+}
