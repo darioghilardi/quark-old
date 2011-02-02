@@ -18,11 +18,11 @@
 	    </span>
 	    
 	    <span class="field views boxleft">
-	      <?php print rand(199,299); ?> Views
+	      <?php include_partial('question/question_views', array()) ?>
 	    </span>
 	    
 	    <span class="field answers boxleft">
-	      <?php print rand(0,99); ?> Answers
+        <?php include_partial('question/question_answers', array()) ?>
 	    </span>
     </div>
     
