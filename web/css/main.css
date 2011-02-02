@@ -15,19 +15,43 @@ a:visited{
 
 
 /*Tabs List Question*/
-#tabs-question-list ul{
+#tabs-question-list ul#order{
   padding: 0px;
+	border-bottom:2px solid #333;
 }
 
-#tabs-question-list ul li{
+#tabs-question-list ul#order li{
   margin-right:34px;
 }
 
-#tabs-question-list ul li{
+#tabs-question-list ul#order li{
   font:size:12px;
-  text-transform:uppercase;
+  padding-bottom: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 6px;
+  text-transform: uppercase;
+	
 }
 
+#tabs-question-list ul#order li a{
+	text-decoration:none;
+}
+
+
+#tabs-question-list ul#order li.unselected{
+  background:#ccc;
+}
+#tabs-question-list ul#order li.unselected a{
+
+}
+#tabs-question-list ul#order li.selected{
+  background:#222;
+	
+}
+#tabs-question-list ul#order li.selected a{
+	color:#fff;
+}
 
 /*Question List Content*/
 #question-list-content > .item{
@@ -63,11 +87,10 @@ a:visited{
 
 .field.author,
 .field.created {
-  color:#6d6d6d;
-	font-size:18px;
-	margin-bottom: 6px;
+    color: #6D6D6D;
+    font-size: 14px;
 }
-
+.field.author{margin-bottom:5px;}
 
 .field.title h2{
 	margin-bottom:5px;
@@ -82,7 +105,9 @@ a:visited{
 	display: block;
 	font-size: 21px;
 }
-.field > .desc {}
+.field > .desc {
+  color: #222222;
+  font-size: 11px;}
 
 /*Pager*/
 

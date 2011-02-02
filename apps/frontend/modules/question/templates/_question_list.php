@@ -5,7 +5,7 @@
  * Deleted form original: $question->getDateTimeObject('updated_at')->format('H:i d/m/Y')
 **/
 ?>
-  <h1>Question List</h1>
+
   <?php foreach ($pager->getResults() as $question): ?>
   
   <div class="item clearfix">
@@ -27,7 +27,6 @@
     </div>
     
     <div class="second-grop-fields col-13 boxleft">
-    
     <div class="field author">
       <span class="label-field">Author:</span>
       <span class="content-field"><?php echo $question->getUser() ?></span>
