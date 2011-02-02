@@ -14,6 +14,23 @@ a:visited{
 /*Header*/
 
 
+ul#primary-menu .menu-item{
+  margin-right:15px;  
+}
+ul#primary-menu .menu-item a{
+padding:2px 5px;
+}
+ul#primary-menu .menu-item a:hover{
+  	background:#222;
+		color:#fff;
+		text-decoration:none;
+}
+
+ul#primary-menu .login-item{
+  padding-left:15px;
+  border-left: 1px solid #222;
+}
+
 /*Tabs List Question*/
 #tabs-question-list ul#order{
   padding: 0px;

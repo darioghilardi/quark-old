@@ -10,6 +10,22 @@
     <div class="container">
     
       <div id="header" class="col-24">
+        <div id="sub_header_zero">
+          <ul id="primary-menu" class="nonelist nonespace boxright txtright">
+            <li class="boxright login-item">
+              <?php if ($sf_user->isAuthenticated()): ?> Welcome <?php echo $sf_user ?>. <?php echo link_to('Logout', 'sf_guard_signout') ?>
+              <?php else: ?>
+                <a href="">Login</a>
+		          <?php endif;?>
+             </li>
+
+            <li class="boxright menu-item"><a href="">Home</a></li>
+            <li class="boxright menu-item"><a href="">About</a></li>
+            <li class="boxright menu-item"><a href="">Blabla</a></li>
+            
+          </ul>
+        </div>
+        
         <div id="sub_header_one">
           <h1>
             <a href="<?php echo url_for('@homepage') ?>">
@@ -18,11 +34,7 @@
           </h1>
         </div>
         <div id="sub_header_two">
-        <?php if ($sf_user->isAuthenticated()): ?>
-          <div class="loggedin-menu">
-            Utente <?php echo $sf_user ?> loggato nel sito. <?php echo link_to('Logout', 'sf_guard_signout') ?>
-          </div>
-        <?php endif; ?>
+
           
         <span class="boxright txtright"><a href="<?php echo url_for('@question_new') ?>">Ask a question</a></span>
         </div>
