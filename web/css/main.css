@@ -12,8 +12,10 @@ a:visited{
 
 
 /*Header*/
-
-
+  
+#top-header{
+	background:#eee;
+}
 ul#primary-menu .menu-item{
   margin-right:15px;  
 }
