@@ -5,6 +5,11 @@
  **/
 
 /*Globals*/
+
+body{background:#eee;}
+
+#page{background:#fff;}
+
 a,
 a:visited{
   color:#111;
