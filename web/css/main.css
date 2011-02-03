@@ -197,6 +197,17 @@ ul#pager li.item{
 	background:#f1f7ef;
 }
 
+/*Sidebar*/
+  /*Block*/
+	.block{
+		margin-left:15px;
+		margin-bottom:15px;
+	}
+	h4.block-title{
+		color:#444;
+    margin-bottom: 5px;
+		font-weight:bold;
+	}
 
 /*Footer*/
 #footer{
@@ -208,3 +219,5 @@ ul#pager li.item{
    padding-right: 0;
    padding-top: 10px;
 }
+
+
