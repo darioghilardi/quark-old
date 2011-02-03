@@ -1,12 +1,12 @@
 <div id="indexSuccess">
 
 	<div id="question-list-content" class="col-18">
-	<h1>Question List</h1>
-	<div id="tabs-question-list" class="clearfix">
+	<h1 id="page-title">Question List</h1>
+	<div id="tabs-question-list">
     <ul id="order" class="nonelist clearfix">
-      <li class="boxleft <?php ($order=='oldest') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=oldest') ?>"><span>Oldest Questions</span></a></li>
-      <li class="boxleft <?php ($order=='newest') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=newest') ?>"><span>Newest Questions</span></a></li>
-      <li class="boxleft <?php ($order=='rated') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=rated') ?>"><span>Most Rated</span></a></li>
+      <li class="boxright <?php ($order=='oldest') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=oldest') ?>"><span>Oldest Questions</span></a></li>
+      <li class="boxright <?php ($order=='newest') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=newest') ?>"><span>Newest Questions</span></a></li>
+      <li class="boxright <?php ($order=='rated') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=rated') ?>"><span>Most Rated</span></a></li>
     </ul>
   </div>
   

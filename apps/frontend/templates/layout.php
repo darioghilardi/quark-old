@@ -10,7 +10,7 @@
 
     
     
-    <div id="top-header">
+    <div id="top-page">
       <div class="container">
       <ul id="primary-menu" class="nonelist nonespace boxright txtright">
         <li class="boxright login-item">
@@ -27,23 +27,32 @@
       </div>
     </div>
     
-    <div class="container">
-      <div id="header" class="col-24">
-        <div id="sub_header_one">
-          <h1>
+    <div id="page" >
+      <div id="header" class="container">
+        <div id="sub_header_one" class="col-8">
+          <span id="logo">
             <a href="<?php echo url_for('@homepage') ?>">
               <img src="/images/logo.jpg" alt="Quark Project" />
             </a>
-          </h1>
+          </span>
         </div>
-        <div id="sub_header_two">
-
-          
-        <span class="boxright txtright"><a href="<?php echo url_for('@question_new') ?>">Ask a question</a></span>
+        
+        <div id="sub_header_two" class="col-16">
+          <ul id="secondary-menu" class="nonelist nonespace">
+            <li class="boxright txtright">
+              <a class="ask-question" href="<?php echo url_for('@question_new') ?>">Ask a question</a>
+            </li>
+            <li class="boxright txtright">
+              <a href="">Tags</a>
+            </li>
+            <li class="boxright txtright">
+              <a href="">Unanswered</a>
+            </li>
+          </ul>
         </div>
       </div>
       
-      <div id="middle">
+      <div id="middle" class="container">
         <?php if ($sf_user->hasFlash('notice')): ?>
           <div class="flash_notice">
             <?php echo $sf_user->getFlash('notice') ?>
@@ -61,7 +70,7 @@
         </div>
       </div>
 
-      <div id="footer" class="col-24">
+      <div id="footer" class="container">
       
           <span class="symfony">
             <img src="/images/quark-mini.png" alt="Quark" />
