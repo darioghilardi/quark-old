@@ -73,7 +73,6 @@ ul#secondary-menu li a:hover{
 }
 /*Content*/
   #content h1#page-title{
-    float: left;
     font-size: 21px;
     font-weight: bold;
     line-height: 16px;
@@ -226,3 +225,69 @@ ul#pager li.item{
 }
 
 
+
+/*Page New Ask Quesiton*/
+
+#new-question-form form#add-question{
+	
+}
+#new-question-form form#add-question .item{
+	margin-bottom:20px;
+}
+
+#title-question label,
+#body-question label,
+#preview-question label{
+	color: #333333;
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 3px;
+}
+#new-question-form form#add-question input#question_title{
+	width: 100%;
+	clear: both;
+	display: block;
+}
+
+#body-question textarea{
+    clear: both;
+    display: block;
+    height: 250px;
+    width: 100%;
+}
+
+#preview-question p{background: #B8E094;padding:15px;}
+
+#submit-question input{
+	margin-left:15px;
+	border:1px solid #ccc;
+	background:#efefef;
+	font-size:18px;
+	display:block;
+}
+
+#submit-question input:hover{
+	background:#444;
+	color:#fff;
+}
+#backtolist-question{
+	 font-size:18px;
+	 color:#444;
+	 font-weight:bold;
+	
+}
+
+.wmd-button.wmd-help-button{
+	    float: right;
+    position: relative;
+    right: 0;
+}
+
+ul.error_list li{
+	list-style:none;
+	list-style-image:none;
+	background:#f69292;
+	color:#000;
+  padding:5px;
+}
