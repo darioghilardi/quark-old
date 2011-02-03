@@ -13,7 +13,7 @@ a:visited{
 
 /*TopPage*/
   
-#top-page{
+#top-header{
 	background:#eee;
 	 margin-bottom: 25px;
    padding-bottom: 10px;
@@ -195,4 +195,16 @@ ul#pager li.item{
 	width:22px;
 	margin-right:2px;
 	background:#f1f7ef;
+}
+
+
+/*Footer*/
+#footer{
+  border-top:2px solid #222;
+   background:#eee;
+   margin-top: 25px;
+   padding-bottom: 10px;
+   padding-left: 0;
+   padding-right: 0;
+   padding-top: 10px;
 }

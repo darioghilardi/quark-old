@@ -10,24 +10,18 @@
 
     
     
-    <div id="top-page">
+    
+    
+    <div id="page" >
+    
+    <div id="top-header">
       <div class="container">
-      <ul id="primary-menu" class="nonelist nonespace boxright txtright">
-        <li class="boxright login-item">
-            <?php if ($sf_user->isAuthenticated()): ?> Welcome <?php echo $sf_user ?>. <?php echo link_to('Logout', 'sf_guard_signout') ?>
-            <?php else: ?>
-              <a href="/guard/login">Login</a>
-            <?php endif;?>
-        </li>
-
-        <li class="boxright menu-item"><a href="">Home</a></li>
-        <li class="boxright menu-item"><a href="">About</a></li>
-        <li class="boxright menu-item"><a href="">Blabla</a></li>
-      </ul>
+        <?php include_partial('question/question_primary_menu', array()) ?>
       </div>
     </div>
     
-    <div id="page" >
+    
+    
       <div id="header" class="container">
         <div id="sub_header_one" class="col-8">
           <span id="logo">
@@ -38,17 +32,7 @@
         </div>
         
         <div id="sub_header_two" class="col-16">
-          <ul id="secondary-menu" class="nonelist nonespace">
-            <li class="boxright txtright">
-              <a class="ask-question" href="<?php echo url_for('@question_new') ?>">Ask a question</a>
-            </li>
-            <li class="boxright txtright">
-              <a href="">Tags</a>
-            </li>
-            <li class="boxright txtright">
-              <a href="">Unanswered</a>
-            </li>
-          </ul>
+          <?php include_partial('question/question_secondary_menu', array()) ?>
         </div>
       </div>
       
@@ -69,21 +53,24 @@
           <?php echo $sf_content ?>
         </div>
       </div>
-
-      <div id="footer" class="container">
-      
-          <span class="symfony">
-            <img src="/images/quark-mini.png" alt="Quark" />
-            powered by <a href="http://www.symfony-project.org/">
-            <img src="/images/symfony.gif" alt="symfony framework" />
-            </a>
+         
+         
+      <div id="footer">
+        <div class="container">
+        
+            <span class="symfony">
+              <img src="/images/quark-mini.png" alt="Quark" />
+              powered by <a href="http://www.symfony-project.org/">
+              <img src="/images/symfony.gif" alt="symfony framework" />
+              </a>
           </span>
-          <ul class="nonelist nonespace">
-            <li class="boxleft"><a href="">About Quark</a></li>
-          </ul>
-
+          
+          <?php include_partial('question/question_primary_menu', array('notloginlink'=>1)) ?>
+        </div>
       </div>
-    </div>
+    
+    </div><!--  end page -->
+    
     <?php include_javascripts() ?>
   </body>
 </html>
