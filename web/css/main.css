@@ -160,13 +160,16 @@ ul#secondary-menu li a:hover{
 }
 
 .field.votes{
-  background:#8cc63f; 
+  background:#e1e1e1;
+	color:#787878;
 }
 .field.views{
   background:#f2f2f2; 
+	color:#b3b3b3;
 }
 .field.answers{
-  background:#79aaf1;
+  background:#8cc63f;
+	color:#fff;
 	height: 38px;
 	width:48px;
 	
@@ -183,19 +186,17 @@ ul#secondary-menu li a:hover{
 	margin-bottom:5px;
 }
 
-.field.votes > .count{
-  color: #FFFFFF;
-}
 .field > .count {
 	clear: both;
 	margin-top:6px;
 	display: block;
-	font-size: 21px;
+	font-size: 24px;
+  font-weight:bold;
 	line-height:21px;
 }
 .field > .desc {
-  color: #222222;
-  font-size: 11px;}
+  font-size: 11px;
+	text-transform:lowercase;}
 
 /*Pager*/
 
