@@ -205,8 +205,12 @@ ul#secondary-menu li a:hover{
 .field.title h2{
 	margin-bottom:5px;
 	font-size:17px;
+	font-weight:bold;
 }
-
+.field.title h2 a{
+	color:#525252;
+}
+.field.title h2 a:hover{}
 .field > .count {
 	clear: both;
 	margin-top:6px;
