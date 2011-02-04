@@ -31,16 +31,9 @@
       <h2><a href="<?php echo url_for('question_show', $question)?>"><?php echo $question->getTitle()?></a></h2>
     </span>
     
-    <div class="field author">
-      <span class="label-field">Author:</span>
-      <span class="content-field"><?php echo $question->getUser() ?></span>
-    </div>
-    
-    <div class="field created">
-      <span class="label-field">Created at:</span>
-      <?php echo $question->getDateTimeObject('created_at')->format('H:i d/m/Y') ?>
-    </div>
-
+    <span class="submitted boxright txtright">
+        <span class="time"><?php print rand(0,20); ?><?php (rand(0,1)==1) ? print 'h' : print 'min';?> ago</span> by <span class="user"><a href=""><?php (rand(0,1)==1) ? print 'kiuz' : print 'Ingo';?></a></span>
+    </span>
     
     </div>
   </div>

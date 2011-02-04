@@ -168,7 +168,7 @@ ul#secondary-menu li a:hover{
 	color:#b3b3b3;
 }
 .field.answers.answered{
-  background:#8cc63f;
+  background:#2D7f05;
 	color:#fff;
 	height: 38px;
 	width:48px;
@@ -180,15 +180,31 @@ ul#secondary-menu li a:hover{
   height: 38px;
   width:48px;
 }
-.field.author,
-.field.created {
-    color: #6D6D6D;
-    font-size: 14px;
+
+
+.submitted > .user a,
+.submitted > .user a:visited{
+  font-weight:bold;
+	color:#333;
+  text-decoration:none;	
 }
-.field.author{margin-bottom:5px;}
+.submitted > .user a:hover{
+	text-decoration:underline;
+}
+
+.submitted > .time{
+	color:#999;
+	font-weight:bold;
+}
+/*
+.field.author,
+.field.created {}
+.field.author{}
+*/
 
 .field.title h2{
 	margin-bottom:5px;
+	font-size:17px;
 }
 
 .field > .count {
