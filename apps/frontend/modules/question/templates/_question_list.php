@@ -9,24 +9,28 @@
   <?php foreach ($pager->getResults() as $question): ?>
   
   <div class="item clearfix">
-    <span class="field title">
-      <h2><a href="<?php echo url_for('question_show', $question)?>"><?php echo $question->getTitle()?></a></h2>
-    </span>
     <div class="first-grop-fields col-5 boxleft">
+    
 	    <span class="field votes boxleft">
 	      <?php include_partial('question/question_votes', array('question' => $question)) ?>
 	    </span>
-	    
+
+      <span class="field answers boxleft">
+        <?php include_partial('question/question_answers', array()) ?>
+      </span>
+      
 	    <span class="field views boxleft">
 	      <?php include_partial('question/question_views', array()) ?>
 	    </span>
 	    
-	    <span class="field answers boxleft">
-        <?php include_partial('question/question_answers', array()) ?>
-	    </span>
+
     </div>
     
     <div class="second-grop-fields col-13 boxleft">
+    <span class="field title">
+      <h2><a href="<?php echo url_for('question_show', $question)?>"><?php echo $question->getTitle()?></a></h2>
+    </span>
+    
     <div class="field author">
       <span class="label-field">Author:</span>
       <span class="content-field"><?php echo $question->getUser() ?></span>

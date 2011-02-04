@@ -144,9 +144,13 @@ ul#secondary-menu li a:hover{
 .field.votes,
 .field.views,
 .field.answers{
-	height:45px;
-	width:45px;
-	margin-right:20px;
+    height: 38px;
+    margin-right: 3px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    width: 38px;
 }
 
 .field.votes,
@@ -163,7 +167,9 @@ ul#secondary-menu li a:hover{
 }
 .field.answers{
   background:#79aaf1;
-	 margin-right:25px;
+	height: 38px;
+	width:48px;
+	
 }
 
 .field.author,
