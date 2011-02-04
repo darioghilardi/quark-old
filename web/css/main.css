@@ -25,7 +25,9 @@ ul#primary-menu .menu-item{
 }
 
 ul#primary-menu .menu-item a,
-ul#primary-menu .menu-item a:visited{
+ul#primary-menu .menu-item a:visited,
+ul#primary-menu .login-item a,
+ul#primary-menu .login-item a:visited{
   padding:2px 5px;
   font-weight:bold;
 }
