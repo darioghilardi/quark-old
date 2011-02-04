@@ -25,4 +25,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('answer/new') ?>">New</a>
+<a href="<?php echo url_for('answer/new') ?>">New</a>

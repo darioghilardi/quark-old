@@ -15,7 +15,7 @@
 	      <?php include_partial('question/question_votes', array('question' => $question)) ?>
 	    </span>
 
-      <span class="field answers boxleft <?php (rand(0,1)==1) ? print 'answered' : print 'unanswered';?>">
+      <span class="field answers boxleft <?php $a = rand(0,2); if ($a==1){ print 'answered';} elseif($a==0){ print 'unanswered';} else {print 'notyetaccepted';} ?>">
         <?php include_partial('question/question_answers', array()) ?>
       </span>
       
@@ -32,7 +32,7 @@
     </span>
     
     <span class="tags boxleft txtleft">
-      <a href="">< programmes></a><a href="">< web></a>
+      <a href="">programming</a><a href="">web</a><a href="">css</a>
     </span>    
     <span class="submitted boxright txtright">
         <span class="time"><?php print rand(0,20); ?><?php (rand(0,1)==1) ? print 'h' : print 'min';?> ago</span> by <span class="user"><a href=""><?php (rand(0,1)==1) ? print 'kiuz' : print 'Ingo';?></a></span> <span class="points"><?php print rand(299,2000); ?></span>
