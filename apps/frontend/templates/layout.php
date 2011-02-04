@@ -23,7 +23,7 @@
     
     
       <div id="header" class="container">
-        <div id="sub_header_one" class="col-8">
+        <div id="sub_header_one" class="col-5">
           <span id="logo">
             <a href="<?php echo url_for('@homepage') ?>">
               <img src="/images/logo.jpg" alt="Quark Project" />
@@ -31,7 +31,7 @@
           </span>
         </div>
         
-        <div id="sub_header_two" class="col-16">
+        <div id="sub_header_two" class="col-19">
           <?php include_partial('question/question_secondary_menu', array()) ?>
         </div>
       </div>
