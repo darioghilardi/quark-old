@@ -10,32 +10,24 @@ body{background:#eee;}
 
 #page{background:#fff;}
 
-a,
-a:visited{
-  color:#111;
-}
-
-
 /*TopPage*/
-  
 #top-header{
 	background:#eee;
-	 margin-bottom: 25px;
-   padding-bottom: 10px;
-   padding-left: 0;
-   padding-right: 0;
-   padding-top: 10px;
+	margin-bottom: 25px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 10px;
 }
+
 ul#primary-menu .menu-item{
   margin-right:15px;  
 }
-ul#primary-menu .menu-item a{
-padding:2px 5px;
-}
-ul#primary-menu .menu-item a:hover{
-  	background:#222;
-		color:#fff;
-		text-decoration:none;
+
+ul#primary-menu .menu-item a,
+ul#primary-menu .menu-item a:visited{
+  padding:2px 5px;
+  font-weight:bold;
 }
 
 ul#primary-menu .login-item{
