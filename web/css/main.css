@@ -57,6 +57,7 @@ ul#secondary-menu li a{
 	font-size:16px;
 	text-decoration:none;
 	margin-left:10px;
+	color:#fff;
 }
 ul#secondary-menu li a.ask-question{
    font-weight:bold;
@@ -96,6 +97,7 @@ ul#secondary-menu li a:hover{
   padding-right: 10px;
   padding-top: 6px;
   display:block;
+	color:#fff;
 }
 
 
