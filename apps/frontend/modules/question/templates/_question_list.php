@@ -31,6 +31,9 @@
       <h2><a href="<?php echo url_for('question_show', $question)?>"><?php echo $question->getTitle()?></a></h2>
     </span>
     
+    <span class="tags boxleft txtleft">
+      <a href="">< programmes></a><a href="">< web></a>
+    </span>    
     <span class="submitted boxright txtright">
         <span class="time"><?php print rand(0,20); ?><?php (rand(0,1)==1) ? print 'h' : print 'min';?> ago</span> by <span class="user"><a href=""><?php (rand(0,1)==1) ? print 'kiuz' : print 'Ingo';?></a></span> <span class="points"><?php print rand(299,2000); ?></span>
     </span>
