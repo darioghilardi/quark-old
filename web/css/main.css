@@ -49,7 +49,7 @@ ul#primary-menu .login-item{
 }
 
 #header{
-	margin-bottom:15px;
+	margin-bottom:30px;
 }
 
 ul#secondary-menu li a{
@@ -72,6 +72,8 @@ ul#secondary-menu li a:hover{
     font-size: 21px;
     font-weight: bold;
     line-height: 16px;
+		margin-bottom:0px;
+		margin-top:8px;
   }
 	
 /*Tabs List Question*/
@@ -89,6 +91,9 @@ ul#secondary-menu li a:hover{
   font:size:12px;
   text-transform: uppercase;
 	
+	position:relative;
+	bottom:-2px;
+	
 }
 
 #tabs-question-list ul#order li a{
@@ -98,30 +103,37 @@ ul#secondary-menu li a:hover{
   padding-right: 10px;
   padding-top: 6px;
   display:block;
-	color:#fff;
 }
 
 
 #tabs-question-list ul#order li.unselected{
-  background:#ccc;
+  background:#efefef;
+	border:2px solid #333;
+  border-bottom:2px solid #333;
+	
 }
 #tabs-question-list ul#order li.unselected a{
 
 }
 #tabs-question-list ul#order li.selected{
-  background:#222;
+  background:#fff;
+	border:2px solid #333;
+	
+  border-bottom:2px solid #fff;
 	
 }
 #tabs-question-list ul#order li.selected a{
-	color:#fff;
+	color:#000;
 }
 
+/*
 #tabs-question-list ul#order li.unselected:hover{
   background:#FF9500;
 }
 #tabs-question-list ul#order li.unselected a:hover{
   color:#fff;
 }
+*/
 /*Question List Content*/
 #question-list-content > .item{
 	border-bottom: 1px solid #ccc;
