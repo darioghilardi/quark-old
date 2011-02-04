@@ -44,6 +44,7 @@ ul#primary-menu .login-item{
 #logo a:hover,
 #logo a:visited{
 	font-size:32px;
+	line-height:30px;
   text-decoration:none;
 }
 
