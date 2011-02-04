@@ -79,7 +79,7 @@ ul#secondary-menu li a:hover{
 /*Tabs List Question*/
 #tabs-question-list ul#order{
   padding: 0px;
-	border-bottom:2px solid #333;
+	border-bottom:1px solid #999;
 	margin-bottom:10px;
 }
 
@@ -92,7 +92,7 @@ ul#secondary-menu li a:hover{
   text-transform: uppercase;
 	
 	position:relative;
-	bottom:-2px;
+	bottom:-1px;
 	
 }
 
@@ -108,8 +108,8 @@ ul#secondary-menu li a:hover{
 
 #tabs-question-list ul#order li.unselected{
   background:#efefef;
-	border:2px solid #333;
-  border-bottom:2px solid #333;
+	border:1px solid #999;
+  border-bottom:1px solid #999;
 	
 }
 #tabs-question-list ul#order li.unselected a{
@@ -117,10 +117,9 @@ ul#secondary-menu li a:hover{
 }
 #tabs-question-list ul#order li.selected{
   background:#fff;
-	border:2px solid #333;
+	border:1px solid #999;
 	
-  border-bottom:2px solid #fff;
-	
+  border-bottom:1px solid #fff;
 }
 #tabs-question-list ul#order li.selected a{
 	color:#000;
