@@ -167,14 +167,19 @@ ul#secondary-menu li a:hover{
   background:#f2f2f2; 
 	color:#b3b3b3;
 }
-.field.answers{
+.field.answers.answered{
   background:#8cc63f;
 	color:#fff;
 	height: 38px;
 	width:48px;
-	
 }
 
+.field.answers.unanswered{
+  background:#C63F3F;
+  color:#fff;
+  height: 38px;
+  width:48px;
+}
 .field.author,
 .field.created {
     color: #6D6D6D;

@@ -15,7 +15,7 @@
 	      <?php include_partial('question/question_votes', array('question' => $question)) ?>
 	    </span>
 
-      <span class="field answers boxleft">
+      <span class="field answers boxleft <?php (rand(0,1)==1) ? print 'answered' : print 'unanswered';?>">
         <?php include_partial('question/question_answers', array()) ?>
       </span>
       
