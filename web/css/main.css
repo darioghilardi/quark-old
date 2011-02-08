@@ -297,7 +297,8 @@ ul#pager .item a{
 
 /*Page New Ask Quesiton*/
 
-#new-question-form form#add-question{
+form#add-question{
+  margin-top:10px;	
 }
 
 #new-question-form form#add-question .item{
@@ -314,7 +315,7 @@ ul#pager .item a{
     padding-bottom: 3px;
 }
 #new-question-form form#add-question input#question_title{
-	width: 100%;
+	width: 99%;
 	clear: both;
 	display: block;
 }
@@ -323,7 +324,7 @@ ul#pager .item a{
     clear: both;
     display: block;
     height: 250px;
-    width: 100%;
+    width: 99%;
 }
 
 #preview-question p{background: #B8E094;padding:15px;}
@@ -361,7 +362,11 @@ ul.error_list li{
   padding:5px;
 }
 
+
 /*Sigin Page Form*/
+form#signin-form{
+	margin-top:10px;
+}
 #signin-form-content form#signin-form .item {
 	margin-bottom:20px;
 }
@@ -377,14 +382,14 @@ ul.error_list li{
 
 #signin-form-content form#signin-form #username-signin > input,
 #signin-form-content form#signin-form #password-signin > input{
-  width: 100%;
+  width: 99%;
   clear: both;
   display: block;
 }
 
-#preview-question p{background: #B8E094;padding:15px;}
 
-#submit-question input{
+
+#submit-signin input{
   margin-left:15px;
   border:1px solid #ccc;
   background:#efefef;
@@ -392,13 +397,7 @@ ul.error_list li{
   display:block;
 }
 
-#submit-question input:hover{
+#submit-signin input:hover{
   background:#444;
   color:#fff;
-}
-#backtolist-question{
-   font-size:15px;
-   color:#444;
-   font-weight:bold;
-  
 }
