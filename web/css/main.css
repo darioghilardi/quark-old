@@ -237,6 +237,7 @@ ul#secondary-menu li a:hover{
   padding: 1px 6px 3px 6px;
   color:#fff;
   margin-right: 4px;
+	border-radius: 4px;
 }
 
 #question-list-content > .item > .second-grop-fields > .tags > a:hover {
