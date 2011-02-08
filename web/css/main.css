@@ -9,13 +9,12 @@
 
 /*Globals*/
 body{background:#eee;}
-
 #page{background:#fff;}
 
 /*TopPage*/
 #top-header{
-	background:#eee;
-	margin-bottom: 25px;
+  background:#eee;
+  margin-bottom: 25px;
   padding-bottom: 10px;
   padding-left: 0;
   padding-right: 0;
