@@ -4,7 +4,9 @@
 <div id="question">
 
 	<?php include_partial('question/question_votes', array('question' => $question)) ?>
-
+<div class="">
+<span><a href=""><img src="" /></a></span>
+</div>
   <h1><?php echo $question->getTitle() ?></h1>
 
   <div class="description">
