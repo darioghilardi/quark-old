@@ -76,7 +76,7 @@ class answerActions extends sfActions
     if ($form->isValid())
     {
       $answer = $form->save();
-      $question = Doctrine_Core::getTable('Question')->find(array($question_id));
+      $question = Doctrine_Core::getTable('Question')->find(array($values["question_id"]));
       $this->redirect('question/show?id='.$question->getId().'&title_slug='.$question->getTitleSlug());
     }
   }

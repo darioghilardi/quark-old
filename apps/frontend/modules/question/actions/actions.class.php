@@ -34,8 +34,9 @@ class questionActions extends sfActions
   {
     $this->question = $this->getRoute()->getObject();
 
-    // if the user is not who makes the question add the img tag
-    if ($this->getUser()->getGuardUser()->getId() != $this->question->getUser()->id)
+    // if the user is not who make the question or is anonymous add the img tag
+    $userid = ($this->getUser()->isAuthenticated() ? $this->getUser()->getGuardUser()->getId() : "anonymous");
+    if($userid != $this->question->getUser()->id)
     {
       // Set up the token, pass into the template and put into the session
       $this->token = md5(rand(0, 99999), sfConfig::get("csrf_secret"));
