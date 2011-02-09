@@ -23,6 +23,13 @@
 	    <div id="button-bar"></div>
 	    <?php echo $form['body'] ?>
     </div>
+
+    <div class="item">
+      <?php echo $form['user_id']->renderError() ?>
+      <?php echo $form['user_id']->renderLabel() ?>
+      <?php echo $form['user_id'] ?>
+    </div>
+
    
     <div id="preview-question" class="item"> 
       <label>Preview</label>
