@@ -108,11 +108,14 @@ class questionActions extends sfActions
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
+  	
+  	$values = $request->getParameter($form->getName());  	
+    $values["user_id"] = $this->getUser()->getGuardUser()->getId();
+    $form->bind($values);
+
     if ($form->isValid())
     {
       $question = $form->save();
-
       $this->redirect('question/edit?id='.$question->getId());
     }
   }
