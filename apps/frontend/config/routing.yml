@@ -10,6 +10,7 @@ answer:
   class:   sfDoctrineRouteCollection
   options: { model: Answer }
 
+# Show the question page
 question_show:
   url:	/question/:id/:title_slug
   class:   sfDoctrineRoute
@@ -19,6 +20,16 @@ question_show:
     id: \d+
     sf_method: [get]
 
+# Increase the views counter for the question page.
+increase_view_count:
+  url: /post/:id/:token
+  param: {module: question, action: increaseviewcount}
+  class: sfRequestRoute
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+# Show the homepage
 homepage:
   url:   /
   param: { module: question, action: index }

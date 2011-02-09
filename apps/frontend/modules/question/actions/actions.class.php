@@ -5,8 +5,7 @@
  *
  * @package    quark
  * @subpackage question
- * @author     Your name here
- * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
+ * @author     Dario Ghilardi
  */
 class questionActions extends sfActions
 {
@@ -34,6 +33,15 @@ class questionActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
     $this->question = $this->getRoute()->getObject();
+
+    // if the user is not who makes the question add the img tag
+    if ($this->getUser()->getGuardUser()->getId() != $this->question->getUser()->id)
+    {
+      // Set up the token, pass into the template and put into the session
+      $this->token = md5(rand(0, 99999), sfConfig::get("csrf_secret"));
+      $this->getUser()->setAttribute('token', $this->token);
+      $this->getUser()->setAttribute('time', time());
+    }
 
     // Pre-populate form with the correct question
     $this->form = new AnswerForm();
@@ -81,6 +89,21 @@ class questionActions extends sfActions
     $question->delete();
 
     $this->redirect('question/index');
+  }
+
+  public function executeIncreaseviewcount(sfWebRequest $request)
+  {
+    // Check if the token is valid
+    if ( ($request->getParameter('token') == $this->getUser()->getAttribute('token', null)) &&
+        (time() - $this->getUser()->getAttribute('time', null) < 60) )
+    {
+      // Execute the logging to count question views
+      Quark::question_log($request->getParameter('id'));
+
+      // Clear session attributes
+      $this->getUser()->setAttribute('token', null);
+      $this->getUser()->setAttribute('time', null);
+    }
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
