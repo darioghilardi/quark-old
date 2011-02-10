@@ -40,7 +40,7 @@
 
 
   <div id="answers-list" class="col-18">
-    <h3 id="sub-page-title">Answer List</h3>
+    <h3 class="sub-page-title">Answer List</h3>
     <?php foreach ($question->getAskQuestion() as $answer): ?>
       <div class="answer item clearfix">
         <div class="col-2">
@@ -61,12 +61,12 @@
   <?php endforeach; ?>
   </div>
 
-	<div id="answer-form">
-	  <h3>Post a new answer</h3>
+	<div id="answer-form" class="col-18">
+	  <h3 class="sub-page-title">Post a new answer</h3>
 	  <?php if ($sf_user->isAuthenticated()): ?>
 	    <?php include_partial('answer/answer_form', array('form' => $form)) ?>
 	  <?php else: ?>
-	    You need to be logged in to post a new answer.
+      <span class="not-logged">You must be logged in to post a new answer. <a href="">Login</a> or <a href="">register</a>.</span>
 	  <?php endif; ?>
 	</div>
 
