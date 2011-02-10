@@ -20,7 +20,8 @@
       </span>
       
 	    <span class="field views boxleft">
-	      <?php include_partial('question/question_views', array()) ?>
+	      <span class="count"><?php print $question->views; ?></span>
+        <span class="desc">Views</span>
 	    </span>
 	    
 
