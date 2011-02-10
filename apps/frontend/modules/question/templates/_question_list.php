@@ -12,7 +12,8 @@
     <div class="first-grop-fields col-5 boxleft">
     
 	    <span class="field votes boxleft">
-	      <?php include_partial('question/question_votes', array('question' => $question)) ?>
+	      <span class="count"><?php echo $question->getInterestedUsers() ?></span>
+        <span class="desc">Votes</span>
 	    </span>
 
       <span class="field answers boxleft <?php $a = rand(0,2); if ($a==1){ print 'answered';} elseif($a==0){ print 'unanswered';} else {print 'notyetaccepted';} ?>">

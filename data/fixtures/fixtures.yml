@@ -45,6 +45,30 @@ Interest:
   like2:
     User: kiuz
     Question: symfony
+  like3:
+    User: kiuz
+    Question: php
+  like4:
+    User: ingo
+    Question: symfony
+  like5:
+    User: ingo
+    Question: question_1
+  like6:
+    User: kiuz
+    Question: question_5
+  like7:
+    User: ingo
+    Question: question_3
+  like8:
+    User: kiuz
+    Question: question_3
+  like9:
+    User: ingo
+    Question: question_10
+  like10:
+    User: kiuz
+    Question: question_13
 
 Rating:
   vote1:
