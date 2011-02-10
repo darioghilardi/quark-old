@@ -1,11 +1,9 @@
 /*
- *
  * === Main Css Style ===
- * Layout based on GreenScreen Css Framework
+ * Layout based on GreenScreen-Css Framework
  * 
- * Quark Project - Open source Question and Answer (Q&A) platform
- * Symfony
- **/
+ * Open source Question and Answer platform written in PHP.
+**/
 
 /*Globals*/
 body{background:#eee;}
@@ -478,15 +476,17 @@ form#signin-form{
 }
 
 /*Answers*/
-#answers-list h3#sub-page-title{
-	  border-bottom-color: #626262;
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
+
+h3.sub-page-title{
     color:#626262;
     display: block;
     font-weight: bold;
     margin-top: 15px;
-
+}
+#answers-list h3.sub-page-title{
+	  border-bottom-color: #626262;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
 }
 
 #answers-list .vote .count{
@@ -503,4 +503,11 @@ form#signin-form{
     margin-bottom: 10px;
     padding-bottom: 7px;
 	
+}
+
+
+.not-logged{
+	  color: #6D6D6D;
+    font-size: 15px;
+    font-weight: bold;
 }
