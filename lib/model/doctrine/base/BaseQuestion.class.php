@@ -9,6 +9,7 @@
  * @property integer $user_id
  * @property string $title
  * @property string $body
+ * @property integer $views
  * @property timestamp $created_at
  * @property timestamp $updated_at
  * @property integer $interested_users
@@ -20,6 +21,7 @@
  * @method integer             getUserId()           Returns the current record's "user_id" value
  * @method string              getTitle()            Returns the current record's "title" value
  * @method string              getBody()             Returns the current record's "body" value
+ * @method integer             getViews()            Returns the current record's "views" value
  * @method timestamp           getCreatedAt()        Returns the current record's "created_at" value
  * @method timestamp           getUpdatedAt()        Returns the current record's "updated_at" value
  * @method integer             getInterestedUsers()  Returns the current record's "interested_users" value
@@ -30,6 +32,7 @@
  * @method Question            setUserId()           Sets the current record's "user_id" value
  * @method Question            setTitle()            Sets the current record's "title" value
  * @method Question            setBody()             Sets the current record's "body" value
+ * @method Question            setViews()            Sets the current record's "views" value
  * @method Question            setCreatedAt()        Sets the current record's "created_at" value
  * @method Question            setUpdatedAt()        Sets the current record's "updated_at" value
  * @method Question            setInterestedUsers()  Sets the current record's "interested_users" value
@@ -64,6 +67,11 @@ abstract class BaseQuestion extends sfDoctrineRecord
         $this->hasColumn('body', 'string', 1000, array(
              'type' => 'string',
              'length' => 1000,
+             ));
+        $this->hasColumn('views', 'integer', null, array(
+             'type' => 'integer',
+             'notnull' => true,
+             'default' => 0,
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(
              'type' => 'timestamp',
