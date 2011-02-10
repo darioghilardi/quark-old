@@ -32,10 +32,11 @@
     </span>
     
     <span class="tags boxleft txtleft">
-      <a href="">programming</a><a href="">web</a><a href="">css</a>
-    </span>    
+      <?php include_partial('question/question_tags', array()) ?>
+    </span>
+    
     <span class="submitted boxright txtright">
-        <span class="time"><?php print rand(0,20); ?><?php (rand(0,1)==1) ? print 'h' : print 'min';?> ago</span> by <span class="user"><a href=""><?php (rand(0,1)==1) ? print 'kiuz' : print 'Ingo';?></a></span> <span class="points"><?php print rand(299,2000); ?></span>
+      <?php include_partial('question/question_submitted', array()) ?>
     </span>
     
     </div>

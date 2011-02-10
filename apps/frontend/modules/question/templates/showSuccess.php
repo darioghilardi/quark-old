@@ -1,32 +1,57 @@
 <?php slot('title', sprintf('%s', $question->getTitle())); ?>
 <?php use_helper('Text') ?>
 
-<?php if(isset($token)): ?>
-  <img src="<?php echo url_for('question/increaseviewcount?id='.$question->getId().'&token='.$token); ?>" style="display:none;"/>
-<?php endif; ?>
+<div id="showSuccess">
+  <?php if(isset($token)): ?>
+    <img src="<?php echo url_for('question/increaseviewcount?id='.$question->getId().'&token='.$token); ?>" style="display:none;"/>
+  <?php endif; ?>
+  
+  <div id="question-single-content" class="col-18">
+    <h1 id="page-title"><?php echo $question->getTitle() ?></h1>
 
-<div id="question">
-  <?php include_partial('question/question_votes', array('question' => $question)) ?>
-  <div class="">
-    <span><a href=""><img src="" /></a></span>
-  </div>
-  <h1><?php echo $question->getTitle() ?></h1>
+    <div id="question-precontents" class="col-2">
+      <div class="vote">
+        <?php include_partial('question/question_votes_button', array('question' => $question)) ?>
+      </div>
+    </div>
+    <div id="question-content" class="col-16">
+      <div class="description">
+        <?php echo simple_format_text($question->getBody()) ?>
+      </div>
+      
+      <div class="meta">
+        <span class="tags boxleft txtleft">
+          <?php include_partial('question/question_tags', array()) ?>
+        </span>
+    
+		    <span class="submitted boxright txtright">
+		      <?php include_partial('question/question_submitted', array()) ?>
+		    </span>
+      </div>
+      <div class="options clearfix clear">
+	      <ul class="nonelist nonespace">
+		      <li class="boxleft"><a href="##">Link</a></li>
+          <li class="boxleft"><a href="<?php echo url_for('question/edit?id=' . $question->getId()) ?>">Edit</a></li>
+          <li class="boxleft"><a href="##">Flag</a></li>
+	      </ul>
+      </div>
+      
+    </div>
 
-  <div class="description">
-    <?php echo simple_format_text($question->getBody()) ?>
-  </div>
-
-  <div class="meta">
-    <small>posted on <?php echo $question->getDateTimeObject('created_at')->format('d/m/Y') ?></small> |
-    <small>updated on <?php echo $question->getDateTimeObject('updated_at')->format('d/m/Y') ?></small>
-  </div>
-
-  <div style="padding: 20px 0">
-    <a href="<?php echo url_for('question/edit?id=' . $question->getId()) ?>">
-      Edit
-    </a>
-  </div>
 </div>
+
+
+
+
+
+  <div id="sidebar" class="col-6">
+	  <?php include_partial('question/question_block', array('title' => 'Introduzione a Quark', 'content' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for  will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like')) ?>
+	  <?php include_partial('question/question_block', array('title' => 'Come partecipare', 'content' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using  making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for  will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)')) ?>
+	  <?php include_partial('question/question_block', array('title' => 'Collabora', 'content' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).')) ?>
+  </div>
+
+
+
 
 
 <div id="answers">
@@ -51,4 +76,13 @@
   <?php else: ?>
     You need to be logged in to post a new answer.
   <?php endif; ?>
+</div>
+
+
+
+<?php
+/**
+ * end of Main
+**/
+?>
 </div>

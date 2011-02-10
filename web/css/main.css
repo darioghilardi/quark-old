@@ -231,7 +231,8 @@ ul#secondary-menu li a:hover{
   font-size: 11px;
 	text-transform:lowercase;}
 
-#question-list-content > .item > .second-grop-fields > .tags > a {
+
+.tags > a {
   font-family: "Tahoma", "Geneva", sans-serif;
   background: url('/images/tagsback.jpg');
   padding: 1px 6px 3px 6px;
@@ -240,7 +241,7 @@ ul#secondary-menu li a:hover{
 	border-radius: 4px;
 }
 
-#question-list-content > .item > .second-grop-fields > .tags > a:hover {
+.tags > a:hover {
   text-decoration: none;
   background: url('/images/tagsback-hover.jpg');
 }
@@ -400,4 +401,32 @@ form#signin-form{
 #submit-signin input:hover{
   background:#444;
   color:#fff;
+}
+
+
+/*ShowSuccess*/
+
+#showSuccess h1#page-title{
+	border-bottom:1px solid #333;
+	margin-bottom:10px;
+	line-height:21px;
+}
+
+
+.options li a{
+	margin-top:10px;
+	margin-right:10px;
+  color:#999;
+  display: inline-block;
+}
+
+#question-precontents .vote .up-vote,
+#question-precontents .vote .down-vote,
+#question-precontents .vote .count{
+	 text-align:center;
+}
+#question-precontents .vote .count{
+	color:#999;
+    font-size: 30px;
+    font-weight: bold;
 }
