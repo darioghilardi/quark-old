@@ -25,23 +25,6 @@ class Quark {
 	}
 
   /**
-   * generate_token: add a new entry into the question_log file to count question views.
-   *
-   * @param string $question The question object.
-   */
-  /*static public function question_log($question_id) {
-
-    // Check the remote user, to avoid search engines bots to be counted.
-
-
-    // Execute the logging
-    $logPath = sfConfig::get('sf_log_dir').'/question_views.log';
-    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath, 'format' => '%time% %message%%EOL%'));
-    $message = $question_id . " " . $_SERVER['REMOTE_ADDR'];
-    $custom_logger->log($message);
-  }
-
-  /**
    * question_log: add a new entry into the question_log file to count question views.
    *
    * @param string $question The question object.
@@ -53,7 +36,7 @@ class Quark {
 
     // Execute the logging
     $logPath = sfConfig::get('sf_log_dir').'/question_views.log';
-    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath, 'format' => '%time% %message%%EOL%'));
+    $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath, 'format' => '%message%%EOL%'));
     $message = $question_id . " " . $_SERVER['REMOTE_ADDR'];
     $custom_logger->log($message);
   }
