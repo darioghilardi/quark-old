@@ -430,3 +430,49 @@ form#signin-form{
     font-size: 30px;
     font-weight: bold;
 }
+
+.down-vote a,
+.up-vote a {
+	
+
+    background-color: transparent;
+    background-image: url("/images/vote-updown.png");
+    background-repeat: no-repeat;
+		    display: block;
+    
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+
+    
+    height: 18px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-indent: -9999px;
+    width: 35px;
+
+}
+
+.up-vote a{
+  background-position: center top !important;
+}
+.up-vote a:hover{
+  background-position: right top !important;
+}
+.up-vote a:active{
+  background-position: left top !important;
+}
+
+
+.down-vote a{
+  background-position: center bottom !important;
+
+}
+
+.down-vote a:hover{
+  background-position: right bottom !important;
+}
+.down-vote a:active{
+	  background-position: left bottom !important;
+}
