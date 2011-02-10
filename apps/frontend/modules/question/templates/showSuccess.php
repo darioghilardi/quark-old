@@ -40,7 +40,9 @@
 
 
   <div id="answers-list" class="col-18">
+  <?php if(sizeof($question->getAskQuestion())!=0):?>
     <h3 class="sub-page-title">Answer List</h3>
+  <?php endif;?>
     <?php foreach ($question->getAskQuestion() as $answer): ?>
       <div class="answer item clearfix">
         <div class="col-2">
