@@ -9,6 +9,27 @@
 body{background:#eee;}
 #page{background:#fff;}
 
+form .item > label {
+    color: #333333;
+    display: block;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 3px;
+}
+
+form .item > input,
+form .item > textarea{
+    clear: both;
+    display: block;
+    width: 99%;
+}
+
+form .backto{
+    color: #444444;
+    font-size: 15px;
+    font-weight: bold;
+}
+
 /*TopPage*/
 #top-header{
   background:#eee;

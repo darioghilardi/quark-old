@@ -7,6 +7,7 @@
   <?php endif; ?>
   
   <div id="question-single-content" class="col-18">
+    <a name="question"></a>
     <h1 id="page-title"><?php echo $question->getTitle() ?></h1>
 
     <div id="question-precontents" class="col-2">
