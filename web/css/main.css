@@ -9,6 +9,7 @@
 body{background:#eee;}
 #page{background:#fff;}
 
+/*Globals*//*Forms*/
 form .item > label {
     color: #333333;
     display: block;
@@ -28,6 +29,23 @@ form .backto{
     color: #444444;
     font-size: 15px;
     font-weight: bold;
+}
+
+form .save input{
+  margin-left:15px;
+  border:1px solid #ccc;
+  background:#efefef;
+  font-size:18px;
+  display:block;
+}
+
+form .save input:hover{
+  background:#444;
+  color:#fff;
+}
+
+form > .item {
+    margin-bottom: 20px;
 }
 
 /*TopPage*/
