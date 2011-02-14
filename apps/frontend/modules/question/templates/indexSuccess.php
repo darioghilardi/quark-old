@@ -9,7 +9,7 @@
       <li class="boxright <?php ($order=='rated') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=rated') ?>"><span>Votes</span></a></li>
     </ul>
   </div>
-  
+
 	 <?php include_partial('question/question_list', array('pager' => $pager, 'order' => $order)) ?>
 	</div>
 	
