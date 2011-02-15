@@ -3,7 +3,7 @@
             <?php if((empty($notloginlink))): ?>
 	            <?php if ($sf_user->isAuthenticated()): ?> Welcome <?php echo $sf_user ?>. <?php echo link_to('Logout', 'sf_guard_signout') ?>
 	            <?php else: ?>
-	              <a href="/guard/login">Login</a>
+	              <a href="<?php echo url_for('sf_guard_signin') ?>">Login</a>
 	            <?php endif;?>
             <?php endif;?>
         </li>

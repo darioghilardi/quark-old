@@ -5,10 +5,9 @@
   <?php if (!$form->getObject()->isNew()): ?>
     <input type="hidden" name="sf_method" value="put" />
   <?php endif; ?>
+  
   <?php echo $form->renderHiddenFields(false) ?>
-  
-  &nbsp;<a href="<?php echo url_for('answer/index') ?>">Back to list</a>
-  
+    
   <?php if (!$form->getObject()->isNew()): ?>
     &nbsp;<?php echo link_to('Delete', 'answer/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
   <?php endif; ?>
@@ -22,15 +21,16 @@
 	  <?php echo $form['body'] ?>
   </div>
 
-
-
+  <div id="button-answer" class="item">
     <span id ="submit-answer" class="boxright save">
       <input type="submit" value="Save" />
     </span>
     
     <span id ="backtop-answer" class="boxleftt backto">
         &uarr; <a href="#question">Back to question</a>
-    </span>  
+    </span>
+  </div>
+    
 </form>
 
 <?php 

@@ -69,7 +69,7 @@
 	  <?php if ($sf_user->isAuthenticated()): ?>
 	    <?php include_partial('answer/answer_form', array('form' => $form)) ?>
 	  <?php else: ?>
-      <span class="not-logged">You must be logged in to post a new answer. <a href="">Login</a> or <a href="">register</a>.</span>
+      <span class="not-logged">You must be logged in to post a new answer. <a href="<?php echo url_for('sf_guard_signin') ?>">Login</a> or <a href="">register</a>.</span>
 	  <?php endif; ?>
 	</div>
 
