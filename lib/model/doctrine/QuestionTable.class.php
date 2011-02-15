@@ -16,4 +16,16 @@ class QuestionTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Question');
     }
+
+  /**
+   * Execute an update into the interest table
+   *
+   */
+  public function updateQuestionInterest($qid, $amount) {
+    $q = Doctrine_Query::create()
+      ->update('Question q')
+      ->set('q.interested_users','q.interested_users + ?', $amount)
+      ->where('q.id = ?',$qid)
+      ->execute();
+  }
 }

@@ -36,6 +36,17 @@ vote:
   class: sfRequestRoute
   requirements:
     id: \d+
+    type: (up|down)
+    sf_method: [get]
+
+# undo an existing vote
+undo_vote:
+  url: /vote/undo/:id/:type/:token
+  param: {module: question, action: undovote}
+  class: sfRequestRoute
+  requirements:
+    id: \d+
+    type: (up|down)
     sf_method: [get]
 
 # Show the homepage
