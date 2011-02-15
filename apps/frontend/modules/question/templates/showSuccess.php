@@ -51,15 +51,26 @@
            <?php include_partial('question/question_answers_votes_button', array('answer' => $answer)) ?>
            </div>
         </div>
-    <div class="col-16">
-    <?php echo $answer->getBody() ?>
-    
-    
-          posted by <?php echo $answer->getUser() ?>
-      on <?php echo $answer->getDateTimeObject('created_at')->format('d/m/Y') ?>
-    </div>
-
-
+	    <div class="col-16">
+        
+        <div class="description">
+  	      <?php echo $answer->getBody() ?>
+  	    </div>
+  	    
+		    <span class="submitted txtright boxright">
+	        <?php include_partial('question/question_answers_submitted', array()) ?>
+		    </span>
+		    
+			  <div class="options clearfix clear">
+	        <ul class="nonelist nonespace">
+	          <li class="boxleft"><a href="##">Link</a></li>
+	          <li class="boxleft"><a href="<?php echo url_for('question/edit?id=' . $question->getId()) ?>">Edit</a></li>
+	          <li class="boxleft"><a href="##">Flag</a></li>
+	        </ul>
+	      </div>
+      
+	    </div>
+	    
     </div>
   <?php endforeach; ?>
   </div>
