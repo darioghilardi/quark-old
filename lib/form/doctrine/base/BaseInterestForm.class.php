@@ -18,6 +18,7 @@ abstract class BaseInterestForm extends BaseFormDoctrine
       'id'          => new sfWidgetFormInputHidden(),
       'question_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Question'), 'add_empty' => false)),
       'user_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => false)),
+      'value'       => new sfWidgetFormInputText(),
       'created_at'  => new sfWidgetFormDateTime(),
     ));
 
@@ -25,6 +26,7 @@ abstract class BaseInterestForm extends BaseFormDoctrine
       'id'          => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'question_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Question'))),
       'user_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'))),
+      'value'       => new sfValidatorInteger(),
       'created_at'  => new sfValidatorDateTime(),
     ));
 

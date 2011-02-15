@@ -31,9 +31,6 @@ class Quark {
    */
   static public function question_log($question_id) {
 
-    // Check the remote user, to avoid search engines bots to be counted.
-
-
     // Execute the logging
     $logPath = sfConfig::get('sf_log_dir').'/question_views.log';
     $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath, 'format' => '%message%%EOL%'));

@@ -7,17 +7,20 @@
  * 
  * @property integer $question_id
  * @property integer $user_id
+ * @property integer $value
  * @property timestamp $created_at
  * @property Question $Question
  * @property sfGuardUser $User
  * 
  * @method integer     getQuestionId()  Returns the current record's "question_id" value
  * @method integer     getUserId()      Returns the current record's "user_id" value
+ * @method integer     getValue()       Returns the current record's "value" value
  * @method timestamp   getCreatedAt()   Returns the current record's "created_at" value
  * @method Question    getQuestion()    Returns the current record's "Question" value
  * @method sfGuardUser getUser()        Returns the current record's "User" value
  * @method Interest    setQuestionId()  Sets the current record's "question_id" value
  * @method Interest    setUserId()      Sets the current record's "user_id" value
+ * @method Interest    setValue()       Sets the current record's "value" value
  * @method Interest    setCreatedAt()   Sets the current record's "created_at" value
  * @method Interest    setQuestion()    Sets the current record's "Question" value
  * @method Interest    setUser()        Sets the current record's "User" value
@@ -39,6 +42,11 @@ abstract class BaseInterest extends sfDoctrineRecord
         $this->hasColumn('user_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
+             ));
+        $this->hasColumn('value', 'integer', null, array(
+             'type' => 'integer',
+             'notnull' => true,
+             'unsigned' => false,
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(
              'type' => 'timestamp',

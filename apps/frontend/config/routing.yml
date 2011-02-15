@@ -29,6 +29,15 @@ increase_view_count:
     id: \d+
     sf_method: [get]
 
+# vote
+vote:
+  url: /vote/:id/:type/:token
+  param: {module: question, action: vote}
+  class: sfRequestRoute
+  requirements:
+    id: \d+
+    sf_method: [get]
+
 # Show the homepage
 homepage:
   url:   /

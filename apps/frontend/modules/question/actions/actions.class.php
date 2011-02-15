@@ -44,7 +44,10 @@ class questionActions extends sfActions
       $this->getUser()->setAttribute('time', time());
     }
 
-    // Pre-populate form with the correct question
+    // Reset the token array
+    $this->getUser()->setAttribute('tokenarray', array());
+
+    // Pre-populate answer form with the correct question
     $this->form = new AnswerForm();
     $this->form->setDefault('question_id', $this->question->getId());
   }
@@ -105,6 +108,80 @@ class questionActions extends sfActions
       $this->getUser()->setAttribute('token', null);
       $this->getUser()->setAttribute('time', null);
     }
+  }
+
+  public function executeVote(sfWebRequest $request)
+  {
+    // Check if the token is valid
+    if (in_array($request->getParameter('token'), $this->getUser()->getAttribute('tokenarray', array())))
+    {
+      if ($request->getParameter('type') == 'up')
+      {
+        // Check if this user already voted this question
+        $q = Doctrine_Query::create()
+          ->select('i.value')
+          ->from('Interest i')
+          ->where('i.user_id = ?', $this->getUser()->getGuardUser()->getId())
+          ->andWhere('i.question_id = ?', $request->getParameter('id'));
+        $av = $q->execute();
+
+        // Check if this entry is already into the table
+        if (!empty($av[0]["value"]))
+        {
+          if (($av[0]["value"] == 0) || ($av[0]["value"] == -1))
+          {
+            // Update the question votes count
+            $amount = ($av[0]["value"] == 0) ? 1 : 2;
+            $q = Doctrine_Query::create()
+              ->update('Question q')
+              ->set('q.interested_users','q.interested_users + ?', $amount)
+              ->where('q.id = ?',$request->getParameter('id'))
+              ->execute();
+
+            // Update the interest table
+            $q = Doctrine_Query::create()
+              ->update('Interest i')
+              ->set('i.value', 1)
+              ->where('i.user_id = ?', $this->getUser()->getGuardUser()->getId())
+              ->andWhere('i.question_id = ?', $request->getParameter('id'))
+              ->execute();
+          }
+        }
+        else
+        {
+          // Update the question votes count
+          $amount = 1;
+          $q = Doctrine_Query::create()
+            ->update('Question q')
+            ->set('q.interested_users','q.interested_users + ?', $amount)
+            ->where('q.id = ?',$request->getParameter('id'))
+            ->execute();
+
+          // Update the interest table
+          $q = new Interest();
+          $q->value = 1;
+          $q->question_id = $request->getParameter('id');
+          $q->user_id = $this->getUser()->getGuardUser()->getId();
+          $q->save();          
+        }        
+      }
+      elseif ($request->getParameter('type') == 'down')
+      {
+        print "down";
+      }
+      elseif ($request->getParameter('type') == 'undo')
+      {
+
+      }
+    } 
+    else
+    {
+      
+    }
+
+    // Load question to get slug and redirect avoiding template rendering
+    $question = Doctrine::getTable('Question')->find($request->getParameter('id'));
+    $this->redirect('question/show?id='.$request->getParameter('id').'&title_slug='.$question->getTitleSlug());
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)

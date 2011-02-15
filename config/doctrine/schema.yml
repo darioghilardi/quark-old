@@ -27,7 +27,8 @@ Interest:
   columns:
     question_id:		{type: integer, notnull: true}
     user_id:				{type: integer, notnull: true}
-    created_at:			{type: timestamp, notnull: true}
+    value:          {type: integer, notnull: true, unsigned: false}
+    created_at:			{type: timestamp, notnull: true}    
   relations:
     Question:				{onDelete: CASCADE, local: question_id, foreign: id}
     User:						{onDelete: CASCADE, local: user_id, class: sfGuardUser}
@@ -36,6 +37,7 @@ Rating:
   columns:
     answer_id:			{type: integer, notnull: true}
     user_id:				{type: integer, notnull: true}
+    value:          {type: integer, notnull: true, unsigned: false}
     created_at:			{type: timestamp, notnull: true}
   relations:
     Answer:					{onDelete: CASCADE, local: answer_id, foreign: id}

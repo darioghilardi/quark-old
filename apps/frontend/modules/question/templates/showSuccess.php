@@ -12,7 +12,7 @@
 
     <div id="question-precontents" class="col-2">
       <div class="vote">
-        <?php include_partial('question/question_votes_button', array('question' => $question)) ?>
+        <?php include_partial('question/question_votes_widget', array('question' => $question)) ?>
       </div>
     </div>
     <div id="question-content" class="col-16">

@@ -18,6 +18,7 @@ abstract class BaseRatingForm extends BaseFormDoctrine
       'id'         => new sfWidgetFormInputHidden(),
       'answer_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Answer'), 'add_empty' => false)),
       'user_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => false)),
+      'value'      => new sfWidgetFormInputText(),
       'created_at' => new sfWidgetFormDateTime(),
     ));
 
@@ -25,6 +26,7 @@ abstract class BaseRatingForm extends BaseFormDoctrine
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'answer_id'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Answer'))),
       'user_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'))),
+      'value'      => new sfValidatorInteger(),
       'created_at' => new sfValidatorDateTime(),
     ));
 
