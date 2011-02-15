@@ -75,3 +75,7 @@ sf_guard_password:
   url:   /request_password
   param: { module: sfGuardAuth, action: password }
 
+#sf_guard_user:
+#url:   /user
+#param: { module: sfGuardUser, action: user }
+
