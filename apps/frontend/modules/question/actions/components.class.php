@@ -21,18 +21,18 @@ class questionComponents extends sfComponents
     // Enable/disable vote buttons using permissions and old votes
     if (empty($av) || $av[0]["value"] == '0')
     {
-      $this->up = ($voteup) ? true : false;
-      $this->down = ($votedown) ? true : false;
+      $this->up = ($voteup) ? "up" : false;
+      $this->down = ($votedown) ? "down" : false;
     }
     elseif ($av[0]["value"] == '1')
     {
-      $this->up = ($voteup) ? "clear" : false;
-      $this->down = ($votedown) ? true : false;
+      $this->up = ($voteup) ? "undo" : false;
+      $this->down = ($votedown) ? "down" : false;
     }
     elseif ($av[0]["value"] == '-1')
     {
-      $this->up = ($voteup) ? true : false;
-      $this->down = ($votedown) ? "clear" : false;
+      $this->up = ($voteup) ? "up" : false;
+      $this->down = ($votedown) ? "undo" : false;
     }    
   }
 }
