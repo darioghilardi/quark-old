@@ -66,6 +66,7 @@
 	          <li class="boxleft"><a href="##">Link</a></li>
 	          <li class="boxleft"><a href="<?php echo url_for('answer/edit?id=' . $question->getId()) ?>">Edit</a></li>
 	          <li class="boxleft"><a href="##">Flag</a></li>
+            <?php include_partial('answer/answer_accept', array('answer' => $answer, 'accepted' => $accepted)); ?>
 	        </ul>
 	      </div>
       

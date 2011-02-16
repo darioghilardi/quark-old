@@ -16,6 +16,7 @@
  * @property sfGuardUser $User
  * @property Doctrine_Collection $ask_question
  * @property Doctrine_Collection $Interest
+ * @property Doctrine_Collection $Accept
  * 
  * @method integer             getId()               Returns the current record's "id" value
  * @method integer             getUserId()           Returns the current record's "user_id" value
@@ -28,6 +29,7 @@
  * @method sfGuardUser         getUser()             Returns the current record's "User" value
  * @method Doctrine_Collection getAskQuestion()      Returns the current record's "ask_question" collection
  * @method Doctrine_Collection getInterest()         Returns the current record's "Interest" collection
+ * @method Doctrine_Collection getAccept()           Returns the current record's "Accept" collection
  * @method Question            setId()               Sets the current record's "id" value
  * @method Question            setUserId()           Sets the current record's "user_id" value
  * @method Question            setTitle()            Sets the current record's "title" value
@@ -39,6 +41,7 @@
  * @method Question            setUser()             Sets the current record's "User" value
  * @method Question            setAskQuestion()      Sets the current record's "ask_question" collection
  * @method Question            setInterest()         Sets the current record's "Interest" collection
+ * @method Question            setAccept()           Sets the current record's "Accept" collection
  * 
  * @package    quark
  * @subpackage model
@@ -100,6 +103,10 @@ abstract class BaseQuestion extends sfDoctrineRecord
              'foreign' => 'question_id'));
 
         $this->hasMany('Interest', array(
+             'local' => 'id',
+             'foreign' => 'question_id'));
+
+        $this->hasMany('Accept', array(
              'local' => 'id',
              'foreign' => 'question_id'));
     }

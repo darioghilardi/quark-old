@@ -50,6 +50,10 @@ class questionActions extends sfActions
     // Pre-populate answer form with the correct question
     $this->form = new AnswerForm();
     $this->form->setDefault('question_id', $this->question->getId());
+
+    // Get the accepted answer
+    $accepted = $this->question->getAccept();
+    $this->accepted = $accepted[0];
   }
 
   public function executeNew(sfWebRequest $request)
@@ -162,8 +166,7 @@ class questionActions extends sfActions
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-  	
+  {  	
   	$values = $request->getParameter($form->getName());  	
     $values["user_id"] = $this->getUser()->getGuardUser()->getId();
     $form->bind($values);

@@ -114,6 +114,14 @@ class answerActions extends sfActions
     }
   }
 
+  public function acceptAnswer(sfWebRequest $request)
+  {
+    if (in_array($request->getParameter('token'), $this->getUser()->getAttribute('tokenarray', array())))
+    {
+      
+    }
+  }
+
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $values = $request->getParameter($form->getName());

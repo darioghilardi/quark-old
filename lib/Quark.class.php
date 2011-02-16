@@ -6,15 +6,16 @@
  * question_log: add a new entry into the question_log file to count question views.
  */
 
-class Quark {
-
+class Quark
+{
   /**
    * Slugify: convert a text into a slug.
    *
    * @param string $text The text that has to converted.
    * @return $text The slugified text.
    */
-	static public function slugify($text) {
+	static public function slugify($text)
+  {
 		// sostituisce tutto tranne lettere e punti con -
 		$text = preg_replace('/\W+/', '-', $text);
 
@@ -29,8 +30,8 @@ class Quark {
    *
    * @param string $question The question object.
    */
-  static public function question_log($question_id) {
-
+  static public function question_log($question_id)
+  {
     // Execute the logging
     $logPath = sfConfig::get('sf_log_dir').'/question_views.log';
     $custom_logger = new sfFileLogger(new sfEventDispatcher(), array('file' => $logPath, 'format' => '%message%%EOL%'));
@@ -38,4 +39,5 @@ class Quark {
     $custom_logger->log($message);
   }
 }
+
 ?>

@@ -11,9 +11,11 @@
  * @property string $body
  * @property timestamp $created_at
  * @property integer $votes
+ * @property boolean $accepted
  * @property Question $Question
  * @property sfGuardUser $User
  * @property Doctrine_Collection $Rating
+ * @property Doctrine_Collection $Accept
  * 
  * @method integer             getId()          Returns the current record's "id" value
  * @method integer             getQuestionId()  Returns the current record's "question_id" value
@@ -21,18 +23,22 @@
  * @method string              getBody()        Returns the current record's "body" value
  * @method timestamp           getCreatedAt()   Returns the current record's "created_at" value
  * @method integer             getVotes()       Returns the current record's "votes" value
+ * @method boolean             getAccepted()    Returns the current record's "accepted" value
  * @method Question            getQuestion()    Returns the current record's "Question" value
  * @method sfGuardUser         getUser()        Returns the current record's "User" value
  * @method Doctrine_Collection getRating()      Returns the current record's "Rating" collection
+ * @method Doctrine_Collection getAccept()      Returns the current record's "Accept" collection
  * @method Answer              setId()          Sets the current record's "id" value
  * @method Answer              setQuestionId()  Sets the current record's "question_id" value
  * @method Answer              setUserId()      Sets the current record's "user_id" value
  * @method Answer              setBody()        Sets the current record's "body" value
  * @method Answer              setCreatedAt()   Sets the current record's "created_at" value
  * @method Answer              setVotes()       Sets the current record's "votes" value
+ * @method Answer              setAccepted()    Sets the current record's "accepted" value
  * @method Answer              setQuestion()    Sets the current record's "Question" value
  * @method Answer              setUser()        Sets the current record's "User" value
  * @method Answer              setRating()      Sets the current record's "Rating" collection
+ * @method Answer              setAccept()      Sets the current record's "Accept" collection
  * 
  * @package    quark
  * @subpackage model
@@ -69,6 +75,10 @@ abstract class BaseAnswer extends sfDoctrineRecord
              'type' => 'integer',
              'default' => 0,
              ));
+        $this->hasColumn('accepted', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
+             ));
     }
 
     public function setUp()
@@ -85,6 +95,10 @@ abstract class BaseAnswer extends sfDoctrineRecord
              'onDelete' => 'CASCADE'));
 
         $this->hasMany('Rating', array(
+             'local' => 'id',
+             'foreign' => 'answer_id'));
+
+        $this->hasMany('Accept', array(
              'local' => 'id',
              'foreign' => 'answer_id'));
     }

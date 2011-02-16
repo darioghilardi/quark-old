@@ -19,6 +19,7 @@ Answer:
     body:						{type: string(1000)}
     created_at:			{type: timestamp, notnull: true}
     votes:					{type: integer, default:0}
+    accepted:       {type: boolean, default: false}
   relations:
     Question:				{onDelete: CASCADE, local: question_id, foreign: id, foreignAlias: ask_question}
     User:						{onDelete: CASCADE, local: user_id, class: sfGuardUser}
@@ -42,3 +43,12 @@ Rating:
   relations:
     Answer:					{onDelete: CASCADE, local: answer_id, foreign: id}
     User:						{onDelete: CASCADE, local: user_id, class: sfGuardUser}
+
+Accept:
+  columns:
+    question_id:    {type: integer, notnull: true}
+    answer_id:      {type: integer, notnull: true}
+    created_at:     {type: timestamp, notnull: true}
+  relations:
+    Question:				{onDelete: CASCADE, local: question_id, foreign: id}
+    Answer:         {onDelete: CASCADE, local: answer_id, foreign: id}

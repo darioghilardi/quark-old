@@ -80,3 +80,8 @@ Rating:
   vote3:
     User: ingo
     Answer: don_t_know
+
+Accept:
+  accept1:
+    Answer: hypertext
+    Question: php
