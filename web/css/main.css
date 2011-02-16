@@ -458,19 +458,19 @@ form#signin-form{
 }
 
 /*Question Vote Widget*/
-#question-precontents .vote .up-vote,
-#question-precontents .vote .down-vote,
-#question-precontents .vote .count{
+.vote .up-vote,
+.vote .down-vote,
+.vote .count{
 	 text-align:center;
 }
-#question-precontents .vote .count{
+.vote .count{
 	color:#999;
     font-size: 30px;
     font-weight: bold;
 }
 
-#question-precontents .vote .down-vote ,
-#question-precontents .vote .up-vote {
+.vote .down-vote ,
+.vote .up-vote {
     background-color: transparent;
     background-image: url("/images/vote-updown.png");
     background-repeat: no-repeat;
@@ -488,30 +488,30 @@ form#signin-form{
     width: 35px;
 }
 
-#question-precontents .vote .up-vote{
+.vote .up-vote{
   background-position: center top !important;
 }
-#question-precontents .vote .up-vote:hover{
+.vote .up-vote:hover{
   background-position: right top !important;
 }
-#question-precontents .vote .up-vote:active{
+.vote .up-vote:active{
   background-position: left top !important;
 }
-#question-precontents .vote .down-vote{
+.vote .down-vote{
   background-position: center bottom !important;
 }
-#question-precontents .vote .down-vote:hover{
+.vote .down-vote:hover{
   background-position: right bottom !important;
 }
-#question-precontents .vote .down-vote:active{
+.vote .down-vote:active{
 	  background-position: left bottom !important;
 }
-#question-precontents .vote .down-vote a,
-#question-precontents .vote .up-vote a,
-#question-precontents .vote .down-vote a:visited,
-#question-precontents .vote .up-vote a:visited,
-#question-precontents .vote .down-vote a:active,
-#question-precontents .vote .up-vote a:active{
+.vote .down-vote a,
+.vote .up-vote a,
+.vote .down-vote a:visited,
+.vote .up-vote a:visited,
+.vote .down-vote a:active,
+.vote .up-vote a:active{
   display:block;
   text-indent:-9999px;
   width: 35px;
