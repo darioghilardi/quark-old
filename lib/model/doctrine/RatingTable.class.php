@@ -16,4 +16,49 @@ class RatingTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Rating');
     }
+
+    /**
+     * Returns the value of the previously added vote, if exists
+     *
+     * @return object RatingTable
+     */
+    public function getRatingValue($user_id, $aid)
+    {
+      $q = Doctrine_Query::create()
+        ->select('r.value')
+        ->from('Rating r')
+        ->where('r.user_id = ?', $user_id)
+        ->andWhere('r.answer_id = ?', $aid);
+
+      return $q->fetchArray();
+    }
+
+    /**
+     * Execute an update to a row into the rating table
+     *
+     */
+    public function updateRating($user_id, $aid, $amount)
+    {
+      $q = Doctrine_Query::create()
+        ->update('Rating r')
+        ->set('r.value', $amount)
+        ->where('r.user_id = ?', $user_id)
+        ->andWhere('r.answer_id = ?', $aid);
+
+      $q->execute();
+    }
+
+    /**
+     * Add a new row into the rating table
+     *
+     */
+    public function addRating($user_id, $aid, $amount)
+    {
+      $q = new Rating();
+      $q->value = $amount;
+      $q->answer_id = $aid;
+      $q->user_id = $user_id;
+
+      $q->save();
+    }
 }

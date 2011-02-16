@@ -129,28 +129,9 @@ class questionActions extends sfActions
       $qid = $request->getParameter('id');
       $sign = ($request->getParameter('type') == 'up') ? 1 : -1;
 
-      // Check if this user already voted this question
-      $av = Doctrine_Core::getTable('Interest')->getInterestValue($user_id, $qid);
-
-      // Check if this entry is already into the table
-      if(empty($av))
-      {
-        // Update the question interest entries count
-        Doctrine_Core::getTable('Question')->updateQuestionInterest($qid, $sign);
-
-        // Update the interest table
-        Doctrine_Core::getTable('Interest')->addInterest($user_id, $qid, $sign);
-      }
-      elseif (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
-      {
-        
-        $amount = (($av[0]["value"] == 0) ? 1 : 2) * $sign;
-        // Update the question interest entries count
-        Doctrine_Core::getTable('Question')->updateQuestionInterest($qid, $amount);
-
-        // Update the interest table
-        Doctrine_Core::getTable('Interest')->updateInterest($user_id, $qid, $sign);
-      }      
+      // Istantiate the voting class and call the vote method
+      $v = new voting($qid, $user_id);
+      $v->questionVote($sign);
     }
 
     // Load question to get slug and redirect avoiding template rendering
@@ -171,17 +152,8 @@ class questionActions extends sfActions
       $qid = $request->getParameter('id');
       $sign = ($request->getParameter('type') == 'up') ? -1 : 1;
 
-      // Check if this user already voted this question
-      $av = Doctrine_Core::getTable('Interest')->getInterestValue($user_id, $qid);
-
-      if (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
-      {
-        // Update the question interest entries count
-        Doctrine_Core::getTable('Question')->updateQuestionInterest($qid, $sign);
-      
-        // Update the interest table
-        Doctrine_Core::getTable('Interest')->updateInterest($user_id, $qid, 0);
-      }
+      $v = new voting($qid, $user_id);
+      $v->questionUndoVote($sign);
 
       // Load question to get slug and redirect avoiding template rendering
       $question = Doctrine::getTable('Question')->find($request->getParameter('id'));

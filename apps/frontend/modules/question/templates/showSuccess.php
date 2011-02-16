@@ -48,7 +48,7 @@
       <div class="answer item clearfix">
         <div class="col-2">
          <div class="vote">
-           <?php include_partial('question/question_answers_votes_button', array('answer' => $answer)) ?>
+           <?php include_component('answer', 'answerVoteWidget', array('answer' => $answer)); ?>
            </div>
         </div>
 	    <div class="col-16">

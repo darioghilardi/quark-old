@@ -16,4 +16,16 @@ class AnswerTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Answer');
     }
+
+  /**
+   * Execute an update for the interested users counter.
+   *
+   */
+  public function updateAnswerRating($aid, $amount) {
+    $q = Doctrine_Query::create()
+      ->update('Answer a')
+      ->set('a.votes','a.votes + ?', $amount)
+      ->where('a.id = ?',$aid)
+      ->execute();
+  }
 }

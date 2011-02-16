@@ -3,9 +3,9 @@
 class myUser extends sfGuardSecurityUser
 {
   /**
-   * Check if a user can vote up
+   * Check if a user can vote up on questions
    */
-  public function canVoteUp($user_id)
+  public function canVoteUpQuestion($user_id)
   {
     if ($user_id != 'anonymous')
     {
@@ -18,9 +18,39 @@ class myUser extends sfGuardSecurityUser
   }
 
   /**
-   * Check if a user can vote up
+   * Check if a user can vote down on questions
    */
-  public function canVoteDown($user_id)
+  public function canVoteDownQuestion($user_id)
+  {
+    if ($user_id != 'anonymous')
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+    /**
+   * Check if a user can vote up on answers
+   */
+  public function canVoteUpAnswer($user_id)
+  {
+    if ($user_id != 'anonymous')
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  /**
+   * Check if a user can vote down on answer
+   */
+  public function canVoteDownAnswer($user_id)
   {
     if ($user_id != 'anonymous')
     {

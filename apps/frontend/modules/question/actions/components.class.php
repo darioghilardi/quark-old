@@ -3,7 +3,7 @@
 class questionComponents extends sfComponents
 {
   /**
-   * Create the widget but check for already existing votes.
+   * Create the widget for questions but check for already existing votes and for permissions based on reputation.
    */
   public function executeQuestionVoteWidget()
   {
@@ -11,29 +11,16 @@ class questionComponents extends sfComponents
     $user_id = (!$this->getUser()->isAuthenticated()) ? "anonymous": $this->getUser()->getGuardUser()->getId();
     $qid = $this->question->getId();
 
-    // Check for user permissions
-    $voteup = $this->getUser()->canVoteUp($user_id);
-    $votedown = $this->getUser()->canVoteUp($user_id);
-
     // Check if a vote already exists
     $av = Doctrine_Core::getTable('Interest')->getInterestValue($user_id, $qid);
 
-    // Enable/disable vote buttons using permissions and old votes
-    if (empty($av) || $av[0]["value"] == '0')
-    {
-      $this->up = ($voteup) ? "up" : false;
-      $this->down = ($votedown) ? "down" : false;
-    }
-    elseif ($av[0]["value"] == '1')
-    {
-      $this->up = ($voteup) ? "undo" : false;
-      $this->down = ($votedown) ? "down" : false;
-    }
-    elseif ($av[0]["value"] == '-1')
-    {
-      $this->up = ($voteup) ? "up" : false;
-      $this->down = ($votedown) ? "undo" : false;
-    }    
+    // Istantiate the voting class
+    $v = new voting($qid, $user_id);
+
+    // Check for user permissions and existing votes.
+    // Return the values for up and down that needs to ba passed to the template.
+    $this->up = ($this->getUser()->canVoteUpQuestion($user_id)) ? $v->preprocessQuestionVoteUp($av) : false;
+    $this->down = ($this->getUser()->canVoteDownQuestion($user_id)) ? $v->preprocessQuestionVoteDown($av) : false;
   }
 }
 

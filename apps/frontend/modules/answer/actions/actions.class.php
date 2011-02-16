@@ -66,6 +66,54 @@ class answerActions extends sfActions
     $this->redirect('answer/index');
   }
 
+  /**
+   * Execute voting operations on an answer.
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeVote(sfWebRequest $request)
+  {
+    // Check if the token is valid
+    if (in_array($request->getParameter('token'), $this->getUser()->getAttribute('tokenarray', array())))
+    {
+      $user_id = $this->getUser()->getGuardUser()->getId();
+      $aid = $request->getParameter('id');
+      $sign = ($request->getParameter('type') == 'up') ? 1 : -1;
+
+      // Istantiate the voting class and call the vote method
+      $v = new voting($aid, $user_id);
+      $v->answerVote($sign);
+    }
+
+    // Load the question associated to this answer to get slug and redirect avoiding template rendering
+    $answer = Doctrine::getTable('Answer')->find($aid);
+    $question = Doctrine::getTable('Question')->find($answer->getQuestion()->id);
+    $this->redirect('question/show?id='.$question->id.'&title_slug='.$question->getTitleSlug());
+  }
+
+  /**
+   * Undo vote on an answer.
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeUndovote(sfWebRequest $request)
+  {
+    if (in_array($request->getParameter('token'), $this->getUser()->getAttribute('tokenarray', array())))
+    {
+      $user_id = $this->getUser()->getGuardUser()->getId();
+      $aid = $request->getParameter('id');
+      $sign = ($request->getParameter('type') == 'up') ? -1 : 1;
+
+      $v = new voting($aid, $user_id);
+      $v->answerUndoVote($sign);
+
+    // Load the question associated to this answer to get slug and redirect avoiding template rendering
+    $answer = Doctrine::getTable('Answer')->find($aid);
+    $question = Doctrine::getTable('Question')->find($answer->getQuestion()->id);
+    $this->redirect('question/show?id='.$question->id.'&title_slug='.$question->getTitleSlug());
+    }
+  }
+
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $values = $request->getParameter($form->getName());

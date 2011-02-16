@@ -18,7 +18,7 @@ class QuestionTable extends Doctrine_Table
     }
 
   /**
-   * Execute an update into the interest table
+   * Execute an update for the interested users counter.
    *
    */
   public function updateQuestionInterest($qid, $amount) {

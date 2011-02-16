@@ -29,9 +29,9 @@ increase_view_count:
     id: \d+
     sf_method: [get]
 
-# vote
-vote:
-  url: /vote/:id/:type/:token
+# question vote
+question_vote:
+  url: /question/vote/:id/:type/:token
   param: {module: question, action: vote}
   class: sfRequestRoute
   requirements:
@@ -39,10 +39,30 @@ vote:
     type: (up|down)
     sf_method: [get]
 
-# undo an existing vote
-undo_vote:
-  url: /vote/undo/:id/:type/:token
+# question undo an existing vote
+undo_question_vote:
+  url: /question/vote/undo/:id/:type/:token
   param: {module: question, action: undovote}
+  class: sfRequestRoute
+  requirements:
+    id: \d+
+    type: (up|down)
+    sf_method: [get]
+
+# answer vote
+answer_vote:
+  url: /answer/vote/:id/:type/:token
+  param: {module: answer, action: vote}
+  class: sfRequestRoute
+  requirements:
+    id: \d+
+    type: (up|down)
+    sf_method: [get]
+
+# answer undo an existing vote
+undo_answer_vote:
+  url: /answer/vote/undo/:id/:type/:token
+  param: {module: answer, action: undovote}
   class: sfRequestRoute
   requirements:
     id: \d+
