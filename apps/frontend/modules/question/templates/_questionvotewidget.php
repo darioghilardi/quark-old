@@ -1,23 +1,23 @@
 <?php use_helper('Token') ?>
 
+<div class="up-vote">
 <?php if($up): ?>
-<div class="up-vote">
   <a class="button-up" href="<?php echo url_for('question/vote?id='.$question->getId().'&type=up&token='.generateToken($sf_user));?>">Up</a>
-</div>
-<?php else: ?>
-<div class="up-vote">
+<?php elseif($up == "clear"): ?>
   <a class="button-up" href="<?php echo url_for('question/undovote?id='.$question->getId().'&type=up&token='.generateToken($sf_user));?>">Up</a>
-</div>
+<?php else: ?>
+  Up
 <?php endif; ?>
+</div>
 
 <div class="count"><?php echo $question->getInterestedUsers() ?></div>
 
+<div class="down-vote">
 <?php if($down): ?>
-<div class="down-vote">
   <a class="button-down" href="<?php echo url_for('question/vote?id='.$question->getId().'&type=down&token='.generateToken($sf_user));?>">Down</a>
-</div>
-<?php else: ?>
-<div class="down-vote">
+<?php elseif($up == "clear"): ?>
   <a class="button-down" href="<?php echo url_for('question/undovote?id='.$question->getId().'&type=down&token='.generateToken($sf_user));?>">Down</a>
-</div>
+<?php else: ?>
+  Down
 <?php endif; ?>
+</div>
