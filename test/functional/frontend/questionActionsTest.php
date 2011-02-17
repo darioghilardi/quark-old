@@ -5,52 +5,35 @@ include(dirname(__FILE__).'/../../bootstrap/functional.php');
 $browser = new QuarkTestFunctional(new sfBrowser());
 $browser->loadData();
 
-
-$max = 1;
-$browser->info('0 - The homepage')->
-  get('/')->
-  info(sprintf('There are max %s title h1 into page', $max))->
-  with('response')->checkElement('h1', $max);
-  
-
-$max = 20;
+$max_h1 = 1;
+$max_questions = 20;
 $browser->info('1 - The homepage')->
   get('/')->
-  info(sprintf('  1.1 - Only %s questions are listed into the homepage', $max))->
-  with('response')->
-    checkElement('#question-list-content > div.item', $max)
-;
+  info(sprintf('  1.1 - There are max %s title h1 into the homepage', $max_h1))->
+  with('response')->checkElement('h1', $max_h1)->
 
-$max = 20;
-$browser->info('2 - The homepage')->
-  get('/')->
-  info(sprintf('Only %s questions are listed into the homepage with titles', $max))->
+  info(sprintf('  1.2 - Only %s questions are listed into the homepage', $max_questions))->
   with('response')->
-    checkElement('#question-list-content > div.item .title', $max);
+    checkElement('#question-list-content > div.item .title', $max_questions);
 
-$browser->info('3 - Question page vote')->
+$browser->info('2 - Question page')->
   get('/')->
-  info(sprintf('check if not logge can view or not links to vote', $max))->
+  info('  2.1 - Check that not loggedin users can\'t see links into the voting widget')->
   with('response')->
     click('#question-list-content > div.item a', array(), array('position' => 1))
-	    ->with('response')->checkElement('div#question-precontents > div.vote', 1)
 	    ->with('response')->checkElement('div#question-precontents > div.vote a', 0);
 
-	    
-	$browser->info('4 - Question page vote')->
+$browser->
   get('/login')->
-  info(sprintf('Make login', true))->
+  info('  2.2 - Check that loggedin users can see links into the voting widget')->
 	  with('response')->
-	   setField('signin[username]', 'kiuz')->
+      setField('signin[username]', 'kiuz')->
 	  with('response')->
-	   setField('signin[password]', 'kiuz')->
+      setField('signin[password]', 'kiuz')->
 	  with('response')->
-	   click('Signin')
-	   ->get('/')
-	   ->with('response')->
-    click('#question-list-content > div.item a', array(), array('position' => 1))
-      ->with('response')->checkElement('#showSuccess', true)
-      ->with('response')->checkElement('#indexSuccess', false)
-      ->with('response')->checkElement('h1', 1)
-      ->with('response')->checkElement('div#question-precontents > div.vote', 1)
-      ->with('response')->checkElement('div#question-precontents > div.vote a', 2);
+      click('Signin')->
+        get('/')->
+        with('response')->
+          click('#question-list-content > div.item a', array(), array('position' => 1))->
+            with('response')->checkElement('div#question-precontents > div.vote a.button-up', 1)->
+            with('response')->checkElement('div#question-precontents > div.vote a.button-down', 1);

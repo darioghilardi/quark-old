@@ -7,7 +7,7 @@
 ?>
 
   <?php foreach ($pager->getResults() as $question): ?>
-  
+
   <div class="item clearfix">
     <div class="first-group-fields col-5 boxleft">
     
@@ -43,6 +43,7 @@
     
     </div>
   </div>
+
 	<?php endforeach; ?>
   
   <div id="pagination">

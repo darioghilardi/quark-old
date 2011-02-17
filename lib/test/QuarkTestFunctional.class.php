@@ -11,6 +11,16 @@ class QuarkTestFunctional extends sfTestFunctional
 
     return $this;
   }
+
+  public function getMostRecentQuestion()
+  {
+    $q = Doctrine_Query::create()
+      ->select('q.*')
+      ->from('Question q')
+      ->orderBy('q.created_at DESC');
+
+    return $question = $q->fetchOne();
+  }
 }
 
 ?>
