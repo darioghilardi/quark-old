@@ -16,11 +16,29 @@ class Quark
    */
 	static public function slugify($text)
   {
-		// sostituisce tutto tranne lettere e punti con -
-		$text = preg_replace('/\W+/', '-', $text);
+		// Substitute everything except letters and points with -
+		$text = preg_replace('#[^\\pL\d]+#u', '-', $text);
 
-		// cancella gli spazi e converte in minuscolo
-		$text = strtolower(trim($text, '-'));
+		// Delete spaces
+		$text = trim($text, '-');
+
+    // Transliteration (accents)
+    if (function_exists('iconv'))
+    {
+      $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+    }
+
+    // Make lowercase
+    $text = strtolower($text);
+
+    // Take off unwanted characters
+    $text = preg_replace('#[^-\w]+#', '', $text);
+
+    // Substitute an empty line with "n-a"
+    if (empty($text))
+    {
+      return 'n-a';
+    }
 
 		return $text;
 	}

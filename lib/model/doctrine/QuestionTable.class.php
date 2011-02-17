@@ -19,13 +19,12 @@ class QuestionTable extends Doctrine_Table
 
   /**
    * Execute an update for the interested users counter.
-   *
    */
   public function updateQuestionInterest($qid, $amount) {
     $q = Doctrine_Query::create()
       ->update('Question q')
       ->set('q.interested_users','q.interested_users + ?', $amount)
-      ->where('q.id = ?',$qid)
-      ->execute();
+      ->where('q.id = ?',$qid);
+    return $q->execute();
   }
 }
