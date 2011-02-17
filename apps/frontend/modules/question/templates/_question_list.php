@@ -9,7 +9,7 @@
   <?php foreach ($pager->getResults() as $question): ?>
   
   <div class="item clearfix">
-    <div class="first-grop-fields col-5 boxleft">
+    <div class="first-group-fields col-5 boxleft">
     
 	    <span class="field votes boxleft">
 	      <span class="count"><?php echo $question->getInterestedUsers() ?></span>
@@ -28,7 +28,7 @@
 
     </div>
     
-    <div class="second-grop-fields col-13 boxleft">
+    <div class="second-group-fields col-13 boxleft">
     <span class="field title">
       <h2><a href="<?php echo url_for('question_show', $question)?>"><?php echo $question->getTitle()?></a></h2>
     </span>
