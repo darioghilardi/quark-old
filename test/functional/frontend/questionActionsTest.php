@@ -2,18 +2,14 @@
 
 include(dirname(__FILE__).'/../../bootstrap/functional.php');
 
-$browser = new sfTestFunctional(new sfBrowser());
+$browser = new QuarkTestFunctional(new sfBrowser());
+$browser->loadData();
 
-$browser->
-  get('/question/index')->
+$max = 20;
 
-  with('request')->begin()->
-    isParameter('module', 'question')->
-    isParameter('action', 'index')->
-  end()->
-
-  with('response')->begin()->
-    isStatusCode(200)->
-    checkElement('body', '!/This is a temporary page/')->
-  end()
+$browser->info('1 - The homepage')->
+  get('/')->
+  info(sprintf('  1.1 - Only %s questions are listed into the homepage', $max))->
+  with('response')->
+    checkElement('#question-list-content > div.item', $max)
 ;
