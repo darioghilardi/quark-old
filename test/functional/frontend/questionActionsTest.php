@@ -36,4 +36,10 @@ $browser->
         with('response')->
           click('#question-list-content > div.item a', array(), array('position' => 1))->
             with('response')->checkElement('div#question-precontents > div.vote a.button-up', 1)->
-            with('response')->checkElement('div#question-precontents > div.vote a.button-down', 1);
+            with('response')->checkElement('div#question-precontents > div.vote a.button-down', 1)->
+            with('response')->checkElement('div#question-precontents > div.vote count', 0)->
+            with('response')->
+              click('div#question-precontents > div.vote div.up-vote a.button-up')->
+              info('  2.3 - Check that counter increase after a vote by one.')->
+                with('response')->
+                  checkElement('div#question-precontents > div.vote div.up-vote count', 1);
