@@ -28,16 +28,29 @@ $browser->info('2 - The homepage')->
   with('response')->
     checkElement('#question-list-content > div.item .title', $max);
 
-$browser->info('3 - The homepage')->
+$browser->info('3 - Question page vote')->
   get('/')->
-  info(sprintf('Click links %s questions are listed into the homepage with', $max))->
+  info(sprintf('check if not logge can view or not links to vote', $max))->
   with('response')->
     click('#question-list-content > div.item a', array(), array('position' => 1))
-    ->with('response')->checkElement('#showSuccess', true)
-    ->with('response')->checkElement('#indexSuccess', false)
-    ->with('response')->checkElement('h1', 1)
-    ->back()
-    ->with('response')->checkElement('#showSuccess', false)
-    ->with('response')->checkElement('#indexSuccess', true)
-    ;
-    
+	    ->with('response')->checkElement('div#question-precontents > div.vote', 1)
+	    ->with('response')->checkElement('div#question-precontents > div.vote a', 0);
+
+	    
+	$browser->info('4 - Question page vote')->
+  get('/login')->
+  info(sprintf('Make login', true))->
+	  with('response')->
+	   setField('signin[username]', 'kiuz')->
+	  with('response')->
+	   setField('signin[password]', 'kiuz')->
+	  with('response')->
+	   click('Signin')
+	   ->get('/')
+	   ->with('response')->
+    click('#question-list-content > div.item a', array(), array('position' => 1))
+      ->with('response')->checkElement('#showSuccess', true)
+      ->with('response')->checkElement('#indexSuccess', false)
+      ->with('response')->checkElement('h1', 1)
+      ->with('response')->checkElement('div#question-precontents > div.vote', 1)
+      ->with('response')->checkElement('div#question-precontents > div.vote a', 2);
