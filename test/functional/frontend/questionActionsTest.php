@@ -48,9 +48,12 @@ $browser->info('3 - Question page vote')->
 	   click('Signin')
 	   ->get('/')
 	   ->with('response')->
-    click('#question-list-content > div.item a', array(), array('position' => 1))
+    click('#question-list-content > div.item a')
       ->with('response')->checkElement('#showSuccess', true)
       ->with('response')->checkElement('#indexSuccess', false)
       ->with('response')->checkElement('h1', 1)
-      ->with('response')->checkElement('div#question-precontents > div.vote', 1)
-      ->with('response')->checkElement('div#question-precontents > div.vote a', 2);
+      ->with('response')->checkElement('div#question-precontents > div.vote a', 2)
+      ->with('response')->click('div#question-precontents > div.vote div.up-vote a')
+      ->back()
+      ->with('response')->click('div#question-precontents > div.vote div.down-vote a')
+      ;
