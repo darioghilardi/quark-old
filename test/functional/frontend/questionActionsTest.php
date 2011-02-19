@@ -63,6 +63,24 @@ $browser->
 // Get the counter value for the next test
 $c = new sfDomCssSelector($browser->getResponseDom());
 $counter = $c->getValues('div.vote .count');
+print_r($counter);
+
+$TT = $browser->get('/')
+    ->info('1 - The homepage')->
+    info(sprintf(' test', 1))->
+      get('/')->
+      with('response')->begin()->getResponseDomCssSelector();
+      
+      $domSelector = new sfDomCssSelector('/');
+      
+
+			//use Symfony\Components\CssSelector\Parser;
+			$document = new \DOMDocument();
+			$document->loadHTMLFile('http://fabien.potencier.org/articles');
+
+      
+      
+      
 /*print "pippo";
 print_r($counter);
 
