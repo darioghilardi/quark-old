@@ -39,7 +39,7 @@ all:
     use_database:           true
 
     # Enable login module
-    enabled_modules: [default, sfApply, sfGuardAuth, sfGuardPermission, sfGuardUser]
+    enabled_modules: [default, sfGuardAuth, sfGuardPermission, sfGuardUser, sfApply]
 
   .actions:
     login_module:    sfGuardAuth

@@ -12,14 +12,12 @@ class QuarkTestFunctional extends sfTestFunctional
     return $this;
   }
 
-  public function getMostRecentQuestion()
+  /**
+   * Define a login function.
+   */
+  public function login($username = 'ingo', $password = 'ingo')
   {
-    $q = Doctrine_Query::create()
-      ->select('q.*')
-      ->from('Question q')
-      ->orderBy('q.created_at DESC');
-
-    return $question = $q->fetchOne();
+    return $this->click('Signin', array('signin' => array('username' => $username, 'password' => $password)))->with('response')->isRedirected()->followRedirect();
   }
 }
 
