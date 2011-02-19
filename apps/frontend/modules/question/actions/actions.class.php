@@ -52,8 +52,8 @@ class questionActions extends sfActions
     $this->form->setDefault('question_id', $this->question->getId());
 
     // Get the accepted answer
-    $accepted = $this->question->getAccept();
-    $this->accepted = $accepted[0];
+    //$accepted = $this->question->getAccept();
+    $this->accepted = NULL;
   }
 
   public function executeNew(sfWebRequest $request)

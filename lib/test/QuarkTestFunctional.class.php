@@ -19,6 +19,7 @@ class QuarkTestFunctional extends sfTestFunctional
   {
     return $this->click('Signin', array('signin' => array('username' => $username, 'password' => $password)))->with('response')->isRedirected()->followRedirect();
   }
+
 }
 
 ?>
