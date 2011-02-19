@@ -71,26 +71,3 @@ $browser->
           isStatusCode(200)->
           checkElement('div#question-precontents > div.vote .count', (string) (((int) $question->interested_users) + 1))->
         end();
-
-// Get the counter value for the next test
-//$browser->with('response')->aa();
-/*$c = $browser->getResponseDomCssSelector();
-$title = $c->getValues('title');
-print $title;
-
-//$counter = $c->getValues('div');
-
-//print "pippo";
-//print_r($counter);
-
-/*$browser->
-    info('  2.4 - Check that counter increase after a vote on +1')->
-        with('response')->begin()->
-          checkElement('div#question-precontents > div.vote .count', $counter);
-        end();
-
-            /*with('response')->
-              click('div#question-precontents > div.vote div.up-vote a.button-up')->
-              info('  2.3 - Check that counter increase after a vote by one.')->
-                with('response')->
-                  checkElement('div#question-precontents > div.vote .count', $val + 1);*/
