@@ -10,7 +10,7 @@ $max_questions = 20;
 $question = Doctrine_Query::create()
   ->from('Question q')->fetchOne();
 
-print "interested=".$question->interested_users;
+$interested = $question->interested_users;
 
 
 $browser->
@@ -29,7 +29,7 @@ $browser->
 
     info('  2.1 - Check that not loggedin users can\'t see links into the voting widget')->
 
-      click('#question-list-content > div.item a', array(), array('position' => 1))->
+      get('/question/'.$question->id.'/'.Quark::slugify($question->title))->
         with('response')->begin()->
           isStatusCode(200)->
           checkElement('div#question-precontents > div.vote a', 0)->
@@ -54,7 +54,7 @@ $browser->
 
     info('  2.3 - Check that vote counter exists and reports the correct result')->
           checkElement('div#question-precontents > div.vote .count', true)->
-          checkElement('div#question-precontents > div.vote .count', (string) $question->interested_users)->
+          checkElement('div#question-precontents > div.vote .count', (string) $interested)->
 
     info('  2.3 - Click on +1 and check the new value')->
           click('div#question-precontents > div.vote div.up-vote a.button-up')->
@@ -69,5 +69,5 @@ $browser->
 
         with('response')->begin()->
           isStatusCode(200)->
-          checkElement('div#question-precontents > div.vote .count', (string) (((int) $question->interested_users) + 1))->
+          checkElement('div#question-precontents > div.vote .count', (string) ($interested + 1)) ->
         end();
