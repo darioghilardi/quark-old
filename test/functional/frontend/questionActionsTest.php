@@ -69,5 +69,5 @@ $browser->
 
         with('response')->begin()->
           isStatusCode(200)->
-          checkElement('div#question-precontents > div.vote .count', (string) (((int) $question->interested_users) + 1))->
+          checkElement('div#question-precontents > div.vote .count',(string) $question->interested_users)->
         end();
