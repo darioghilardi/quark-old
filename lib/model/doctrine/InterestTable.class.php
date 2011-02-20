@@ -59,7 +59,7 @@ class InterestTable extends Doctrine_Table
       $q->question_id = $qid;
       $q->user_id = $user_id;
 
-      $q->save();
+      $q->save();      
       return $q->id;
     }
 }

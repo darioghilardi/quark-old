@@ -5,14 +5,14 @@ include(dirname(__FILE__).'/../../bootstrap/functional.php');
 $browser = new QuarkTestFunctional(new sfBrowser());
 $browser->loadData();
 
+// Setup basic data
 $max_h1 = 1;
 $max_questions = 20;
 $question = Doctrine_Query::create()
   ->from('Question q')->fetchOne();
-
 $interested = $question->interested_users;
 
-
+// Start testing
 $browser->
   info('1 - The homepage')->
   
@@ -56,11 +56,97 @@ $browser->
           checkElement('div#question-precontents > div.vote .count', true)->
           checkElement('div#question-precontents > div.vote .count', (string) $interested)->
 
-    info('  2.3 - Click on +1 and check the new value')->
+    info('  2.4 - Click on +1 and check the new value')->
           click('div#question-precontents > div.vote div.up-vote a.button-up')->
         end()->
 
         followRedirect()->
+
+        with('request')->begin()->
+          isParameter('module', 'question')->
+          isParameter('action', 'show')->
+        end()->
+
+        with('response')->begin()->
+          isStatusCode(200)->
+          checkElement('div#question-precontents > div.vote .count', (string) ($interested + 1)) ->
+
+    info('  2.5 - Click on +1 to undo the previous vote up')->
+          click('div#question-precontents > div.vote div.up-vote a.button-up')->
+        end()->
+
+        followRedirect()->
+
+        with('request')->begin()->
+          isParameter('module', 'question')->
+          isParameter('action', 'show')->
+        end()->
+
+        with('response')->begin()->
+          isStatusCode(200)->
+          checkElement('div#question-precontents > div.vote .count', (string) ($interested)) ->
+
+    info('  2.6 - Click on -1 and check the new value')->
+          click('div#question-precontents > div.vote div.down-vote a.button-down')->
+        end()->
+
+        followredirect()->
+
+        with('request')->begin()->
+          isParameter('module', 'question')->
+          isParameter('action', 'show')->
+        end()->
+
+        with('response')->begin()->
+          isStatusCode(200)->
+          checkElement('div#question-precontents > div.vote .count', (string) ($interested - 1)) ->
+
+    info('  2.7 - Click on -1 to undo the previous vote down')->
+          click('div#question-precontents > div.vote div.down-vote a.button-down')->
+        end()->
+
+        followredirect()->
+
+        with('request')->begin()->
+          isParameter('module', 'question')->
+          isParameter('action', 'show')->
+        end()->
+
+        with('response')->begin()->
+          isStatusCode(200)->
+          checkElement('div#question-precontents > div.vote .count', (string) ($interested)) ->
+
+    info('  2.8 - Click on +1 then on -1 and then on +1 again to check the double vote increment e decrement')->
+          click('div#question-precontents > div.vote div.up-vote a.button-up')->
+        end()->
+
+        followredirect()->
+
+        with('request')->begin()->
+          isParameter('module', 'question')->
+          isParameter('action', 'show')->
+        end()->
+
+        with('response')->begin()->
+          isStatusCode(200)->
+          checkElement('div#question-precontents > div.vote .count', (string) ($interested + 1)) ->
+          click('div#question-precontents > div.vote div.down-vote a.button-down')->
+        end()->
+
+        followredirect()->
+
+        with('request')->begin()->
+          isParameter('module', 'question')->
+          isParameter('action', 'show')->
+        end()->
+
+        with('response')->begin()->
+          isStatusCode(200)->
+          checkElement('div#question-precontents > div.vote .count', (string) ($interested - 1)) ->
+          click('div#question-precontents > div.vote div.up-vote a.button-up')->
+        end()->
+
+        followredirect()->
 
         with('request')->begin()->
           isParameter('module', 'question')->

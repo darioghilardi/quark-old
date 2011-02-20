@@ -63,14 +63,13 @@ class voting
     if(empty($av))
     {
       // Update the question interest entries count
-      Doctrine_Core::getTable('Question')->updateQuestionInterest($this->id, $sign);
+      //Doctrine_Core::getTable('Question')->updateQuestionInterest($this->id, $sign);
 
       // Update the interest table
       Doctrine_Core::getTable('Interest')->addInterest($this->user_id, $this->id, $sign);
     }
     elseif (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
     {
-
       $amount = (($av[0]["value"] == 0) ? 1 : 2) * $sign;
       // Update the question interest entries count
       Doctrine_Core::getTable('Question')->updateQuestionInterest($this->id, $amount);

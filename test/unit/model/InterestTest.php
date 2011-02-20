@@ -96,11 +96,13 @@ Doctrine::getTable('Interest')->find($id)->delete();
 // Call addInterest with required parameters
 $user = getUser();
 $question = getQuestion();
+$val = $question->interested_users;
 $id = Doctrine_Core::getTable('Interest')->addInterest($user->id, $question->id, 0);
 // Get submitted value
 $interest = Doctrine_Core::getTable('Interest')->find($id);
 $t->is($interest->value, 0, '->addInterest() zero insert for interest.');
 // Clean the table to avoid problems with following tests
+$t->is($question->interested_users, $val, '->questioninterestes() zero insert for interest.');
 Doctrine::getTable('Interest')->find($id)->delete();
 
 function createInterest ($defaults = array())
