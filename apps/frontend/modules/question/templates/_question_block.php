@@ -1,4 +1,4 @@
-<div class="block <?php (isset($type))? print $type : print 'standard';?>">
+<div class="block clearfix <?php (isset($type))? print $type : print 'standard';?>">
   <?php if(!empty($title)):?>
   <h4 class="block-title"><?php print $title; ?></h4>
   <?php endif; ?>

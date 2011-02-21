@@ -335,9 +335,20 @@ ul#pager .item a{
   font-weight:bold;
 }
   /*See .tags > a style*/
+.block.welcome{
+	font-size:120%;
+}
 .block.populartags ul li a{
 	line-height:22px;
 	font-weight:normal;
+}
+
+.block.welcome p{
+	margin-bottom:5px;
+}
+
+.block.welcome span.link{
+	margin-left:4px;
 }
 
 /*Footer*/
