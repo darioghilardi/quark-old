@@ -67,17 +67,17 @@ pre,code,tt { font: 1em 'andale mono', 'lucida console', monospace; line-height:
 /* Lists
 -------------------------------------------------------------- */
 
-.typo li ul,
-.typo li ol { margin: 0; }
-.typo ul,
-.typo ol { margin: 0 1.5em 1.5em 0; padding-left: 1.5em; }
+li ul,
+li ol { margin: 0; }
+ul,
+ol { margin: 0 1.5em 1.5em 0; padding-left: 1.5em; }
 
-.typo ul { list-style-type: disc; }
-.typo ol { list-style-type: decimal; }
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
 
-.typo dl { margin: 0 0 1.5em 0; }
-.typo dl dt { font-weight: bold; }
-.typo dd { margin-left: 1.5em;}
+dl { margin: 0 0 1.5em 0; }
+dl dt { font-weight: bold; }
+dd { margin-left: 1.5em;}
 
 /* Tables
 -------------------------------------------------------------- */
