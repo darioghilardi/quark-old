@@ -131,7 +131,7 @@ class questionActions extends sfActions
     {
       $user_id = $this->getUser()->getGuardUser()->getId();
       $qid = $request->getParameter('id');
-      $sign = ($request->getParameter('type') == 'up') ? 1 : -1;
+      $sign = ($request->getParameter('type') == 'up') ? '1' : '-1';
 
       // Istantiate the voting class and call the vote method
       $v = new voting($qid, $user_id);
