@@ -268,7 +268,7 @@ ul#secondary-menu li a:hover{
   font-size: 11px;
 	text-transform:lowercase;}
 
-
+.block.populartags ul li a, /*See Block*/
 .tags > a {
   font-family: "Tahoma", "Geneva", sans-serif;
   background: url('/images/tagsback.jpg');
@@ -277,7 +277,7 @@ ul#secondary-menu li a:hover{
   margin-right: 4px;
 	border-radius: 4px;
 }
-
+.block.populartags ul li a:hover,
 .tags > a:hover {
   text-decoration: none;
   background: url('/images/tagsback-hover.jpg');
@@ -322,13 +322,24 @@ ul#pager .item a{
 	}
     /*statistics*/
   .statistics .item{
-  	font-size:21px;	
+  	font-size: 21px;	
+		font-weight: bold;
   }
   .statistics .item span{
   	margin-left:8px;
 		color: #5B5B5B;
   }
-	
+
+.block.populartags ul li{
+  color: #8E8E8E;
+  font-weight:bold;
+}
+  /*See .tags > a style*/
+.block.populartags ul li a{
+	line-height:22px;
+	font-weight:normal;
+}
+
 /*Footer*/
 #footer{
   border-top:2px solid #222;
@@ -456,7 +467,6 @@ form#signin-form{
 	margin-bottom:10px;
 	line-height:21px;
 }
-
 
 .options li a{
 	margin-top:10px;

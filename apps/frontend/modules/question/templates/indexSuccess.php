@@ -35,20 +35,20 @@
       <h4 class="block-title">Popular Tags</h4>
       <div>
       <ul class="nonelist nonespace">
-        <li><a href="">Web</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">Developing</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">Apache</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">Google</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">Driven</a><?php print 'x' .rand(5,99);?></li>s
-        <li><a href="">Design</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">Android</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">Image</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">Css3</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">XHTML</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">Django</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">Drupal</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">Python</a><?php print 'x' .rand(5,99);?></li>
-        <li><a href="">Linux</a><?php print 'x' .rand(5,99);?></li>
+        <li><a href="">Web</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Developing</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Apache</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Google</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Driven</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Design</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Android</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Image</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Css3</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">XHTML</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Django</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Drupal</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Python</a><?php print 'x ' .rand(5,99);?></li>
+        <li><a href="">Linux</a><?php print 'x ' .rand(5,99);?></li>
         <li><a href="">Programming</a><?php print 'x' .rand(5,99);?></li>
       </ul>
       </div>
