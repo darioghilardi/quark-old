@@ -32,20 +32,39 @@ form .backto{
 }
 
 form .save input{
-  margin-left:15px;
-  border:1px solid #ccc;
-  background:#efefef;
-  font-size:18px;
-  display:block;
+	  margin-left:15px;
+	  border:1px solid #ccc;
+	  background:#efefef;
+	  font-size:18px;
+	  display:block;
 }
 
 form .save input:hover{
-  background:#444;
-  color:#fff;
+    background:#444;
+    color:#fff;
 }
 
 form > .item {
     margin-bottom: 20px;
+}
+
+form .preview p{
+    background: #B8E094;
+    padding:15px;
+}
+
+.wmd-button.wmd-help-button{
+    float: right;
+    position: relative;
+    right: 0;
+}
+
+ul.error_list li{
+  list-style:none;
+  list-style-image:none;
+  background:#f69292;
+  color:#000;
+  padding:5px;
 }
 
 /*TopPage*/
@@ -364,7 +383,7 @@ ul#pager .item a{
 
 
 /*Page New Ask Quesiton*/
-
+/*
 form#add-question{
   margin-top:10px;	
 }
@@ -394,9 +413,17 @@ form#add-question{
     height: 250px;
     width: 99%;
 }
+*/
 
-#preview-question p{background: #B8E094;padding:15px;}
+form#add-question{
+  margin-top:10px;  
+}
 
+#body-question textarea{
+    height: 250px;
+}
+
+/*
 #submit-question input{
 	margin-left:15px;
 	border:1px solid #ccc;
@@ -409,27 +436,16 @@ form#add-question{
 	background:#444;
 	color:#fff;
 }
+
+*/
+
+/*
 #backtolist-question{
 	 font-size:15px;
 	 color:#444;
 	 font-weight:bold;
-	
 }
-
-.wmd-button.wmd-help-button{
-	    float: right;
-    position: relative;
-    right: 0;
-}
-
-ul.error_list li{
-	list-style:none;
-	list-style-image:none;
-	background:#f69292;
-	color:#000;
-  padding:5px;
-}
-
+*/
 
 /*Sigin Page Form*/
 form#signin-form{

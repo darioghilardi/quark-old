@@ -27,6 +27,13 @@
 	  <?php echo $form['body'] ?>
   </div>
 
+    <div id="preview-answer" class="item preview"> 
+      <label>Preview</label>
+      <div id="preview"></div>
+    </div>
+
+    <?php echo $form['_csrf_token'] ?>
+
   <div id="button-answer" class="item">
     <span id ="submit-answer" class="boxright save">
       <input type="submit" value="Save" />

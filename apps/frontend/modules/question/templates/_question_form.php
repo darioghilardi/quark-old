@@ -25,20 +25,18 @@
 	    <?php echo $form['body'] ?>
     </div>
 
-
-   
-    <div id="preview-question" class="item"> 
+    <div id="preview-question" class="item preview"> 
       <label>Preview</label>
       <div id="preview"></div>
     </div>
     
     <?php echo $form['_csrf_token'] ?>
 
-		<span id ="submit-question" class="boxright">
+		<span id ="submit-question" class="save boxright">
 		  <input type="submit" value="Save" />
 		</span>
 		
-		<span id ="backtolist-question" class="boxleftt">
+		<span id ="backtolist-question" class="backto boxleftt">
 		    &larr; <a href="<?php echo url_for('question/index') ?>">Back to list</a>
 		</span>
 
