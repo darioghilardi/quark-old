@@ -1,7 +1,7 @@
 <?php use_stylesheet('wmd.css') ?>
 <?php use_javascript('wmd.js') ?>
 <?php use_javascript('showdown.js') ?>
-<?php use_javascript('wmd-setup.js') ?>
+<?php use_javascript('wmd-setup-question.js') ?>
 
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>

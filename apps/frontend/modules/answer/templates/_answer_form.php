@@ -1,3 +1,8 @@
+<?php use_stylesheet('wmd.css') ?>
+<?php use_javascript('wmd.js') ?>
+<?php use_javascript('showdown.js') ?>
+<?php use_javascript('wmd-setup-answer.js') ?>
+
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 
@@ -16,8 +21,9 @@
   <?php echo $form->renderGlobalErrors() ?>
   
   <div id="body-answer" class="item">
-	  <?php echo $form['body']->renderLabel() ?>
-	  <?php echo $form['body']->renderError() ?>
+    <?php echo $form['body']->renderError() ?>
+    <?php echo $form['body']->renderLabel() ?>
+    <div id="button-bar"></div>
 	  <?php echo $form['body'] ?>
   </div>
 
