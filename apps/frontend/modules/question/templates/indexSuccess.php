@@ -25,8 +25,9 @@
   
 	  <div class="block statistics">
 		  <div>
-        <div class="questions-count">1246<span>questions</span></div>
-        <div class="answers-count">2503<span>answers</span></div>
+        <div class="item">1246<span>questions</span></div>
+        <div class="item">125<span>unanswered</span></div>
+        <div class="item">2503<span>answers</span></div>
 		  </div>
 	  </div>
 
