@@ -56,26 +56,40 @@ class voting
    */
   public function questionVote($sign)
   {
-    // Check if this user already voted this question
-    $av = Doctrine_Core::getTable('Interest')->getInterestValue($this->user_id, $this->id);
-
-    // Check if this entry is already into the table
-    if(empty($av))
+    // Start a transaction
+    $conn = Doctrine_Manager::getInstance()->getCurrentConnection();
+		$conn->beginTransaction();
+    try
     {
-      // Update the question interest entries count
-      //Doctrine_Core::getTable('Question')->updateQuestionInterest($this->id, $sign);
+      // Check if this user already voted this question
+      $av = Doctrine_Core::getTable('Interest')->getInterestValue($this->user_id, $this->id);
 
-      // Update the interest table
-      Doctrine_Core::getTable('Interest')->addInterest($this->user_id, $this->id, $sign);
+      // Check if this entry is already into the table
+      if(empty($av))
+      {
+        // Update the question interest entries count and update the interest table
+        Doctrine_Core::getTable('Question')->updateQuestionInterest($this->id, $sign);
+        // Update the interest table
+        Doctrine_Core::getTable('Interest')->addInterest($this->user_id, $this->id, $sign);
+      }
+      elseif (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
+      {
+        $amount = (($av[0]["value"] == 0) ? 1 : 2) * $sign;
+        // Update the question interest entries count
+        Doctrine_Core::getTable('Question')->updateQuestionInterest($this->id, $amount);
+
+        // Update the interest table
+        Doctrine_Core::getTable('Interest')->updateInterest($this->user_id, $this->id, $sign);
+      }
+
+      // Commit the transaction
+      $conn->commit();
     }
-    elseif (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
+    catch (Exception $e)
     {
-      $amount = (($av[0]["value"] == 0) ? 1 : 2) * $sign;
-      // Update the question interest entries count
-      Doctrine_Core::getTable('Question')->updateQuestionInterest($this->id, $amount);
-
-      // Update the interest table
-      Doctrine_Core::getTable('Interest')->updateInterest($this->user_id, $this->id, $sign);
+      // Rollback and exception
+			$conn->rollBack();
+			throw $e;
     }
   }
 
@@ -86,16 +100,28 @@ class voting
    */
   public function questionUndoVote($sign)
   {
-    // Check if this user already voted this question
-    $av = Doctrine_Core::getTable('Interest')->getInterestValue($this->user_id, $this->id);
-
-    if (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
+    // Start a transaction
+    $conn = Doctrine_Manager::getInstance()->getCurrentConnection();
+		$conn->beginTransaction();
+    try
     {
-      // Update the question interest entries count
-      Doctrine_Core::getTable('Question')->updateQuestionInterest($this->id, $sign);
+      // Check if this user already voted this question
+      $av = Doctrine_Core::getTable('Interest')->getInterestValue($this->user_id, $this->id);
 
-      // Update the interest table
-      Doctrine_Core::getTable('Interest')->updateInterest($this->user_id, $this->id, 0);
+      if (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
+      {
+        // Update the question interest entries count
+        Doctrine_Core::getTable('Question')->updateQuestionInterest($this->id, $sign);
+
+        // Update the interest table
+        Doctrine_Core::getTable('Interest')->updateInterest($this->user_id, $this->id, 0);
+      }
+    }
+    catch (Exception $e)
+    {
+      // Rollback and exception
+			$conn->rollBack();
+			throw $e;
     }
   }
 
@@ -142,27 +168,39 @@ class voting
    */
   public function answerVote($sign)
   {
-    // Check if this user already voted this question
-    $av = Doctrine_Core::getTable('Rating')->getRatingValue($this->user_id, $this->id);
-
-    // Check if this entry is already into the table
-    if(empty($av))
+    // Start a transaction
+    $conn = Doctrine_Manager::getInstance()->getCurrentConnection();
+		$conn->beginTransaction();
+    try
     {
-      // Update the question interest entries count
-      Doctrine_Core::getTable('Answer')->updateAnswerRating($this->id, $sign);
+      // Check if this user already voted this question
+      $av = Doctrine_Core::getTable('Rating')->getRatingValue($this->user_id, $this->id);
 
-      // Update the interest table
-      Doctrine_Core::getTable('Rating')->addRating($this->user_id, $this->id, $sign);
+      // Check if this entry is already into the table
+      if(empty($av))
+      {
+        // Update the question interest entries count
+        Doctrine_Core::getTable('Answer')->updateAnswerRating($this->id, $sign);
+
+        // Update the interest table
+        Doctrine_Core::getTable('Rating')->addRating($this->user_id, $this->id, $sign);
+      }
+      elseif (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
+      {
+
+        $amount = (($av[0]["value"] == 0) ? 1 : 2) * $sign;
+        // Update the question interest entries count
+        Doctrine_Core::getTable('Answer')->updateAnswerRating($this->id, $amount);
+
+        // Update the interest table
+        Doctrine_Core::getTable('Rating')->updateRating($this->user_id, $this->id, $sign);
+      }
     }
-    elseif (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
+    catch (Exception $e)
     {
-
-      $amount = (($av[0]["value"] == 0) ? 1 : 2) * $sign;
-      // Update the question interest entries count
-      Doctrine_Core::getTable('Answer')->updateAnswerRating($this->id, $amount);
-
-      // Update the interest table
-      Doctrine_Core::getTable('Rating')->updateRating($this->user_id, $this->id, $sign);
+      // Rollback and exception
+			$conn->rollBack();
+			throw $e;
     }
   }
 
@@ -173,16 +211,28 @@ class voting
    */
   public function answerUndoVote($sign)
   {
-    // Check if this user already voted this question
-    $av = Doctrine_Core::getTable('Rating')->getRatingValue($this->user_id, $this->id);
-
-    if (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
+    // Start a transaction
+    $conn = Doctrine_Manager::getInstance()->getCurrentConnection();
+		$conn->beginTransaction();
+    try
     {
-      // Update the answer votes count
-      Doctrine_Core::getTable('Answer')->updateAnswerRating($this->id, $sign);
+      // Check if this user already voted this question
+      $av = Doctrine_Core::getTable('Rating')->getRatingValue($this->user_id, $this->id);
 
-      // Update the rating table
-      Doctrine_Core::getTable('Rating')->updateRating($this->user_id, $this->id, 0);
+      if (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
+      {
+        // Update the answer votes count
+        Doctrine_Core::getTable('Answer')->updateAnswerRating($this->id, $sign);
+
+        // Update the rating table
+        Doctrine_Core::getTable('Rating')->updateRating($this->user_id, $this->id, 0);
+      }
+    }
+    catch (Exception $e)
+    {
+      // Rollback and exception
+			$conn->rollBack();
+			throw $e;
     }
   }
 }
