@@ -41,7 +41,7 @@ class userActions extends sfActions
   */  
   public function executeList(sfWebRequest $request)
   {
-
+    $this->forward404Unless($this->users = Doctrine_Core::getTable('sfGuardUser')->createQuery('u')->orderBy('username ASC'));
   }
   
 }
