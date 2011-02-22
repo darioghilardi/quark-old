@@ -599,3 +599,32 @@ h3.sub-page-title{
     font-size: 15px;
     font-weight: bold;
 }
+
+
+/*User*/
+/*listSuccess*/
+
+#user-list-content .item{
+	height: 35px;
+  width: 185px;
+}
+
+#user-list-content .item .user-avatar{
+  width:35px;
+	height:35px;
+	background:#efefef;
+}
+
+#user-list-content .item .user-username,
+#user-list-content .item .user-points{
+	width:145px;
+	margin-left:5px;
+	
+}
+
+#user-list-content .item .user-points span{
+	color:#444;
+	font-weight:bold;
+  margin-right: 10px;
+	
+}

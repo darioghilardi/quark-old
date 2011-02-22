@@ -9,7 +9,7 @@
 <ul id="primary-menu" class="nonelist nonespace boxright txtright">
         <li class="boxright login-item">
             <?php if((empty($notloginlink))): ?>
-	            <?php if ($sf_user->isAuthenticated()): ?> Welcome <?php echo link_to($sf_user, 'user/show?username=' . $sf_user->getGuardUser()->getUsername()) ?> - <?php echo link_to('Logout', 'sf_guard_signout') ?>
+	            <?php if ($sf_user->isAuthenticated()): ?> Welcome <?php echo link_to($sf_user->getGuardUser()->getUsername(), 'user/show?username=' . $sf_user->getGuardUser()->getUsername()) ?> - <?php echo link_to('Logout', 'sf_guard_signout') ?>
 	            
 	            <?php else: ?>
 	              <a href="<?php echo url_for('sf_guard_signin') ?>">Login</a>
