@@ -29,8 +29,19 @@ class userActions extends sfActions
   */  
   public function executeShow(sfWebRequest $request)
   {
-  	//retrive user objects, if exist
+    //retrive user objects, if exist
     $this->forward404Unless($this->user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username')));
+  }
+  
+ /**
+  * Executes list action
+  *
+  * @param sfRequest $request A request object
+  * 
+  */  
+  public function executeList(sfWebRequest $request)
+  {
+
   }
   
 }
