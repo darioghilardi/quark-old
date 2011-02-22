@@ -4,6 +4,7 @@
 <div id="listSuccess">
 	<div id="user-list-content" class="col-18">
 	  <h1 id="page-title">User list</h1>
+	  
 	  <?php include_partial('user/user_list', array('pager' => $pager)) ?>
 	</div>
 	    
