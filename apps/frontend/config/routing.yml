@@ -102,3 +102,6 @@ sf_guard_password:
 user_profile:
   url:  user/:id
   param: { module: user, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
