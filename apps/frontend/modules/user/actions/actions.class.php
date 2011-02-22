@@ -19,4 +19,10 @@ class userActions extends sfActions
   {
     $this->forward('default', 'module');
   }
+  
+  public function executeShow(sfWebRequest $request)
+  {
+  	
+  }
+  
 }

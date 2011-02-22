@@ -99,3 +99,6 @@ sf_guard_password:
 #url:   /user
 #param: { module: sfGuardUser, action: user }
 
+user_profile:
+  url:  user/:id
+  param: { module: user, action: show }
