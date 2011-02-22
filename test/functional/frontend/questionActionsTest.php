@@ -5,17 +5,13 @@ include(dirname(__FILE__).'/../../bootstrap/functional.php');
 $browser = new QuarkTestFunctional(new sfBrowser());
 $browser->loadData();
 
-// Setup basic data
+// Bootstrap the test
 $max_h1 = 1;
 $max_questions = 20;
 $question = Doctrine_Query::create()
   ->from('Question q')->fetchOne();
-<<<<<<< HEAD
 
-print "interested=".$question->interested_users;
-=======
 $interested = $question->interested_users;
->>>>>>> ecf99bd0fde317cea033aa293aa2edc89240eb9c
 
 // Start testing
 $browser->
@@ -32,7 +28,7 @@ $browser->
 
   info('2 - Question page')->
 
-    info('  2.1 - Check that not loggedin users can\'t see links into the voting widget')->
+    info('  2.1 - Check that not loggedin users can\'t see links into the voting widget for questions')->
 
       click('#question-list-content > div.item a', array(), array('position' => 1))->
         with('response')->begin()->
@@ -89,9 +85,6 @@ $browser->
 
         with('response')->begin()->
           isStatusCode(200)->
-<<<<<<< HEAD
-          checkElement('div#question-precontents > div.vote .count',(string) $question->interested_users)->
-=======
           checkElement('div#question-precontents > div.vote .count', (string) ($interested)) ->
 
     info('  2.6 - Click on -1 and check the new value')->
@@ -164,5 +157,4 @@ $browser->
         with('response')->begin()->
           isStatusCode(200)->
           checkElement('div#question-precontents > div.vote .count', (string) ($interested + 1)) ->
->>>>>>> ecf99bd0fde317cea033aa293aa2edc89240eb9c
         end();

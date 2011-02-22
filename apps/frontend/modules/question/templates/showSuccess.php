@@ -47,7 +47,7 @@
     <?php foreach ($question->getAskQuestion() as $answer): ?>
       <div class="answer item clearfix">
         <div class="col-2">
-         <div class="vote">
+         <div class="vote answer-<?php print $answer->getId() ?>">
            <?php include_component('answer', 'answerVoteWidget', array('answer' => $answer)); ?>
            </div>
         </div>
