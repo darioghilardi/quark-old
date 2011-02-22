@@ -4,12 +4,30 @@
 <div id="showSuccess">
 	<div id="user-single-content" class="col-18">
 	  <h1 id="page-title"><?php echo $user->getUsername(); ?></h1>
-	  <div>
+	  
+	  <div id="user-info">
       <ul>
 	      <li><?php echo $user->getFirst_name();?></li>
 	      <li><?php echo$user->getLast_name();?></li>
 	    </ul>
 	  </div>
+	  
+	  <div id="user-questions">
+	   <h3><span><?php echo rand(1,99); ?></span> Questions</h3>
+    </div>
+    
+    <div id="user-answers">
+      <h3><span><?php echo rand(1,99); ?></span> Answers</h3>
+    </div>
+
+    <div id="user-tags">
+      <h3><span><?php echo rand(1,99); ?></span> Tags</h3>
+    </div>
+    
+    <div id="user-basges">
+      <h3><span><?php echo rand(1,99); ?></span> Badges</h3>
+    </div>
+
 	</div>
 	    
 	<div id="sidebar" class="col-6">
