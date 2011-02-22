@@ -5,3 +5,4 @@
 
 all:
   default_question_for_page: 20
+  default_user_for_page: 50

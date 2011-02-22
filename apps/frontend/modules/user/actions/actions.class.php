@@ -41,7 +41,12 @@ class userActions extends sfActions
   */  
   public function executeList(sfWebRequest $request)
   {
-    $this->forward404Unless($this->users = Doctrine_Core::getTable('sfGuardUser')->createQuery('u')->orderBy('username ASC'));
+  	$this->pager = new sfDoctrinePager('sfGuardUser', sfConfig::get('app_default_user_for_page'));
+    $this->pager->setQuery(Doctrine_Core::getTable('sfGuardUser')->createQuery('u')->orderBy('username ASC'));
+  
+    $this->pager->setPage($request->getParameter('page', 1));
+    $this->pager->init();
+    
   }
   
 }
