@@ -100,8 +100,7 @@ sf_guard_password:
 #param: { module: sfGuardUser, action: user }
 
 user_profile:
-  url:  user/:id
+  url:  user/:username
   param: { module: user, action: show }
   requirements:
-    id: \d+
     sf_method: [get]

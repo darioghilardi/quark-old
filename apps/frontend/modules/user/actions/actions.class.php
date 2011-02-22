@@ -24,13 +24,13 @@ class userActions extends sfActions
   * Executes show action
   *
   * @param sfRequest $request A request object
-  * $request id user
+  * $request username
   * 
   */  
   public function executeShow(sfWebRequest $request)
   {
   	//retrive user objects, if exist
-    $this->forward404Unless($this->user = Doctrine::getTable('sfGuardUser')->find($request->getParameter('id')));
+    $this->forward404Unless($this->user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username')));
   }
   
 }
