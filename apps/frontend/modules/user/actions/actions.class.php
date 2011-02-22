@@ -23,6 +23,8 @@ class userActions extends sfActions
   public function executeShow(sfWebRequest $request)
   {
   	
+    $question = Doctrine::getTable('sfGuardUser')->find($request->getParameter('id'));
+    
   }
   
 }
