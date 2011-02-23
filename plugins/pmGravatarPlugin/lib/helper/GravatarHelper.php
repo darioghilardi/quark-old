@@ -6,8 +6,13 @@
  * @param string $email The user email.
  * @param integer $size The gravatar size.
  * @param string $rating The gravatar rating.
- * @param string $default The default image to use if the email does not have
- *                        a gravatar image.
+ * @param string $default The default image to use if the email does not have a gravatar image.
+ * # 404: do not load any image if none is associated with the email hash, instead return an HTTP 404 (File Not Found) response
+ * # mm: (mystery-man) a simple, cartoon-style silhouetted outline of a person (does not vary by email hash)
+ * # identicon: a geometric pattern based on an email hash
+ * # monsterid: a generated 'monster' with different colors, faces, etc
+ * # wavatar: generated faces with differing features and backgrounds
+ * # retro: aweso
  *
  * @return string The gravatar image url.
  */
