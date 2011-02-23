@@ -11,7 +11,9 @@
 	      <li><?php echo $user->getFirst_name();?></li>
 	      <li><?php echo $user->getLast_name();?></li>
 	      <li><?php echo $user->getEmail_address();?></li>
-	      <li><?php echo gravatar($user->getEmail_address()) ?></li>
+	      <li><?php echo gravatar($user->getEmail_address(), 128);
+
+	      echo gravatar_profile($user->getEmail_address(), 'Edit Gravatar')?></li>
 	    </ul>
 	  </div>
 	  

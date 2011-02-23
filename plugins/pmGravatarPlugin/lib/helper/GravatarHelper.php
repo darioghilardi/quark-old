@@ -70,3 +70,25 @@ function gravatar($email, $size = 80, $rating = 'g', $default = null)
 {
   return image_tag(gravatar_url($email, $size, $rating, $default));
 }
+
+/**
+ * Builds an <a //..> </a> tag to gravatar user profile
+ *
+ * @param string $email The user email.
+ * @param strin $text The text for link
+ * 
+ * @return string The gravatar profile related at $email
+ */
+function gravatar_profile($email, $text = 'User profile')
+{
+	if(isset($email)){
+		$url = 'http://www.gravatar.com/';
+	  $email_hash = md5(trim(strtolower($email)));
+	  
+	  $url .= $email_hash;
+	}else{
+	  $url='';
+	}
+  
+  return link_to($text,$url);
+}
