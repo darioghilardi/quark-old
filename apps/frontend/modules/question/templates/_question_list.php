@@ -38,7 +38,7 @@
     </span>
     
     <span class="submitted boxright txtright">
-      <?php include_partial('question/question_submitted', array()) ?>
+      <?php include_partial('question/question_submitted', array('user_id'=>$question->getUser_id())) ?>
     </span>
     
     </div>

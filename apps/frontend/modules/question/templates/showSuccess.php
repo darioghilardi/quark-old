@@ -26,7 +26,7 @@
         </span>
     
 		    <span class="submitted boxright txtright">
-		      <?php include_partial('question/question_submitted', array()) ?>
+		      <?php include_partial('question/question_submitted', array('user_id'=>$question->getUser_id())) ?>
 		    </span>
       </div>
       <div class="options clearfix clear">
@@ -61,7 +61,7 @@
   	    </div>
   	    
 		    <span class="submitted txtright boxright">
-	        <?php include_partial('question/question_answers_submitted', array()) ?>
+	        <?php include_partial('question/question_answers_submitted', array('user_id'=>$question->getUser_id())) ?>
 		    </span>
 		    
 			  <div class="options clearfix clear">
