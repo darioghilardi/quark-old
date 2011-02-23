@@ -116,6 +116,9 @@ class voting
         // Update the interest table
         Doctrine_Core::getTable('Interest')->updateInterest($this->user_id, $this->id, 0);
       }
+
+      // Commit the transaction
+      $conn->commit();
     }
     catch (Exception $e)
     {
@@ -182,19 +185,22 @@ class voting
         // Update the question interest entries count
         Doctrine_Core::getTable('Answer')->updateAnswerRating($this->id, $sign);
 
-        // Update the interest table
+        // Update the rating table
         Doctrine_Core::getTable('Rating')->addRating($this->user_id, $this->id, $sign);
       }
       elseif (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
       {
-
         $amount = (($av[0]["value"] == 0) ? 1 : 2) * $sign;
+
         // Update the question interest entries count
         Doctrine_Core::getTable('Answer')->updateAnswerRating($this->id, $amount);
 
-        // Update the interest table
+        // Update the rating table
         Doctrine_Core::getTable('Rating')->updateRating($this->user_id, $this->id, $sign);
       }
+
+      // Commit the transaction
+      $conn->commit();
     }
     catch (Exception $e)
     {
@@ -227,6 +233,9 @@ class voting
         // Update the rating table
         Doctrine_Core::getTable('Rating')->updateRating($this->user_id, $this->id, 0);
       }
+
+      // Commit the transaction
+      $conn->commit();
     }
     catch (Exception $e)
     {

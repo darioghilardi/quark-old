@@ -47,7 +47,7 @@ $browser->
 
     info('  2.3 - Check that vote counter exists and reports the correct result for answer')->
           checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', true)->
-          checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', (string) $answer->votes)->
+          checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', (string) $votes)->
 
     info('  2.4 - Click on +1 and check the new value')->
           click('#answers-list > div.answer .answer-'.$answer->id.' a.button-up')->
@@ -65,7 +65,7 @@ $browser->
           checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', (string) ($votes + 1)) ->
 
     info('  2.5 - Click on +1 to undo the previous vote up')->
-          click('div#question-precontents > div.vote div.up-vote a.button-up')->
+          click('#answers-list > div.answer .answer-'.$answer->id.' a.button-up')->
         end()->
 
         followRedirect()->

@@ -12,21 +12,4 @@
  */
 class Rating extends BaseRating {
 
-
-	public function save(Doctrine_Connection $conn = null) {
-		$conn = Doctrine_Manager::getInstance()->getCurrentConnection();
-		$conn->beginTransaction();
-		try {
-			$ret = parent::save($conn);
-			$answer = $this->getAnswer();
-			$votes = $answer->getVotes();
-			$answer->setVotes($votes + 1);
-			$answer->save($conn);
-			$conn->commit();
-			return $ret;
-		} catch (Exception $e) {
-			$conn->rollBack();
-			throw $e;
-		}
-	}
 }
