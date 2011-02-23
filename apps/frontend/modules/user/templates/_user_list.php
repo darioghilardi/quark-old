@@ -1,7 +1,11 @@
+<?php use_helper('Gravatar') ?>
+
 <?php foreach ($pager->getResults() as $user): ?>
 
 <div class="item boxleft">
-	<div class="user-avatar boxleft"></div>
+	<div class="user-avatar boxleft">
+  	<?php echo link_to(gravatar($user->getEmail_address(), 35), 'user/show?username=' . $user->getUsername()) ?>
+	</div>
 	
 	<div class="user-username boxleft">
 	  <?php echo link_to($user->getUsername(), 'user/show?username=' . $user->getUsername()) ?>
