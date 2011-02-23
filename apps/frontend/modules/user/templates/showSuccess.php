@@ -1,5 +1,6 @@
 <?php slot('title', sprintf('%s', $user->getUsername())); ?>
 <?php use_helper('Text') ?>
+<?php use_helper('Gravatar') ?>
 
 <div id="showSuccess">
 	<div id="user-single-content" class="col-18">
@@ -8,7 +9,9 @@
 	  <div id="user-info">
       <ul>
 	      <li><?php echo $user->getFirst_name();?></li>
-	      <li><?php echo$user->getLast_name();?></li>
+	      <li><?php echo $user->getLast_name();?></li>
+	      <li><?php echo $user->getEmail_address();?></li>
+	      <li><?php echo gravatar($user->getEmail_address()) ?></li>
 	    </ul>
 	  </div>
 	  
