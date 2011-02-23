@@ -23,9 +23,10 @@ class AcceptTable extends Doctrine_Table
    */
   public function getAccepted($aid, $qid) {
     $q = Doctrine_Query::create()
-      ->update('Answer a')
-      ->set('a.votes','a.votes + ?', $amount)
-      ->where('a.id = ?',$aid)
-      ->execute();
+      ->from('Accept a')
+      ->where('a.answer_id = ?', $aid)
+      ->andWhere('a.question_id = ?', $qid);
+
+    return $q->fetchArray();
   }
 }

@@ -18,9 +18,9 @@ $votes = $answer->votes;
 
 // Start testing
 $browser->
-  info('1 - Question page')->
+  info('1 - Question page, looking for answers functionalities')->
 
-    info('  2.1 - Check that not loggedin users can\'t see links into the voting widget for answers')->
+    info('  1.1 - Check that not loggedin users can\'t see links into the voting widget for answers')->
 
     get('/question/'.$question->id.'/'.Quark::slugify($question->title))->
       with('response')->begin()->
@@ -28,7 +28,7 @@ $browser->
         checkElement('#answers-list > div.answer .answer-'.$answer->id.' a', 0)->
       end()->
 
-    info('  2.2 - Check that loggedin users can see links into the voting widget for answers')->
+    info('  1.2 - Check that loggedin users can see links into the voting widget for answers')->
 
       restart()->
       get('/login')->
@@ -45,11 +45,11 @@ $browser->
           checkElement('#answers-list > div.answer .answer-'.$answer->id.' a.button-up', 1)->
           checkElement('#answers-list > div.answer .answer-'.$answer->id.' a.button-down', 1)->
 
-    info('  2.3 - Check that vote counter exists and reports the correct result for answer')->
+    info('  1.3 - Check that vote counter exists and reports the correct result for answer')->
           checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', true)->
           checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', (string) $votes)->
 
-    info('  2.4 - Click on +1 and check the new value')->
+    info('  1.4 - Click on +1 and check the new value')->
           click('#answers-list > div.answer .answer-'.$answer->id.' a.button-up')->
         end()->
 
@@ -64,7 +64,7 @@ $browser->
           isStatusCode(200)->
           checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', (string) ($votes + 1)) ->
 
-    info('  2.5 - Click on +1 to undo the previous vote up')->
+    info('  1.5 - Click on +1 to undo the previous vote up')->
           click('#answers-list > div.answer .answer-'.$answer->id.' a.button-up')->
         end()->
 
@@ -79,7 +79,7 @@ $browser->
           isStatusCode(200)->
           checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', (string) ($votes)) ->
 
-    info('  2.6 - Click on -1 and check the new value')->
+    info('  1.6 - Click on -1 and check the new value')->
           click('#answers-list > div.answer .answer-'.$answer->id.' div.down-vote a.button-down')->
         end()->
 
@@ -94,7 +94,7 @@ $browser->
           isStatusCode(200)->
           checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', (string) ($votes - 1)) ->
 
-    info('  2.7 - Click on -1 to undo the previous vote down')->
+    info('  1.7 - Click on -1 to undo the previous vote down')->
           click('#answers-list > div.answer .answer-'.$answer->id.' div.down-vote a.button-down')->
         end()->
 
@@ -109,7 +109,7 @@ $browser->
           isStatusCode(200)->
           checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', (string) ($votes)) ->
 
-    info('  2.8 - Click on +1 then on -1 and then on +1 again to check the double vote increment e decrement')->
+    info('  1.8 - Click on +1 then on -1 and then on +1 again to check the double vote increment e decrement')->
           click('#answers-list > div.answer .answer-'.$answer->id.' div.up-vote a.button-up')->
         end()->
 
@@ -149,7 +149,14 @@ $browser->
         with('response')->begin()->
           isStatusCode(200)->
           checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', (string) ($votes + 1)) ->
+
+    info('  1.9 - Check that the link to accept answers exists')->
+            //Fix css selector here
+          checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', true)->
+          checkElement('#answers-list > div.answer .answer-'.$answer->id.' .count', (string) $votes)->
         end();
+
+
 
 
 function createAnswer($question, $user)

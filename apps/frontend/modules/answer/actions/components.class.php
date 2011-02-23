@@ -31,14 +31,12 @@ class answerComponents extends sfComponents
     // Take user_id and answer_id
     $user_id = (!$this->getUser()->isAuthenticated()) ? "anonymous": $this->getUser()->getGuardUser()->getId();
     $aid = $this->answer->getId();
+    $qid = $this->answer->getQuestion();
 
     // Check if this answer has been already marked as accepted
-    $av = Doctrine_Core::getTable('Accept')->getRatingValue($user_id, $aid);
+    $av = Doctrine_Core::getTable('Accept')->getAccepted($aid, $qid);
 
-    // Istantiate the voting class
-    $v = new voting($aid, $user_id);
-
-    // Check for user permissions and existing votes.
+    // Check for user permissions.
     // Return the values for up and down that needs to ba passed to the template.
     $this->up = ($this->getUser()->canVoteUpAnswer($user_id)) ? $v->preprocessAnswerVoteUp($av) : false;
     $this->down = ($this->getUser()->canVoteDownAnswer($user_id)) ? $v->preprocessAnswerVoteDown($av) : false;
