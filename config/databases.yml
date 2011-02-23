@@ -9,6 +9,6 @@ test:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=localhost;dbname=quark_test'
-      username: quark_test
-      password: quark_test
+      dsn: 'mysql:host=localhost;dbname=quark;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock'
+      username: quark
+      password: quark
