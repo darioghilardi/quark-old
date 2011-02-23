@@ -49,7 +49,10 @@
         <div class="col-2">
          <div class="vote answer-<?php print $answer->getId() ?>">
            <?php include_component('answer', 'answerVoteWidget', array('answer' => $answer)); ?>
-           </div>
+         </div>
+         <div class="accept answer-<?php print $answer->getId() ?>">
+           <?php include_partial('answer/answer_accept', array('answer' => $answer, 'accepted' => $accepted)); ?>
+         </div>
         </div>
 	    <div class="col-16">
         
@@ -66,7 +69,6 @@
 	          <li class="boxleft"><a href="##">Link</a></li>
 	          <li class="boxleft"><a href="<?php echo url_for('answer/edit?id=' . $question->getId()) ?>">Edit</a></li>
 	          <li class="boxleft"><a href="##">Flag</a></li>
-            <?php include_partial('answer/answer_accept', array('answer' => $answer, 'accepted' => $accepted)); ?>
 	        </ul>
 	      </div>
       
