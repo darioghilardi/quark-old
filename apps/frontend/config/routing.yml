@@ -14,9 +14,9 @@ static:
   class:   sfDoctrineRouteCollection
   options: { model: Static }
   
-  # Show the static page
+# Show the static page
 static_show:
-  url:  /:id/:title_slug
+  url:  /static/:id/:title_slug
   class:   sfDoctrineRoute
   options: { model: StaticContent, type: object }
   param: { module: static, action: show }
