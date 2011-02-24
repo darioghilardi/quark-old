@@ -89,7 +89,7 @@ Accept:
 StaticContent:
   about:
     User: ingo
-    title: About Quark Project
+    title: About
     body: Hello, i wanna ask how old are you. Thanks.
     created_at: '2011-01-23'
     updated_at: '2011-01-23'
