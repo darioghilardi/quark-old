@@ -13,7 +13,17 @@ answer:
 static:
   class:   sfDoctrineRouteCollection
   options: { model: Static }
-  
+
+# Show the static page
+static_show:
+  url:  /static/:id/:title_slug
+  class:   sfDoctrineRoute
+  options: { model: StaticContent, type: object }
+  param: { module: static, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
 # Show the question page
 question_show:
   url:	/question/:id/:title_slug
