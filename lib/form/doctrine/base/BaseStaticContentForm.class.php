@@ -18,6 +18,7 @@ abstract class BaseStaticContentForm extends BaseFormDoctrine
       'id'         => new sfWidgetFormInputHidden(),
       'user_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => false)),
       'title'      => new sfWidgetFormInputText(),
+      'path'       => new sfWidgetFormInputText(),
       'body'       => new sfWidgetFormTextarea(),
       'created_at' => new sfWidgetFormDateTime(),
       'updated_at' => new sfWidgetFormDateTime(),
@@ -27,10 +28,15 @@ abstract class BaseStaticContentForm extends BaseFormDoctrine
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'user_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'))),
       'title'      => new sfValidatorString(array('max_length' => 255)),
+      'path'       => new sfValidatorPass(),
       'body'       => new sfValidatorString(array('max_length' => 1000, 'required' => false)),
       'created_at' => new sfValidatorDateTime(),
       'updated_at' => new sfValidatorDateTime(),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'StaticContent', 'column' => array('path')))
+    );
 
     $this->widgetSchema->setNameFormat('static_content[%s]');
 

@@ -19,7 +19,7 @@ class staticActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->static_content = Doctrine_Core::getTable('StaticContent')->find(array($request->getParameter('id')));
+    $this->static_content = Doctrine_Core::getTable('StaticContent')->findOneByPath(array($request->getParameter('path')));
     $this->forward404Unless($this->static_content);
   }
 

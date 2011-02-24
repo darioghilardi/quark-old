@@ -16,7 +16,8 @@ static:
   
 # Show the static page
 static_show:
-  url:  /static/:id/:title_slug
+  #url:  /static/:id/:title_slug
+  url:  /:path
   class:   sfDoctrineRoute
   options: { model: StaticContent, type: object }
   param: { module: static, action: show }

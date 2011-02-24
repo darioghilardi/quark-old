@@ -8,6 +8,7 @@
  * @property integer $id
  * @property integer $user_id
  * @property string $title
+ * @property varchar $path
  * @property string $body
  * @property timestamp $created_at
  * @property timestamp $updated_at
@@ -16,6 +17,7 @@
  * @method integer       getId()         Returns the current record's "id" value
  * @method integer       getUserId()     Returns the current record's "user_id" value
  * @method string        getTitle()      Returns the current record's "title" value
+ * @method varchar       getPath()       Returns the current record's "path" value
  * @method string        getBody()       Returns the current record's "body" value
  * @method timestamp     getCreatedAt()  Returns the current record's "created_at" value
  * @method timestamp     getUpdatedAt()  Returns the current record's "updated_at" value
@@ -23,6 +25,7 @@
  * @method StaticContent setId()         Sets the current record's "id" value
  * @method StaticContent setUserId()     Sets the current record's "user_id" value
  * @method StaticContent setTitle()      Sets the current record's "title" value
+ * @method StaticContent setPath()       Sets the current record's "path" value
  * @method StaticContent setBody()       Sets the current record's "body" value
  * @method StaticContent setCreatedAt()  Sets the current record's "created_at" value
  * @method StaticContent setUpdatedAt()  Sets the current record's "updated_at" value
@@ -51,6 +54,12 @@ abstract class BaseStaticContent extends sfDoctrineRecord
              'type' => 'string',
              'notnull' => true,
              'length' => 255,
+             ));
+        $this->hasColumn('path', 'varchar', 50, array(
+             'type' => 'varchar',
+             'notnull' => true,
+             'unique' => true,
+             'length' => 50,
              ));
         $this->hasColumn('body', 'string', 1000, array(
              'type' => 'string',

@@ -13,6 +13,10 @@
       <td><?php echo $static_content->getTitle() ?></td>
     </tr>
     <tr>
+      <th>Path:</th>
+      <td><?php echo $static_content->getPath() ?></td>
+    </tr>
+    <tr>
       <th>Body:</th>
       <td><?php echo $static_content->getBody() ?></td>
     </tr>
