@@ -10,6 +10,10 @@ answer:
   class:   sfDoctrineRouteCollection
   options: { model: Answer }
 
+static:
+  class:   sfDoctrineRouteCollection
+  options: { model: Static }
+  
 # Show the question page
 question_show:
   url:	/question/:id/:title_slug
