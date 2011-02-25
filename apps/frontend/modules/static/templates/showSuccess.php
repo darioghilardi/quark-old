@@ -1,26 +1,25 @@
-<table>
-  <tbody>
-    <tr>
-      <th>Id:</th>
-      <td><?php echo $static_content->getId() ?></td>
-    </tr>
-    <tr>
-      <th>Title:</th>
-      <td><?php echo $static_content->getTitle() ?></td>
-    </tr>
-    <tr>
-      <th>Path:</th>
-      <td><?php echo $static_content->getPath() ?></td>
-    </tr>
-    <tr>
-      <th>Body:</th>
-      <td><?php echo $static_content->getBody() ?></td>
-    </tr>
-  </tbody>
-</table>
+<?php slot('title', sprintf('%s', $static_content->getTitle())); ?>
+<?php use_helper('Text') ?>
 
-<hr />
-
-<a href="<?php echo url_for('static/edit?id='.$static_content->getId()) ?>">Edit</a>
-&nbsp;
-<a href="<?php echo url_for('static/index') ?>">List</a>
+<div id="showSuccess">  
+  <div id="static-single-content" class="col-18">
+    <h1 id="page-title"><?php echo $static_content->getTitle() ?></h1>
+		<div id="static-precontents"></div>
+			<div class="description">
+			  <?php echo $static_content->getBody() ?>
+	    </div>
+	    
+	    <div class="options clearfix clear">
+	      <ul class="nonelist nonespace">
+	        <li class="boxleft"><a href="##">Link</a></li>
+	        <li class="boxleft"><a href="<?php echo url_for('static/edit?id='.$static_content->getId()) ?>">Edit</a></li>
+	        <li class="boxleft"><a href="##">Flag</a></li>
+	      </ul>
+	    </div>
+    </div>
+  </div>
+      
+  <div id="sidebar" class="col-6">
+    //....
+  </div>
+</div>
