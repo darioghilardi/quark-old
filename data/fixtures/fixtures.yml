@@ -69,7 +69,6 @@ Interest:
   like10:
     User: kiuz
     Question: question_13
-
 Rating:
   vote1:
     User: ingo
@@ -96,12 +95,16 @@ StaticContent:
     path: faq
     body: Hello, what is symfony? Which language does it uses?
   advertise:
-    title: What does php mean?
+    title: How to advertise
     path: advertise
     body: Hello, what does php mean?
-<?php for ($i = 0; $i <= 55; $i++): ?>
+  tos:
+    title: Terms of service
+    path: tos
+    body: Hello, what does php mean?
+<?php for ($i = 0; $i <= 10; $i++): ?>
   page_<?php echo $i ?>:
-    title: Question_<?php echo $i."\n" ?>
-    path: Question_<?php echo $i."\n" ?>
+    title: page_<?php echo $i."\n" ?>
+    path: page_<?php echo $i."\n" ?>
     body: Hello, what does php mean?
 <?php endfor ?>
