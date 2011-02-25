@@ -4,7 +4,9 @@
 <div id="showSuccess">  
   <div id="static-single-content" class="col-18">
     <h1 id="page-title"><?php echo $static_content->getTitle() ?></h1>
-		<div id="static-precontents"></div>
+		
+		<div>
+		
 			<div class="description">
 			  <?php echo $static_content->getBody() ?>
 	    </div>
@@ -16,7 +18,9 @@
 	        <li class="boxleft"><a href="##">Flag</a></li>
 	      </ul>
 	    </div>
+    
     </div>
+    
   </div>
       
   <div id="sidebar" class="col-6">
