@@ -26,7 +26,6 @@
  * @property Doctrine_Collection $Answer
  * @property Doctrine_Collection $Interest
  * @property Doctrine_Collection $Rating
- * @property Doctrine_Collection $StaticContent
  * 
  * @method string                getFirstName()             Returns the current record's "first_name" value
  * @method string                getLastName()              Returns the current record's "last_name" value
@@ -49,7 +48,6 @@
  * @method Doctrine_Collection   getAnswer()                Returns the current record's "Answer" collection
  * @method Doctrine_Collection   getInterest()              Returns the current record's "Interest" collection
  * @method Doctrine_Collection   getRating()                Returns the current record's "Rating" collection
- * @method Doctrine_Collection   getStaticContent()         Returns the current record's "StaticContent" collection
  * @method sfGuardUser           setFirstName()             Sets the current record's "first_name" value
  * @method sfGuardUser           setLastName()              Sets the current record's "last_name" value
  * @method sfGuardUser           setEmailAddress()          Sets the current record's "email_address" value
@@ -71,7 +69,6 @@
  * @method sfGuardUser           setAnswer()                Sets the current record's "Answer" collection
  * @method sfGuardUser           setInterest()              Sets the current record's "Interest" collection
  * @method sfGuardUser           setRating()                Sets the current record's "Rating" collection
- * @method sfGuardUser           setStaticContent()         Sets the current record's "StaticContent" collection
  * 
  * @package    quark
  * @subpackage model
@@ -184,10 +181,6 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
              'foreign' => 'user_id'));
 
         $this->hasMany('Rating', array(
-             'local' => 'id',
-             'foreign' => 'user_id'));
-
-        $this->hasMany('StaticContent', array(
              'local' => 'id',
              'foreign' => 'user_id'));
 

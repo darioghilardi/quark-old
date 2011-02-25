@@ -88,32 +88,20 @@ Accept:
 
 StaticContent:
   about:
-    User: ingo
     title: About
     path: about
     body: Hello, i wanna ask how old are you. Thanks.
-    created_at: '2011-01-23'
-    updated_at: '2011-01-23'
   faq:
-    User: ingo
     title: Faq
     path: faq
     body: Hello, what is symfony? Which language does it uses?
-    created_at: '2011-01-22'
-    updated_at: '2011-01-23'
   advertise:
-    User: kiuz
     title: What does php mean?
     path: advertise
     body: Hello, what does php mean?
-    created_at: '2011-01-25'
-    updated_at: '2011-01-25'
 <?php for ($i = 0; $i <= 55; $i++): ?>
   page_<?php echo $i ?>:
-    User: kiuz
     title: Question_<?php echo $i."\n" ?>
     path: Question_<?php echo $i."\n" ?>
     body: Hello, what does php mean?
-    created_at: '2011-01-25 12:<?php echo $i ?>'
-    updated_at: '2011-01-25 13:<?php echo $i ?>'
 <?php endfor ?>

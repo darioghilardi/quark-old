@@ -13,10 +13,9 @@ answer:
 static:
   class:   sfDoctrineRouteCollection
   options: { model: Static }
-  
+
 # Show the static page
 static_show:
-  #url:  /static/:id/:title_slug
   url:  /:path
   class:   sfDoctrineRoute
   options: { model: StaticContent, type: object }
