@@ -25,7 +25,7 @@ abstract class BaseStaticContentForm extends BaseFormDoctrine
       'id'    => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'title' => new sfValidatorString(array('max_length' => 255)),
       'path'  => new sfValidatorPass(),
-      'body'  => new sfValidatorString(array('max_length' => 1000, 'required' => false)),
+      'body'  => new sfValidatorString(array('required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(

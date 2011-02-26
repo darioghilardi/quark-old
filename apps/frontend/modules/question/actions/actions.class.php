@@ -1,5 +1,7 @@
 <?php
-
+//set_include_path(sfConfig::get('sf_lib_dir').'/vendor'.PATH_SEPARATOR.get_include_path());
+require_once sfConfig::get('sf_lib_dir').'/vendor/htmlpurifier/HTMLPurifier.standalone.php';
+require_once sfConfig::get('sf_lib_dir').'/vendor/markdown/Markdown.php';
 /**
  * question actions.
  *

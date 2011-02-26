@@ -58,4 +58,4 @@ StaticContent:
     id:               {type: integer, notnull: true, autoincrement: true, primary: true}
     title:            {type: string(255), notnull: true}
     path:             {type: varchar(50), notnull: true, unique: true}
-    body:             {type: string(1000)}
+    body:             {type: string()}

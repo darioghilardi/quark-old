@@ -30,8 +30,6 @@
     <div id="preview-answer" class="item preview"> 
       <label>Preview</label>
       <div id="preview"></div>
-      <div id="wmd-output" class="wmd-panel"></div>
-      
     </div>
 
     <?php echo $form['_csrf_token'] ?>

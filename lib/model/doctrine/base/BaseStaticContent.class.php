@@ -45,9 +45,9 @@ abstract class BaseStaticContent extends sfDoctrineRecord
              'unique' => true,
              'length' => 50,
              ));
-        $this->hasColumn('body', 'string', 1000, array(
+        $this->hasColumn('body', 'string', null, array(
              'type' => 'string',
-             'length' => 1000,
+             'length' => '',
              ));
     }
 
