@@ -51,7 +51,7 @@
            <?php include_component('answer', 'answerVoteWidget', array('answer' => $answer)); ?>
          </div>
          <div class="accept answer-<?php print $answer->getId() ?>">
-           <?php include_partial('answer/answer_accept', array('answer' => $answer, 'accepted' => $accepted)); ?>
+           <?php include_component('answer', 'answerAcceptWidget', array('answer' => $answer)); ?>
          </div>
         </div>
 	    <div class="col-16">

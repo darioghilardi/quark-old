@@ -83,6 +83,15 @@ undo_answer_vote:
     type: (up|down)
     sf_method: [get]
 
+# accept answer
+accept_answer:
+  url: /answer/accept/:id/:token
+  param: {module: answer, action: accept}
+  class: sfRequestRoute
+  requirements:
+    id: \d+
+    sf_method: [get]
+
 # Show the homepage
 homepage:
   url:   /
