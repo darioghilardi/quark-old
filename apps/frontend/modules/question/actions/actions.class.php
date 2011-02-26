@@ -174,11 +174,14 @@ class questionActions extends sfActions
   	$values = $request->getParameter($form->getName());  	
     
   	//deleting all Tag Html
-  	$values["body"] = strip_tags($values["body"]);
-
+  	//$values["body"] = strip_tags($values["body"]);
+    
+  	
   	//Init and config Purifier HTML
     $config_pu = HTMLPurifier_Config::createDefault();
+    
     $config_pu->set('HTML.Allowed', 'p,ul,li,ol,blockquote,quote,href,b,i,em,a[href],strong,code');
+    
     $config_pu->set('AutoFormat.AutoParagraph', false);
     $purifier = new HTMLPurifier($config_pu);
     
