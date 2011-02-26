@@ -9,6 +9,7 @@
  * @property integer $user_id
  * @property string $title
  * @property string $body
+ * @property string $body_html
  * @property integer $views
  * @property timestamp $created_at
  * @property timestamp $updated_at
@@ -22,6 +23,7 @@
  * @method integer             getUserId()           Returns the current record's "user_id" value
  * @method string              getTitle()            Returns the current record's "title" value
  * @method string              getBody()             Returns the current record's "body" value
+ * @method string              getBodyHtml()         Returns the current record's "body_html" value
  * @method integer             getViews()            Returns the current record's "views" value
  * @method timestamp           getCreatedAt()        Returns the current record's "created_at" value
  * @method timestamp           getUpdatedAt()        Returns the current record's "updated_at" value
@@ -34,6 +36,7 @@
  * @method Question            setUserId()           Sets the current record's "user_id" value
  * @method Question            setTitle()            Sets the current record's "title" value
  * @method Question            setBody()             Sets the current record's "body" value
+ * @method Question            setBodyHtml()         Sets the current record's "body_html" value
  * @method Question            setViews()            Sets the current record's "views" value
  * @method Question            setCreatedAt()        Sets the current record's "created_at" value
  * @method Question            setUpdatedAt()        Sets the current record's "updated_at" value
@@ -67,9 +70,13 @@ abstract class BaseQuestion extends sfDoctrineRecord
              'notnull' => true,
              'length' => 255,
              ));
-        $this->hasColumn('body', 'string', 1000, array(
+        $this->hasColumn('body', 'string', 10000, array(
              'type' => 'string',
-             'length' => 1000,
+             'length' => 10000,
+             ));
+        $this->hasColumn('body_html', 'string', 10000, array(
+             'type' => 'string',
+             'length' => 10000,
              ));
         $this->hasColumn('views', 'integer', null, array(
              'type' => 'integer',

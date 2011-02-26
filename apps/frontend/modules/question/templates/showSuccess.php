@@ -17,7 +17,7 @@
     </div>
     <div id="question-content" class="col-16">
       <div class="description">
-        <?php echo $question->getBody(ESC_RAW); ?>
+        <?php echo $question->getBody_html(ESC_RAW); ?>
       </div>
       
       <div class="meta">

@@ -1,7 +1,4 @@
 <?php
-//set_include_path(sfConfig::get('sf_lib_dir').'/vendor'.PATH_SEPARATOR.get_include_path());
-require_once sfConfig::get('sf_lib_dir').'/vendor/htmlpurifier/HTMLPurifier.standalone.php';
-require_once sfConfig::get('sf_lib_dir').'/vendor/markdown/Markdown.php';
 /**
  * question actions.
  *
@@ -168,11 +165,27 @@ class questionActions extends sfActions
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
-  {  	
+  {
+  	//Inlcude external Library for Purifier HTML Tag and convert Markdwon into HTML Tag
+  	require_once sfConfig::get('sf_lib_dir').'/vendor/htmlpurifier/HTMLPurifier.standalone.php';
+    require_once sfConfig::get('sf_lib_dir').'/vendor/markdown/Markdown.php';
+
+    //RETRIVE value from "Form"
   	$values = $request->getParameter($form->getName());  	
+
+  	//Init and config Purifier HTML
+    $config_pu = HTMLPurifier_Config::createDefault();
+    $config_pu->set('HTML.Allowed', 'p,ul,li,ol,blockquote,quote,href,b,i,em,a[href],a,strong');
+    $config_pu->set('AutoFormat.AutoParagraph', false);
+    $purifier = new HTMLPurifier($config_pu);
+    
+    //Purifier Html of Mrkdown Output htm
+    $values["body_html"] = $purifier->purify( Markdown($values["body"]));
+
     $values["user_id"] = $this->getUser()->getGuardUser()->getId();
     $form->bind($values);
-
+    //exit();
+    
     if ($form->isValid())
     {
       $question = $form->save();
