@@ -3,7 +3,8 @@ Question:
     id:								{type: integer, notnull: true, autoincrement: true, primary: true}
     user_id:					{type: integer, notnull: true}
     title:						{type: string(255), notnull: true}
-    body:							{type: string(1000)}
+    body:             {type: string(10000)}
+    body_html:        {type: string(10000)}
     views:            {type: integer, notnull: true, default: 0}
     created_at:				{type: timestamp, notnull: true}
     updated_at:				{type: timestamp, notnull: true}
@@ -16,7 +17,8 @@ Answer:
     id:							{type: integer, notnull: true, autoincrement: true, primary: true}
     question_id:		{type: integer, notnull: true}
     user_id:				{type: integer, notnull: true}
-    body:						{type: string(1000)}
+    body:           {type: string(10000)}
+    body_html:      {type: string(10000)}
     created_at:			{type: timestamp, notnull: true}
     votes:					{type: integer, default:0}
     accepted:       {type: boolean, default: false}
