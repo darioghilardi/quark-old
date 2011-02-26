@@ -172,20 +172,23 @@ class questionActions extends sfActions
 
     //RETRIVE value from "Form"
   	$values = $request->getParameter($form->getName());  	
+    
+  	//deleting all Tag Html
+  	$values["body"] = strip_tags($values["body"]);
 
   	//Init and config Purifier HTML
     $config_pu = HTMLPurifier_Config::createDefault();
-    $config_pu->set('HTML.Allowed', 'p,ul,li,ol,blockquote,quote,href,b,i,em,a[href],a,strong');
+    $config_pu->set('HTML.Allowed', 'p,ul,li,ol,blockquote,quote,href,b,i,em,a[href],strong,code');
     $config_pu->set('AutoFormat.AutoParagraph', false);
     $purifier = new HTMLPurifier($config_pu);
     
     //Purifier Html of Mrkdown Output htm
-    $values["body_html"] = $purifier->purify( Markdown($values["body"]));
+    $values["body_html"] = $purifier->purify(Markdown($values["body"]));
 
+    //put id of logged user that have asked question
     $values["user_id"] = $this->getUser()->getGuardUser()->getId();
     $form->bind($values);
-    //exit();
-    
+
     if ($form->isValid())
     {
       $question = $form->save();
