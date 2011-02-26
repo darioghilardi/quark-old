@@ -166,36 +166,31 @@ class questionActions extends sfActions
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
-  	//Inlcude external Library for Purifier HTML Tag and convert Markdwon into HTML Tag
+  	// Include external Library for Purifier HTML Tag and convert Markdwon into HTML Tag
   	require_once sfConfig::get('sf_lib_dir').'/vendor/htmlpurifier/HTMLPurifier.standalone.php';
     require_once sfConfig::get('sf_lib_dir').'/vendor/markdown/Markdown.php';
 
-    //RETRIVE value from "Form"
+    // Retrieve value from "Form"
   	$values = $request->getParameter($form->getName());  	
-    
-  	//deleting all Tag Html
-  	//$values["body"] = strip_tags($values["body"]);
-    
   	
-  	//Init and config Purifier HTML
-    $config_pu = HTMLPurifier_Config::createDefault();
-    
-    $config_pu->set('HTML.Allowed', 'p,ul,li,ol,blockquote,quote,href,b,i,em,a[href],strong,code');
-    
+  	// Init and config Purifier HTML
+    $config_pu = HTMLPurifier_Config::createDefault();    
+    $config_pu->set('HTML.Allowed', 'p,ul,li,ol,blockquote,quote,href,b,i,em,a[href],strong,code,img[src]');    
     $config_pu->set('AutoFormat.AutoParagraph', false);
+    $config_pu->set('HTML', 'Doctype', 'XHTML 1.0 Strict');
     $purifier = new HTMLPurifier($config_pu);
     
-    //Purifier Html of Mrkdown Output htm
+    // Purifier Html of Mrkdown Output htm
     $values["body_html"] = $purifier->purify(Markdown($values["body"]));
 
-    //put id of logged user that have asked question
+    // Put id of logged user that have asked question
     $values["user_id"] = $this->getUser()->getGuardUser()->getId();
     $form->bind($values);
 
     if ($form->isValid())
     {
       $question = $form->save();
-      $this->redirect('question/edit?id='.$question->getId());
+      $this->redirect('question/show?id='.$question->getId().'&title_slug='.$question->getTitleSlug());
     }
   }
 }
