@@ -107,18 +107,41 @@ class answerActions extends sfActions
       $v = new voting($aid, $user_id);
       $v->answerUndoVote($sign);
 
-    // Load the question associated to this answer to get slug and redirect avoiding template rendering
-    $answer = Doctrine::getTable('Answer')->find($aid);
-    $question = Doctrine::getTable('Question')->find($answer->getQuestion()->id);
-    $this->redirect('question/show?id='.$question->id.'&title_slug='.$question->getTitleSlug());
+      // Load the question associated to this answer to get slug and redirect avoiding template rendering
+      $answer = Doctrine::getTable('Answer')->find($aid);
+      $question = Doctrine::getTable('Question')->find($answer->getQuestion()->id);
+      $this->redirect('question/show?id='.$question->id.'&title_slug='.$question->getTitleSlug());
     }
   }
 
-  public function acceptAnswer(sfWebRequest $request)
+  /**
+   * Accept an answer.
+   *
+   * @param sfWebRequest $request
+   */
+  public function executeAccept(sfWebRequest $request)
   {
     if (in_array($request->getParameter('token'), $this->getUser()->getAttribute('tokenarray', array())))
     {
-      
+      $user_id = $this->getUser()->getGuardUser()->getId();
+      $aid = $request->getParameter('id');
+
+      // Load the question associated to this answer
+      $answer = Doctrine::getTable('Answer')->find($aid);
+      $question = Doctrine::getTable('Question')->find($answer->getQuestion()->id);
+
+      // Make an additional check for the user, there's a case where someone can use an alternative token to accept answer
+      if ($user_id == $question->user_id)
+      {
+        // Check if there's already an accepted answer
+        $av = Doctrine_Core::getTable('Accept')->getAccepted($question->id);
+
+        $a = new accepting($aid, $question->id);
+        $a->markAccepted($av);
+      }
+
+      // Execute the redirect
+      $this->redirect('question/show?id='.$question->id.'&title_slug='.$question->getTitleSlug());
     }
   }
 

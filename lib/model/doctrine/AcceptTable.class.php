@@ -18,15 +18,54 @@ class AcceptTable extends Doctrine_Table
   }
 
   /**
-   * Execute an update for the interested users counter.
+   * Check if the answer as argument is an accepted answer.
    *
    */
-  public function getAccepted($aid, $qid) {
+  public function checkAccepted($aid) {
     $q = Doctrine_Query::create()
       ->from('Accept a')
-      ->where('a.answer_id = ?', $aid)
-      ->andWhere('a.question_id = ?', $qid);
+      ->where('a.answer_id = ?', $aid);
 
     return $q->fetchArray();
+  }
+
+  /**
+   * Return the accepted answer for a question.
+   *
+   */
+  public function getAccepted($qid) {
+    $q = Doctrine_Query::create()
+      ->from('Accept a')
+      ->where('a.question_id = ?', $qid);
+
+    return $q->fetchArray();
+  }
+
+  /**
+   * Add a new row into the accept table
+   *
+   */
+  public function addAccept($aid, $qid)
+  {
+    $q = new Accept();
+    $q->question_id = $qid;
+    $q->answer_id = $aid;
+
+    $q->save();
+    return $q;
+  }
+
+  /**
+   * Add a new row into the accept table
+   *
+   */
+  public function updateAccept($aid, $qid)
+  {
+    $q = Doctrine_Query::create()
+      ->update('Accept a')
+      ->set('a.answer_id', $aid)
+      ->where('a.question_id = ?', $qid);
+
+    $q->execute();
   }
 }

@@ -27,36 +27,25 @@ class accepting
   }
 
   /**
-   * Execute the vote on a question.
-   * 
-   * @param int $sign
+   * Mark an answer as accepted.
    */
-  public function markAccepted($sign)
+  public function markAccepted($av)
   {
     // Start a transaction
     $conn = Doctrine_Manager::getInstance()->getCurrentConnection();
 		$conn->beginTransaction();
     try
     {
-      // Check if this user already voted this question
-      $av = Doctrine_Core::getTable('Interest')->getInterestValue($this->user_id, $this->id);
-
       // Check if this entry is already into the table
-      if(empty($av))
+      if(empty($av[0]['id']))
       {
-        // Update the question interest entries count and update the interest table
-        Doctrine_Core::getTable('Question')->updateQuestionInterest($this->id, $sign);
-        // Update the interest table
-        Doctrine_Core::getTable('Interest')->addInterest($this->user_id, $this->id, $sign);
+        // Add a new entry into the accept table
+        Doctrine_Core::getTable('Accept')->addAccept($this->id, $this->question_id);
       }
-      elseif (($av[0]["value"] == '1') || ($av[0]["value"] == '0') || ($av[0]["value"] == '-1'))
+      else
       {
-        $amount = (($av[0]["value"] == 0) ? 1 : 2) * $sign;
-        // Update the question interest entries count
-        Doctrine_Core::getTable('Question')->updateQuestionInterest($this->id, $amount);
-
-        // Update the interest table
-        Doctrine_Core::getTable('Interest')->updateInterest($this->user_id, $this->id, $sign);
+        // Update the existing accept table entry
+        Doctrine_Core::getTable('Accept')->updateAccept($this->id, $this->question_id);
       }
 
       // Commit the transaction

@@ -35,10 +35,12 @@ abstract class BaseAccept extends sfDoctrineRecord
         $this->hasColumn('question_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
+             'unique' => true,
              ));
         $this->hasColumn('answer_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
+             'unique' => true,
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(
              'type' => 'timestamp',

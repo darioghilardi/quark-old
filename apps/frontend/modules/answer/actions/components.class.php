@@ -34,7 +34,7 @@ class answerComponents extends sfComponents
     $qid = $this->answer->getQuestion()->id;
 
     // Check if this answer has been already marked as accepted
-    $av = Doctrine_Core::getTable('Accept')->getAccepted($aid, $qid);
+    $av = Doctrine_Core::getTable('Accept')->checkAccepted($aid);
 
     // Istantiate the accept class
     $a = new accepting($aid, $qid);
