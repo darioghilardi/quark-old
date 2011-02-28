@@ -8,7 +8,7 @@
 
   <?php foreach ($pager->getResults() as $question): ?>
 
-  <div class="item clearfix">
+  <div class="item clearfix question-listed">
     <div class="first-group-fields boxleft">
     
 	    <span class="field votes boxleft">
