@@ -463,7 +463,12 @@ form#add-question{
 
 /*Sigin Page Form*/
 form#signin-form{
-	margin-top:10px;
+    clear: both;
+    float: left;
+    margin-top: 10px;
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 310px;
 }
 #signin-form-content form#signin-form .item {
 	margin-bottom:20px;

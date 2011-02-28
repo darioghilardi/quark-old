@@ -16,7 +16,10 @@
   </div>
   
 	<?php echo $form['_csrf_token'] ?>
-	
+	<div id="signin-other">
+    <a href="/">Request password</a> or <a href="/">Register</a>
+  </div>
+  
   <span id ="submit-signin" class="boxleft">
     <input type="submit" value="<?php echo __('Signin', null, 'sf_guard') ?>" />
   </span>
