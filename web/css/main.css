@@ -67,6 +67,16 @@ ul.error_list li{
   padding:5px;
 }
 
+/*Global title pages*/
+#content h1#page-title{
+  border-bottom:1px solid #333;
+  margin-bottom:10px;
+  line-height:21px;
+  font-size: 21px;
+  font-weight: bold;
+  margin-top:8px;
+}
+
 /*TopPage*/
 /* in addiction #third-menu styled - see footer*/
 #top-header{
@@ -129,19 +139,11 @@ ul#secondary-menu li a:hover{
 	background:#FF9500;
 	color:#fff;
 }
-/*Content*/
-  #content h1#page-title{
-    font-size: 21px;
-    font-weight: bold;
-    line-height: 16px;
-		margin-bottom:0px;
-		margin-top:8px;
-  }
-
+/*Content Index*/
 #content > div#indexSuccess > div > div{
     margin-right:10px;
 }
-	
+
 /*Tabs List Question*/
 #tabs-question-list ul#order{
   padding: 0px;
@@ -191,16 +193,12 @@ ul#secondary-menu li a:hover{
 	color:#000;
 }
 
-/*
-#tabs-question-list ul#order li.unselected:hover{
-  background:#FF9500;
+/*Home page*//*Question List Content*/
+#question-list-content h1#page-title{
+    border:0px;
+    line-height: 16px;
+    margin-bottom:0px;
 }
-#tabs-question-list ul#order li.unselected a:hover{
-  color:#fff;
-}
-*/
-/*Question List Content*/
-
 #question-list-content > .item{
 	border-bottom: 1px solid #ccc;
   padding-bottom:5px;
@@ -507,12 +505,6 @@ form#signin-form{
 
 
 /*ShowSuccess*/
-
-#showSuccess h1#page-title{
-	border-bottom:1px solid #333;
-	margin-bottom:10px;
-	line-height:21px;
-}
 
 .options li a{
 	margin-top:10px;
