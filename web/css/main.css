@@ -68,6 +68,7 @@ ul.error_list li{
 }
 
 /*TopPage*/
+/* in addiction #third-menu styled - see footer*/
 #top-header{
   background:#eee;
   margin-bottom: 25px;
@@ -76,11 +77,12 @@ ul.error_list li{
   padding-right: 0;
   padding-top: 10px;
 }
-
+ul#third-menu .menu-item,
 ul#primary-menu .menu-item{
-  margin-right:15px;  
+  margin-left:15px;  
 }
-
+ul#third-menu .menu-item a,
+ul#third-menu .menu-item a:visited,
 ul#primary-menu .menu-item a,
 ul#primary-menu .menu-item a:visited,
 ul#primary-menu .login-item a,
@@ -93,6 +95,7 @@ ul#primary-menu .login-item a:visited{
 
 ul#primary-menu .login-item{
   padding-left:15px;
+	margin-left:15px;
   border-left: 1px solid #222;
 }
 
@@ -391,7 +394,7 @@ ul#pager .item a{
   padding-right: 0;
   padding-top: 10px;
 }
-
+#footer{}
 
 /*Page New Ask Quesiton*/
 /*
