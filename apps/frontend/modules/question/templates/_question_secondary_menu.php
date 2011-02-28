@@ -15,8 +15,4 @@
               <a href="<?php echo url_for('@user_list') ?>">Users</a>
             </li>
             
-            <li class="boxleft txtright">
-              <a href="">Badges</a>
-            </li>
-            
           </ul>
