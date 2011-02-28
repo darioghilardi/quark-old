@@ -9,7 +9,7 @@
     <?php endif;?>
     <?php endif;?>
   </li>
-  <li class="boxright menu-item"><a href="">Home</a></li>
-  <li class="boxright menu-item"><a href="">About</a></li>
-  <li class="boxright menu-item"><a href="">Blabla</a></li>
+  <li class="boxright menu-item"><?php echo link_to('Faq', '/faq') ?></li>
+  <li class="boxright menu-item"><?php echo link_to('About', '/about') ?></li>
+  <li class="boxright menu-item"><a href="/">Home</a></li>
 </ul>
