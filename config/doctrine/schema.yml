@@ -48,8 +48,8 @@ Rating:
 
 Accept:
   columns:
-    question_id:    {type: integer, notnull: true}
-    answer_id:      {type: integer, notnull: true}
+    question_id:    {type: integer, notnull: true, unique: true}
+    answer_id:      {type: integer, notnull: true, unique: true}
     created_at:     {type: timestamp, notnull: true}
   relations:
     Question:				{onDelete: CASCADE, local: question_id, foreign: id}

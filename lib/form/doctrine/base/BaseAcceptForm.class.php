@@ -28,6 +28,13 @@ abstract class BaseAcceptForm extends BaseFormDoctrine
       'created_at'  => new sfValidatorDateTime(),
     ));
 
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorAnd(array(
+        new sfValidatorDoctrineUnique(array('model' => 'Accept', 'column' => array('question_id'))),
+        new sfValidatorDoctrineUnique(array('model' => 'Accept', 'column' => array('answer_id'))),
+      ))
+    );
+
     $this->widgetSchema->setNameFormat('accept[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
