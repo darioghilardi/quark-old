@@ -18,9 +18,10 @@ abstract class BaseQuestionFormFilter extends BaseFormFilterDoctrine
       'body'             => new sfWidgetFormFilterInput(),
       'body_html'        => new sfWidgetFormFilterInput(),
       'views'            => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'interested_users' => new sfWidgetFormFilterInput(),
+      'answer_count'     => new sfWidgetFormFilterInput(),
       'created_at'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'interested_users' => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -29,9 +30,10 @@ abstract class BaseQuestionFormFilter extends BaseFormFilterDoctrine
       'body'             => new sfValidatorPass(array('required' => false)),
       'body_html'        => new sfValidatorPass(array('required' => false)),
       'views'            => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'interested_users' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'answer_count'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'created_at'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
-      'interested_users' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('question_filters[%s]');
@@ -57,9 +59,10 @@ abstract class BaseQuestionFormFilter extends BaseFormFilterDoctrine
       'body'             => 'Text',
       'body_html'        => 'Text',
       'views'            => 'Number',
+      'interested_users' => 'Number',
+      'answer_count'     => 'Number',
       'created_at'       => 'Date',
       'updated_at'       => 'Date',
-      'interested_users' => 'Number',
     );
   }
 }

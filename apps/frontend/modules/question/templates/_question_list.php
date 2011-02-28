@@ -16,8 +16,9 @@
         <span class="desc">Votes</span>
 	    </span>
 
-      <span class="field answers boxleft <?php $a = rand(0,2); if ($a==1){ print 'answered';} elseif($a==0){ print 'unanswered';} else {print 'notyetaccepted';} ?>">
-        <?php include_partial('question/question_answers', array()) ?>
+      <span class="field answers boxleft <?php echo $question->getAnswerCountClass() ?>">
+        <span class="count"><?php echo $question->getAnswerCount(); ?></span>
+        <span class="desc">Answers</span>
       </span>
       
 	    <span class="field views boxleft">

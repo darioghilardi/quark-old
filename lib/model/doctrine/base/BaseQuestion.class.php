@@ -11,9 +11,10 @@
  * @property string $body
  * @property string $body_html
  * @property integer $views
+ * @property integer $interested_users
+ * @property integer $answer_count
  * @property timestamp $created_at
  * @property timestamp $updated_at
- * @property integer $interested_users
  * @property sfGuardUser $User
  * @property Doctrine_Collection $ask_question
  * @property Doctrine_Collection $Interest
@@ -25,9 +26,10 @@
  * @method string              getBody()             Returns the current record's "body" value
  * @method string              getBodyHtml()         Returns the current record's "body_html" value
  * @method integer             getViews()            Returns the current record's "views" value
+ * @method integer             getInterestedUsers()  Returns the current record's "interested_users" value
+ * @method integer             getAnswerCount()      Returns the current record's "answer_count" value
  * @method timestamp           getCreatedAt()        Returns the current record's "created_at" value
  * @method timestamp           getUpdatedAt()        Returns the current record's "updated_at" value
- * @method integer             getInterestedUsers()  Returns the current record's "interested_users" value
  * @method sfGuardUser         getUser()             Returns the current record's "User" value
  * @method Doctrine_Collection getAskQuestion()      Returns the current record's "ask_question" collection
  * @method Doctrine_Collection getInterest()         Returns the current record's "Interest" collection
@@ -38,9 +40,10 @@
  * @method Question            setBody()             Sets the current record's "body" value
  * @method Question            setBodyHtml()         Sets the current record's "body_html" value
  * @method Question            setViews()            Sets the current record's "views" value
+ * @method Question            setInterestedUsers()  Sets the current record's "interested_users" value
+ * @method Question            setAnswerCount()      Sets the current record's "answer_count" value
  * @method Question            setCreatedAt()        Sets the current record's "created_at" value
  * @method Question            setUpdatedAt()        Sets the current record's "updated_at" value
- * @method Question            setInterestedUsers()  Sets the current record's "interested_users" value
  * @method Question            setUser()             Sets the current record's "User" value
  * @method Question            setAskQuestion()      Sets the current record's "ask_question" collection
  * @method Question            setInterest()         Sets the current record's "Interest" collection
@@ -83,6 +86,14 @@ abstract class BaseQuestion extends sfDoctrineRecord
              'notnull' => true,
              'default' => 0,
              ));
+        $this->hasColumn('interested_users', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 0,
+             ));
+        $this->hasColumn('answer_count', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 0,
+             ));
         $this->hasColumn('created_at', 'timestamp', null, array(
              'type' => 'timestamp',
              'notnull' => true,
@@ -90,10 +101,6 @@ abstract class BaseQuestion extends sfDoctrineRecord
         $this->hasColumn('updated_at', 'timestamp', null, array(
              'type' => 'timestamp',
              'notnull' => true,
-             ));
-        $this->hasColumn('interested_users', 'integer', null, array(
-             'type' => 'integer',
-             'default' => 0,
              ));
     }
 

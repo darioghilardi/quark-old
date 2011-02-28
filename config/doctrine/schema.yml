@@ -6,9 +6,10 @@ Question:
     body:             {type: string(10000)}
     body_html:        {type: string(10000)}
     views:            {type: integer, notnull: true, default: 0}
-    created_at:				{type: timestamp, notnull: true}
-    updated_at:				{type: timestamp, notnull: true}
     interested_users:	{type: integer, default: 0}
+    answer_count:     {type: integer, default: 0}
+    created_at:				{type: timestamp, notnull: true}
+    updated_at:				{type: timestamp, notnull: true}    
   relations:
     User:							{onDelete: CASCADE, local: user_id, class: sfGuardUser}
 

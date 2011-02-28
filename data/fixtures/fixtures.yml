@@ -17,6 +17,7 @@ Question:
     body: Hello, what does php mean?
     created_at: '2011-01-25'
     updated_at: '2011-01-25'
+    answer_count: 2
 <?php for ($i = 0; $i <= 55; $i++): ?>
   question_<?php echo $i ?>:
     User: kiuz

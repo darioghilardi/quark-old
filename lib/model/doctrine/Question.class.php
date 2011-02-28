@@ -10,9 +10,39 @@
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
-class Question extends BaseQuestion {
+class Question extends BaseQuestion
+{
 
-	public function getTitleSlug() {
+	public function getTitleSlug()
+  {
 		return Quark::slugify($this->getTitle());
 	}
+
+  public function updateAnswerCount($amount)
+  {
+    $q = Doctrine_Query::create()
+      ->update('Question q')
+      ->set('q.answer_count','q.answer_count + ?', $amount)
+      ->where('q.id = ?', $this->id)
+      ->execute();
+
+    return $q;
+	}
+
+  public function getAnswerCountClass()
+  {
+    if ($this->getAnswerCount() == 0)
+      return 'unanswered';
+    else
+    {
+      if ($this->getAccept()->count() == 0)
+      {
+        return 'notyetaccepted';
+      }
+      else
+      {
+        return 'answered';
+      }
+    }
+  }
 }

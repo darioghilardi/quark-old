@@ -154,8 +154,21 @@ class answerActions extends sfActions
 
     if ($form->isValid())
     {
-      $answer = $form->save();
-      $question = Doctrine_Core::getTable('Question')->find(array($values["question_id"]));
+      // Start a transaction
+      $conn = Doctrine_Manager::getInstance()->getCurrentConnection();
+      $conn->beginTransaction();
+      try
+      {
+        $answer = $form->save();
+        $question = Doctrine_Core::getTable('Question')->find(array($values["question_id"]));
+        $question->updateAnswerCount(1);
+      }
+      catch (Exception $e)
+      {
+        // Rollback and exception
+        $conn->rollBack();
+        throw $e;
+      }
       $this->redirect('question/show?id='.$question->getId().'&title_slug='.$question->getTitleSlug());
     }
   }

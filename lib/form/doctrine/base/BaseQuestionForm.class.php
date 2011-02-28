@@ -21,9 +21,10 @@ abstract class BaseQuestionForm extends BaseFormDoctrine
       'body'             => new sfWidgetFormTextarea(),
       'body_html'        => new sfWidgetFormTextarea(),
       'views'            => new sfWidgetFormInputText(),
+      'interested_users' => new sfWidgetFormInputText(),
+      'answer_count'     => new sfWidgetFormInputText(),
       'created_at'       => new sfWidgetFormDateTime(),
       'updated_at'       => new sfWidgetFormDateTime(),
-      'interested_users' => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -33,9 +34,10 @@ abstract class BaseQuestionForm extends BaseFormDoctrine
       'body'             => new sfValidatorString(array('max_length' => 10000, 'required' => false)),
       'body_html'        => new sfValidatorString(array('max_length' => 10000, 'required' => false)),
       'views'            => new sfValidatorInteger(array('required' => false)),
+      'interested_users' => new sfValidatorInteger(array('required' => false)),
+      'answer_count'     => new sfValidatorInteger(array('required' => false)),
       'created_at'       => new sfValidatorDateTime(),
       'updated_at'       => new sfValidatorDateTime(),
-      'interested_users' => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('question[%s]');
