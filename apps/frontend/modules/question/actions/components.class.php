@@ -22,6 +22,17 @@ class questionComponents extends sfComponents
     $this->up = ($this->getUser()->canVoteUpQuestion($user_id)) ? $v->preprocessQuestionVoteUp($av) : false;
     $this->down = ($this->getUser()->canVoteDownQuestion($user_id)) ? $v->preprocessQuestionVoteDown($av) : false;
   }
+
+  /**
+   * Create the block for questions stats.
+   */
+  public function executeBlockQuestionStats()
+  {
+    // Count question number
+    $this->nquestion = Doctrine_Core::getTable('Question')->count();
+    $this->percentwithanswer = number_format(Doctrine_Core::getTable('Question')->getQuestionWithAnswer() / $this->nquestion, 2);
+    $this->percentwithaccepted = number_format(Doctrine_Core::getTable('Accept')->count() / $this->nquestion, 2);
+  }
 }
 
 ?>

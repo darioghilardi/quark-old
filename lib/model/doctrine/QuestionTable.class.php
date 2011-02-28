@@ -27,4 +27,15 @@ class QuestionTable extends Doctrine_Table
       ->where('q.id = ?',$qid);
     return $q->execute();
   }
+
+  /**
+   * Get number of questions with at least an answer.
+   */
+  public function getQuestionWithAnswer() {
+    $q = Doctrine_Query::create()
+      ->select('DISTINCT a.question_id as qid')
+      ->from('Answer a');
+    $values = $q->fetchArray();
+    return count($values);
+  }
 }

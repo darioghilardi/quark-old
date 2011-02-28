@@ -26,13 +26,7 @@
       </div>
     </div>
   
-	  <div class="block statistics">
-		  <div>
-        <div class="item">1246<span>questions</span></div>
-        <div class="item">125<span>unanswered</span></div>
-        <div class="item">2503<span>answers</span></div>
-		  </div>
-	  </div>
+    <?php include_component('question', 'blockQuestionStats'); ?>
 
     <div class="block populartags">
       <h4 class="block-title">Popular Tags</h4>
