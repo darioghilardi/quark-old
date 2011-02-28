@@ -147,7 +147,22 @@ class answerActions extends sfActions
 
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
+  	// Include external Library for Purifier HTML Tag and convert Markdwon into HTML Tag
+    require_once sfConfig::get('sf_lib_dir').'/vendor/htmlpurifier/HTMLPurifier.standalone.php';
+    require_once sfConfig::get('sf_lib_dir').'/vendor/markdown/Markdown.php';
+  	
     $values = $request->getParameter($form->getName());
+    
+    // Init and config Purifier HTML
+    $config_purifier = HTMLPurifier_Config::createDefault();    
+    $config_purifier->set('HTML.Allowed', 'p,ul,li,ol,blockquote,quote,href,b,i,em,a[href],strong,code,img[src]');
+    $config_purifier->set('AutoFormat.AutoParagraph', false);
+    $config_purifier->set('HTML.Doctype', 'XHTML 1.0 Strict');
+    $purifier = new HTMLPurifier($config_purifier);
+
+    // Purifier Html of Mrkdown Output htm
+    $values["body_html"] = $purifier->purify(Markdown($values["body"]));
+
     $question_id = $values["question_id"];
     $values["user_id"] = $this->getUser()->getGuardUser()->getId();
     $form->bind($values);

@@ -2154,14 +2154,52 @@
 			// If we clicked the button with no selected text, we just
 			// make a level 2 hash header around some default text.
 			if (!chunk.selection) {
-				chunk.startTag = "### ";
+				chunk.startTag = "## ";
 				chunk.selection = "Heading";
-				chunk.endTag = " ###";
+				chunk.endTag = " ##";
 				return;
-			}else{
-				chunk.startTag = "### ";
-				chunk.endTag = " ###";
-				return;	
+			}
+
+			var headerLevel = 0; // The existing header level of the selected text.
+			// Remove any existing hash heading markdown and save the header level.
+			chunk.findTags(/#+[ ]*/, /[ ]*#+/);
+			if (/#+/.test(chunk.startTag)) {
+				headerLevel = re.lastMatch.length;
+			}
+			chunk.startTag = chunk.endTag = "";
+
+			// Try to get the current header level by looking for - and = in the line
+			// below the selection.
+			chunk.findTags(null, /\s?(-+|=+)/);
+			if (/=+/.test(chunk.endTag)) {
+				headerLevel = 1;
+			}
+			if (/-+/.test(chunk.endTag)) {
+				headerLevel = 2;
+			}
+
+			// Skip to the next line so we can create the header markdown.
+			chunk.startTag = chunk.endTag = "";
+			chunk.addBlankLines(1, 1);
+
+			// We make a level 2 header if there is no current header.
+			// If there is a header level, we substract one from the header level.
+			// If it's already a level 1 header, it's removed.
+			var headerLevelToCreate = headerLevel == 0 ? 2 : headerLevel - 1;
+
+			if (headerLevelToCreate > 0) {
+
+				// The button only creates level 1 and 2 underline headers.
+				// Why not have it iterate over hash header levels?  Wouldn't that be easier and cleaner?
+				var headerChar = headerLevelToCreate >= 2 ? "-" : "=";
+				var len = chunk.selection.length;
+				if (len > wmd_options.lineLength) {
+					len = wmd_options.lineLength;
+				}
+				chunk.endTag = "\n";
+				while (len--) {
+					chunk.endTag += headerChar;
+				}
 			}
 		};
 

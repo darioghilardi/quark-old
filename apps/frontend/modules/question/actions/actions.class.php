@@ -173,12 +173,12 @@ class questionActions extends sfActions
     // Retrieve value from "Form"
   	$values = $request->getParameter($form->getName());  	
   	
-  	// Init and config Purifier HTML
-    $config_pu = HTMLPurifier_Config::createDefault();    
-    $config_pu->set('HTML.Allowed', 'p,ul,li,ol,blockquote,quote,href,b,i,em,a[href],strong,code,img[src]');    
-    $config_pu->set('AutoFormat.AutoParagraph', false);
-    $config_pu->set('HTML', 'Doctype', 'XHTML 1.0 Strict');
-    $purifier = new HTMLPurifier($config_pu);
+    // Init and config Purifier HTML
+    $config_purifier = HTMLPurifier_Config::createDefault();    
+    $config_purifier->set('HTML.Allowed', 'p,ul,li,ol,blockquote,quote,href,b,i,em,a[href],strong,code,img[src]');
+    $config_purifier->set('AutoFormat.AutoParagraph', false);
+    $config_purifier->set('HTML.Doctype', 'XHTML 1.0 Strict');
+    $purifier = new HTMLPurifier($config_purifier);
     
     // Purifier Html of Mrkdown Output htm
     $values["body_html"] = $purifier->purify(Markdown($values["body"]));

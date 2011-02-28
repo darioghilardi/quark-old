@@ -1,8 +1,9 @@
-
 <div id="newSuccess">
   <div id="new-question-form" class="col-18">
+  <div id="global-content">
     <h1 id="page-title" class="clearfix">New Question</h1>
       <?php include_partial('question_form', array('form' => $form)) ?>
+  </div>   
   </div>
   
   

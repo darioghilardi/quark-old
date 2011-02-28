@@ -95,9 +95,9 @@ StaticContent:
     title: Faq
     path: faq
     body: Hello, what is symfony? Which language does it uses?
-  advertise:
-    title: How to advertise
-    path: advertise
+  privacy:
+    title: Privacy and Policy
+    path: privacy
     body: Hello, what does php mean?
   tos:
     title: Terms of service

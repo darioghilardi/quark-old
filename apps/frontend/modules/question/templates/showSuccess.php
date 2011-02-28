@@ -57,7 +57,7 @@
 	    <div class="col-16">
         
         <div class="description">
-  	      <?php echo $answer->getBody() ?>
+  	      <?php echo $answer->getBody_html(ESC_RAW) ?>
   	    </div>
   	    
 		    <span class="submitted txtright boxright">

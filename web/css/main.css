@@ -67,7 +67,18 @@ ul.error_list li{
   padding:5px;
 }
 
+/*Global title pages*/
+#content h1#page-title{
+  border-bottom:1px solid #333;
+  margin-bottom:10px;
+  line-height:21px;
+  font-size: 21px;
+  font-weight: bold;
+  margin-top:8px;
+}
+
 /*TopPage*/
+/* in addiction #third-menu styled - see footer*/
 #top-header{
   background:#eee;
   margin-bottom: 25px;
@@ -76,11 +87,12 @@ ul.error_list li{
   padding-right: 0;
   padding-top: 10px;
 }
-
+ul#third-menu .menu-item,
 ul#primary-menu .menu-item{
-  margin-right:15px;  
+  margin-left:15px;  
 }
-
+ul#third-menu .menu-item a,
+ul#third-menu .menu-item a:visited,
 ul#primary-menu .menu-item a,
 ul#primary-menu .menu-item a:visited,
 ul#primary-menu .login-item a,
@@ -93,6 +105,7 @@ ul#primary-menu .login-item a:visited{
 
 ul#primary-menu .login-item{
   padding-left:15px;
+	margin-left:15px;
   border-left: 1px solid #222;
 }
 
@@ -126,15 +139,11 @@ ul#secondary-menu li a:hover{
 	background:#FF9500;
 	color:#fff;
 }
-/*Content*/
-  #content h1#page-title{
-    font-size: 21px;
-    font-weight: bold;
-    line-height: 16px;
-		margin-bottom:0px;
-		margin-top:8px;
-  }
-	
+/*Content Index*/
+#content div#global-content{
+    margin-right:10px;
+}
+
 /*Tabs List Question*/
 #tabs-question-list ul#order{
   padding: 0px;
@@ -184,22 +193,23 @@ ul#secondary-menu li a:hover{
 	color:#000;
 }
 
-/*
-#tabs-question-list ul#order li.unselected:hover{
-  background:#FF9500;
+/*Home page*//*Question List Content*/
+#question-list-content h1#page-title{
+    border:0px;
+    line-height: 16px;
+    margin-bottom:0px;
 }
-#tabs-question-list ul#order li.unselected a:hover{
-  color:#fff;
-}
-*/
-/*Question List Content*/
 #question-list-content > .item{
 	border-bottom: 1px solid #ccc;
   padding-bottom:5px;
 	margin-bottom:5px;
 }
-
-
+#question-list-content .first-group-fields{
+	width:173px;
+}
+#question-list-content .second-group-fields{
+    width: 537px;
+}
 .field.votes,
 .field.views,
 .field.answers{
@@ -283,7 +293,7 @@ ul#secondary-menu li a:hover{
 	display: block;
 	font-size: 24px;
   font-weight:bold;
-	line-height:21px;
+	line-height:18px;
 }
 .field > .desc {
   font-size: 11px;
@@ -382,7 +392,7 @@ ul#pager .item a{
   padding-right: 0;
   padding-top: 10px;
 }
-
+#footer{}
 
 /*Page New Ask Quesiton*/
 /*
@@ -451,7 +461,12 @@ form#add-question{
 
 /*Sigin Page Form*/
 form#signin-form{
-	margin-top:10px;
+    clear: both;
+    float: left;
+    margin-top: 10px;
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 310px;
 }
 #signin-form-content form#signin-form .item {
 	margin-bottom:20px;
@@ -468,7 +483,7 @@ form#signin-form{
 
 #signin-form-content form#signin-form #username-signin > input,
 #signin-form-content form#signin-form #password-signin > input{
-  width: 99%;
+  width: 300px;
   clear: both;
   display: block;
 }
@@ -476,7 +491,7 @@ form#signin-form{
 
 
 #submit-signin input{
-  margin-left:15px;
+  margin-left: 232px;
   border:1px solid #ccc;
   background:#efefef;
   font-size:18px;
@@ -490,12 +505,6 @@ form#signin-form{
 
 
 /*ShowSuccess*/
-
-#showSuccess h1#page-title{
-	border-bottom:1px solid #333;
-	margin-bottom:10px;
-	line-height:21px;
-}
 
 .options li a{
 	margin-top:10px;
