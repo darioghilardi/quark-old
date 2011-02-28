@@ -135,7 +135,7 @@ ul#secondary-menu li a:hover{
 		margin-top:8px;
   }
 
-#content > div > div > div{
+#content > div#indexSuccess > div > div{
     margin-right:10px;
 }
 	
