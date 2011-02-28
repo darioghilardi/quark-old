@@ -140,7 +140,7 @@ ul#secondary-menu li a:hover{
 	color:#fff;
 }
 /*Content Index*/
-#content > div#indexSuccess > div > div{
+#content div#global-content{
     margin-right:10px;
 }
 

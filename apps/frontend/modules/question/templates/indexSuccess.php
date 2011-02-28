@@ -1,6 +1,7 @@
 <div id="indexSuccess">
 
 	<div id="question-list-content" class="col-18">
+	<div id="global-content">
 	<h1 id="page-title" class="boxleft">Question List</h1>
 	<div id="tabs-question-list">
     <ul id="order" class="nonelist clearfix nonespace">
@@ -11,6 +12,7 @@
   </div>
 
 	 <?php include_partial('question/question_list', array('pager' => $pager, 'order' => $order)) ?>
+	</div>
 	</div>
 	
 	<div id="sidebar" class="col-6">
