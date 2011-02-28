@@ -134,6 +134,10 @@ ul#secondary-menu li a:hover{
 		margin-bottom:0px;
 		margin-top:8px;
   }
+
+#content > div > div > div{
+    margin-right:10px;
+}
 	
 /*Tabs List Question*/
 #tabs-question-list ul#order{
@@ -193,13 +197,18 @@ ul#secondary-menu li a:hover{
 }
 */
 /*Question List Content*/
+
 #question-list-content > .item{
 	border-bottom: 1px solid #ccc;
   padding-bottom:5px;
 	margin-bottom:5px;
 }
-
-
+#question-list-content .first-group-fields{
+	width:173px;
+}
+#question-list-content .second-group-fields{
+    width: 537px;
+}
 .field.votes,
 .field.views,
 .field.answers{
