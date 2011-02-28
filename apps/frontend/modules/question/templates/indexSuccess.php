@@ -3,7 +3,7 @@
 	<div id="question-list-content" class="col-18">
 	<h1 id="page-title" class="boxleft">Question List</h1>
 	<div id="tabs-question-list">
-    <ul id="order" class="nonelist clearfix">
+    <ul id="order" class="nonelist clearfix nonespace">
       <li class="boxright <?php ($order=='oldest') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=oldest') ?>"><span>Oldest</span></a></li>
       <li class="boxright <?php ($order=='newest') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=newest') ?>"><span>Newest </span></a></li>
       <li class="boxright <?php ($order=='rated') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=rated') ?>"><span>Votes</span></a></li>
