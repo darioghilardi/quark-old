@@ -133,3 +133,30 @@ user_profile:
 user_list:
   url:  users/list
   param: { module: user, action: list }
+  
+apply:
+  url:  /apply
+  param: { module: sfApply, action: apply }
+
+reset:
+  url: /reset
+  param: { module: sfApply, action: reset }
+
+settings:
+  url: /settings
+  param: { module: sfApply, action: settings }
+
+
+#for Not Lgged
+resetRequest:
+  url: /request
+  param: { module: sfApply, action: resetRequest }
+  
+# We implement the missing sf_guard_password feature from sfGuardPlugin
+sf_guard_password:
+  url: /request
+  param: { module: sfApply, action: resetRequest }
+
+validate:
+  url: /confirm/:validate
+  param: { module: sfApply, action: confirm }

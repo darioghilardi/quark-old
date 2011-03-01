@@ -58,13 +58,18 @@ form .preview p{
     position: relative;
     right: 0;
 }
-
+ul.error_list{
+	margin:0px;
+	margin-bottom:8px;
+	padding:0px;
+}
 ul.error_list li{
   list-style:none;
   list-style-image:none;
   background:#f69292;
   color:#000;
   padding:5px;
+	margin:0px;
 }
 
 /*Global title pages*/
@@ -639,3 +644,26 @@ h3.sub-page-title{
   margin-right: 10px;
 	
 }
+
+
+
+/*Override New User*/
+
+form#sf_apply_apply_form #username-apply,
+form#sf_apply_apply_form #lastname-apply,
+form#sf_apply_apply_form #firstname-apply{
+	 width:346px;
+}
+
+form#sf_apply_apply_form #password-apply,
+form#sf_apply_apply_form #password2-apply,
+form#sf_apply_apply_form #email-apply,
+form#sf_apply_apply_form #email2-apply{
+	width:346px;
+	float:left;
+}
+form#sf_apply_apply_form #email-apply,
+form#sf_apply_apply_form #password-apply{
+	margin-right:18px;
+}
+
