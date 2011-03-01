@@ -12,7 +12,7 @@
 	  </li>
   <?php endif;?>
   
-  <li class="boxright menu-item"><?php echo link_to('Faq', '/faq') ?></li>
-  <li class="boxright menu-item"><?php echo link_to('About', '/about') ?></li>
-  <li class="boxright menu-item"><a href="/">Home</a></li>
+  <li class="boxright menu-item"><?php echo link_to('Faq', 'static/show?path=faq') ?></li>
+  <li class="boxright menu-item"><?php echo link_to('About', 'static/show?path=about') ?></li>
+  <li class="boxright menu-item"><?php echo link_to('Home', '@homepage') ?></li>
 </ul>
