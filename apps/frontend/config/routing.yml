@@ -114,49 +114,44 @@ sf_guard_signout:
   url:   /logout
   param: { module: sfGuardAuth, action: signout }
 
-sf_guard_password:
-  url:   /request_password
-  param: { module: sfGuardAuth, action: password }
-
-#sf_guard_user:
-#url:   /user
-#param: { module: sfGuardUser, action: user }
-
-
-#User Module
+#User personal profile by User Module
 user_profile:
   url:  user/:username
   param: { module: user, action: show }
   requirements:
     sf_method: [get]
-    
+
+#User page list by user module 
 user_list:
   url:  users/list
   param: { module: user, action: list }
-  
+
+#Registration User by sfApply
 apply:
-  url:  /apply
+  url:  /register
   param: { module: sfApply, action: apply }
 
+#validate registration for not Logged User by sfApply  
+validate:
+  url: /confirm/:validate
+  param: { module: sfApply, action: confirm }
+
+#Reset password for logged User by sfApply
 reset:
   url: /reset
   param: { module: sfApply, action: reset }
 
+#Setting password for logged User by sfApply
 settings:
   url: /settings
   param: { module: sfApply, action: settings }
 
-
-#for Not Lgged
+#Reset password for not Logged User by sfApply
 resetRequest:
   url: /request
   param: { module: sfApply, action: resetRequest }
-  
-# We implement the missing sf_guard_password feature from sfGuardPlugin
+
+#Reset password for not Logged User by sfGuardPlugin
 sf_guard_password:
   url: /request
   param: { module: sfApply, action: resetRequest }
-
-validate:
-  url: /confirm/:validate
-  param: { module: sfApply, action: confirm }
