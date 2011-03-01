@@ -7,7 +7,7 @@
 	    <?php else: ?>
 	      <a href="<?php echo url_for('sf_guard_signin') ?>">Login</a>
 	      or 
-	      <a href="<?php echo url_for('sf_guard_signin') ?>">Register</a>
+	      <a href="<?php echo url_for('sfApply/apply') ?>">Register</a>
 	    <?php endif;?>
 	  </li>
   <?php endif;?>

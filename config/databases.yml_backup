@@ -1,0 +1,14 @@
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=quark;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock'
+      username: quark
+      password: quark
+test:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=quark;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock'
+      username: quark
+      password: quark
