@@ -35,11 +35,11 @@
     </span>
     
     <span class="tags boxleft txtleft">
-      <?php include_partial('question/question_tags', array()) ?>
+      <?php include_partial('question/question_tags', array('tags' => $question->getQuestionTag())) ?>
     </span>
     
     <span class="submitted boxright txtright">
-      <?php include_partial('question/question_submitted', array('user_id'=>$question->getUser_id())) ?>
+      <?php include_partial('question/question_submitted', array('user_id' => $question->getUser_id())) ?>
     </span>
     
     </div>
