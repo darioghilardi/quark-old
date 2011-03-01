@@ -16,6 +16,7 @@
  * @property timestamp $created_at
  * @property timestamp $updated_at
  * @property sfGuardUser $User
+ * @property Doctrine_Collection $QuestionTag
  * @property Doctrine_Collection $ask_question
  * @property Doctrine_Collection $Interest
  * @property Doctrine_Collection $Accept
@@ -31,6 +32,7 @@
  * @method timestamp           getCreatedAt()        Returns the current record's "created_at" value
  * @method timestamp           getUpdatedAt()        Returns the current record's "updated_at" value
  * @method sfGuardUser         getUser()             Returns the current record's "User" value
+ * @method Doctrine_Collection getQuestionTag()      Returns the current record's "QuestionTag" collection
  * @method Doctrine_Collection getAskQuestion()      Returns the current record's "ask_question" collection
  * @method Doctrine_Collection getInterest()         Returns the current record's "Interest" collection
  * @method Doctrine_Collection getAccept()           Returns the current record's "Accept" collection
@@ -45,6 +47,7 @@
  * @method Question            setCreatedAt()        Sets the current record's "created_at" value
  * @method Question            setUpdatedAt()        Sets the current record's "updated_at" value
  * @method Question            setUser()             Sets the current record's "User" value
+ * @method Question            setQuestionTag()      Sets the current record's "QuestionTag" collection
  * @method Question            setAskQuestion()      Sets the current record's "ask_question" collection
  * @method Question            setInterest()         Sets the current record's "Interest" collection
  * @method Question            setAccept()           Sets the current record's "Accept" collection
@@ -111,6 +114,10 @@ abstract class BaseQuestion extends sfDoctrineRecord
              'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
+
+        $this->hasMany('QuestionTag', array(
+             'local' => 'id',
+             'foreign' => 'question_id'));
 
         $this->hasMany('Answer as ask_question', array(
              'local' => 'id',

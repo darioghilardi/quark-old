@@ -27,6 +27,28 @@ Question:
     updated_at: '2011-01-25 13:<?php echo $i ?>'
 <?php endfor ?>
 
+Tag:
+  php:
+    name: php
+  java:
+    name: java
+  python:
+    name: python
+
+QuestionTag:
+  tag1:
+    Question: how_old_are_you
+    Tag: java
+  tag2:
+    Question: how_old_are_you
+    Tag: php
+  tag3:
+    Question: symfony
+    Tag: php
+  tag4:
+    Question: php
+    Tag: python
+
 Answer:
   hypertext:
     Question: php

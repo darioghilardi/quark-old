@@ -13,6 +13,20 @@ Question:
   relations:
     User:							{onDelete: CASCADE, local: user_id, class: sfGuardUser}
 
+QuestionTag:
+  columns:
+    id:             {type: integer, notnull: true, autoincrement: true, primary: true}
+    question_id:		{type: integer, notnull: true}
+    tag_id:         {type: integer, notnull: true}
+  relations:
+    Question:				{onDelete: CASCADE, local: question_id, foreign: id}
+    Tag:            {onDelete: CASCADE, local: tag_id, foreign: id}
+
+Tag:
+  columns:
+    id:             {type: integer, notnull: true, autoincrement: true, primary: true}
+    name:           {type: string(100), notnull: true, unique: true}
+
 Answer:
   columns:
     id:							{type: integer, notnull: true, autoincrement: true, primary: true}
