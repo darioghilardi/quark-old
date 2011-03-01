@@ -15,7 +15,8 @@ class AnswerForm extends BaseAnswerForm
     $this->widgetSchema['question_id'] = new sfWidgetFormInputHidden();
     unset(
       $this['created_at'],
-      $this['votes']
+      $this['votes'],
+      $this['accepted']
     );
   }
 }

@@ -28,11 +28,20 @@ class questionComponents extends sfComponents
    */
   public function executeBlockQuestionStats()
   {
-    // Count question number
+    // Populate variables
     $this->nquestion = Doctrine_Core::getTable('Question')->count();
     $this->percentwithanswer = number_format(Doctrine_Core::getTable('Question')->getQuestionWithAnswer() / $this->nquestion, 2);
     $this->percentwithaccepted = number_format(Doctrine_Core::getTable('Accept')->count() / $this->nquestion, 2);
   }
+
+  /**
+   * Create the block for recent tags.
+   */
+  public function executeBlockRecentTags()
+  {
+    $this->tags = Doctrine_Core::getTable('Tag')->getRecentTags();
+  }
+
 }
 
 ?>

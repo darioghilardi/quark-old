@@ -22,7 +22,7 @@
       
       <div class="meta">
         <span class="tags boxleft txtleft">
-          <?php include_partial('question/question_tags', array()) ?>
+          <?php include_partial('question/question_tags', array('tags' => $question->getQuestionTag())) ?>
         </span>
     
 		    <span class="submitted boxright txtright">

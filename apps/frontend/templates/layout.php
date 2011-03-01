@@ -10,17 +10,13 @@
   <body>
 
     
-    
-    
-    
     <div id="page" >
     
     <div id="top-header">
       <div class="container">
         <?php include_partial('question/question_primary_menu', array()) ?>
       </div>
-    </div>
-    
+    </div> 
     
     
       <div id="header" class="container">

@@ -68,10 +68,12 @@ abstract class BaseAnswer extends sfDoctrineRecord
              ));
         $this->hasColumn('body', 'string', 10000, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => 10000,
              ));
         $this->hasColumn('body_html', 'string', 10000, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => 10000,
              ));
         $this->hasColumn('created_at', 'timestamp', null, array(

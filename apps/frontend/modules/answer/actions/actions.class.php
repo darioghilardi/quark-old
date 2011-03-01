@@ -153,14 +153,14 @@ class answerActions extends sfActions
   	
     $values = $request->getParameter($form->getName());
     
-    // Init and config Purifier HTML
+    // Init and config HTML Purifier
     $config_purifier = HTMLPurifier_Config::createDefault();    
     $config_purifier->set('HTML.Allowed', 'p,ul,li,ol,blockquote,quote,href,b,i,em,a[href],strong,code,img[src]');
     $config_purifier->set('AutoFormat.AutoParagraph', false);
     $config_purifier->set('HTML.Doctype', 'XHTML 1.0 Strict');
     $purifier = new HTMLPurifier($config_purifier);
 
-    // Purifier Html of Mrkdown Output htm
+    // Purify Html of Markdown Output
     $values["body_html"] = $purifier->purify(Markdown($values["body"]));
 
     $question_id = $values["question_id"];
@@ -177,13 +177,16 @@ class answerActions extends sfActions
         $answer = $form->save();
         $question = Doctrine_Core::getTable('Question')->find(array($values["question_id"]));
         $question->updateAnswerCount(1);
+
+        // Commit the transaction
+        $conn->commit();
       }
       catch (Exception $e)
       {
         // Rollback and exception
         $conn->rollBack();
         throw $e;
-      }
+      }      
       $this->redirect('question/show?id='.$question->getId().'&title_slug='.$question->getTitleSlug());
     }
   }

@@ -16,4 +16,17 @@ class TagTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Tag');
     }
+
+    public static function getRecentTags()
+    {
+      $q = Doctrine_Query::create()
+        ->select('t.name, COUNT(q.tag_id)')
+        ->from('Tag t')
+        ->innerJoin('t.QuestionTag q')
+        ->orderBy('t.name')
+        ->groupBy('q.tag_id')
+        ->limit(30);
+      
+      return $q->fetchArray();
+    }
 }

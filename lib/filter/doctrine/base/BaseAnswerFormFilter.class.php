@@ -15,8 +15,8 @@ abstract class BaseAnswerFormFilter extends BaseFormFilterDoctrine
     $this->setWidgets(array(
       'question_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Question'), 'add_empty' => true)),
       'user_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => true)),
-      'body'        => new sfWidgetFormFilterInput(),
-      'body_html'   => new sfWidgetFormFilterInput(),
+      'body'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'body_html'   => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'created_at'  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'votes'       => new sfWidgetFormFilterInput(),
       'accepted'    => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),

@@ -78,10 +78,12 @@ abstract class BaseQuestion extends sfDoctrineRecord
              ));
         $this->hasColumn('body', 'string', 10000, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => 10000,
              ));
         $this->hasColumn('body_html', 'string', 10000, array(
              'type' => 'string',
+             'notnull' => true,
              'length' => 10000,
              ));
         $this->hasColumn('views', 'integer', null, array(
