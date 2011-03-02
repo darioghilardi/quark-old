@@ -20,5 +20,6 @@ class QuestionForm extends BaseQuestionForm
 
     // Add tag field
     $this->widgetSchema['tags'] = new sfWidgetFormInputText();
+    $this->validatorSchema['tags'] = new sfValidatorString(array('required' => true));
   }
 }

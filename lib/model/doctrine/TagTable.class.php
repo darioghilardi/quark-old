@@ -42,7 +42,7 @@ class TagTable extends Doctrine_Table
    * @param int $limit: Number of results for the autocomplete widget
    * @return array $tags: The corresponding tags
    */
-  function getForAutocomplete($q, $limit)
+  public static function getForAutocomplete($q, $limit)
   {
     $q = Doctrine_Query::create()
       ->from('Tag t')

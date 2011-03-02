@@ -201,10 +201,8 @@ class questionActions extends sfActions
     // Html Purifier on Markdown output
     $values["body_html"] = $purifier->purify(Markdown($values["body"]));
 
-    // Take off the tags from the form, parse and store them
-    Tagged::addTags($values['tags']);
-    die;
-    unset($values['tags']);    
+    // Take off the tags from the form
+    
 
     // Put id of logged user that have asked question
     $values["user_id"] = $this->getUser()->getGuardUser()->getId();
@@ -212,7 +210,17 @@ class questionActions extends sfActions
 
     if ($form->isValid())
     {
+      $tags = $values['tags'];
+
+      // Store tags
+      $tags = Tagged::addTags($tags);
+
+      // Store question
       $question = $form->save();
+
+      // Store question relation with tags
+      Tagged::addQuestionTagsRelation($question, $tags);
+      
       $this->redirect('question/show?id='.$question->getId().'&title_slug='.$question->getTitleSlug());
     }
   }

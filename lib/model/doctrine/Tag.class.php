@@ -12,4 +12,16 @@
  */
 class Tag extends BaseTag
 {
+  /**
+   * Extract the id of the corresponding tag.
+   */
+  public static function getTagIdByName($name)
+  {
+    $q = Doctrine_Query::create()
+      ->from('Tag t')
+      ->where('t.name = ?', $name)
+      ->fetchOne();
+
+    return $q['id'];
+  }
 }
