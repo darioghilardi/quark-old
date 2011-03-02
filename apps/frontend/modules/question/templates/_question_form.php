@@ -1,4 +1,9 @@
 <?php use_stylesheet('wmd.css') ?>
+<?php use_stylesheet('jquery-ui-1.8.10.autocomplete.css.css') ?>
+
+<?php use_javascript('jquery-1.4.4.min.js') ?>
+<?php use_javascript('jquery-ui-1.8.10.autocomplete.min.js') ?>
+<?php use_javascript('autocomplete.js') ?>
 <?php use_javascript('wmd.js') ?>
 <?php use_javascript('showdown.js') ?>
 <?php use_javascript('wmd-setup-question.js') ?>
@@ -23,6 +28,12 @@
       <?php echo $form['body']->renderLabel() ?>
 	    <div id="button-bar"></div>
 	    <?php echo $form['body'] ?>
+    </div>
+    <div id="tags-question" class="item">
+      <?php echo $form['tags']->renderError() ?>
+      <?php echo $form['tags']->renderLabel() ?>
+	    <div id="button-bar"></div>
+	    <?php echo $form['tags'] ?>
     </div>
 
     <div id="preview-question" class="item preview"> 

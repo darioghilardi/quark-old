@@ -7,26 +7,56 @@
  */
 class TagTable extends Doctrine_Table
 {
-    /**
-     * Returns an instance of this class.
-     *
-     * @return object TagTable
-     */
-    public static function getInstance()
-    {
-        return Doctrine_Core::getTable('Tag');
-    }
+  /**
+   * Returns an instance of this class.
+   *
+   * @return object TagTable
+   */
+  public static function getInstance()
+  {
+      return Doctrine_Core::getTable('Tag');
+  }
 
-    public static function getRecentTags()
+  /**
+   * Extract the recent tags with their count.
+   *
+   * @return array: Tags name and tag count
+   */
+  public static function getRecentTags()
+  {
+    $q = Doctrine_Query::create()
+      ->select('t.name, COUNT(q.tag_id)')
+      ->from('Tag t')
+      ->innerJoin('t.QuestionTag q')
+      ->orderBy('t.name')
+      ->groupBy('q.tag_id')
+      ->limit(30);
+
+    return $q->fetchArray();
+  }
+
+  /**
+   * Extract the tags corresponding to the partial query.
+   *
+   * @param string $q: Partial text written into the field
+   * @param int $limit: Number of results for the autocomplete widget
+   * @return array $tags: The corresponding tags
+   */
+  function getForAutocomplete($q, $limit)
+  {
+    $q = Doctrine_Query::create()
+      ->from('Tag t')
+      ->andWhere('t.name like ?', '%' . $q . '%')
+      ->addOrderBy('t.name')
+      ->limit($limit);
+    $tags = array();
+    $k = 0;
+    foreach ($q->execute() as $tag)
     {
-      $q = Doctrine_Query::create()
-        ->select('t.name, COUNT(q.tag_id)')
-        ->from('Tag t')
-        ->innerJoin('t.QuestionTag q')
-        ->orderBy('t.name')
-        ->groupBy('q.tag_id')
-        ->limit(30);
-      
-      return $q->fetchArray();
+      $tags[$k]["value"] = (string) $tag;
+      $tags[$k]["id"] = $tag->getId();
+      $k++;
     }
+    return $tags;
+  }
 }
