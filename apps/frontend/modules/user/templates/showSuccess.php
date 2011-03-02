@@ -14,6 +14,8 @@
 	      <li><?php echo gravatar($user->getEmail_address(), 128);
 
 	      echo gravatar_profile($user->getEmail_address(), 'Edit Gravatar')?></li>
+        <li><?php echo link_to('Edit own profile', '@settings');?></li>
+        <li><?php echo link_to('Change password', '@reset');?></li>
 	    </ul>
 	  </div>
 	  

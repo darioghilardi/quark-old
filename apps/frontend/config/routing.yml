@@ -142,12 +142,12 @@ validate:
 
 #Reset password for logged User by sfApply
 reset:
-  url: /reset
+  url: user/reset-password
   param: { module: sfApply, action: reset }
 
 #Setting password for logged User by sfApply
 settings:
-  url: /settings
+  url: user/edit
   param: { module: sfApply, action: settings }
 
 sf_guard_forgot_password:
