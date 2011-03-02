@@ -6,7 +6,10 @@
     <div id="global-content">
       <h1 id="page-title"><?php echo __("Apply for an Account", array(), 'sfForkedApply') ?></h1>
 				<form method="post" action="<?php echo url_for('sfApply/apply') ?>"name="sf_apply_apply_form" id="sf_apply_apply_form">
-	        <?php include_partial('sfApply/apply_item_form_register', array('item' => $form['username'],'class'=>'username')) ?>
+          
+          <?php echo $form->renderGlobalErrors() ?>	        
+          
+          <?php include_partial('sfApply/apply_item_form_register', array('item' => $form['username'],'class'=>'username')) ?>
 	        <?php include_partial('sfApply/apply_item_form_register', array('item' => $form['password'],'class'=>'password')) ?>
 	        <?php include_partial('sfApply/apply_item_form_register', array('item' => $form['password2'],'class'=>'password2')) ?>
 	        <?php include_partial('sfApply/apply_item_form_register', array('item' => $form['firstname'],'class'=>'firstname')) ?>
@@ -20,7 +23,7 @@
 		      <span id ="backtolist-apply" class="backto boxleftt">
 	          &larr;  <?php echo link_to(__("Cancel", array(), 'sfForkedApply'), sfConfig::get('app_sfApplyPlugin_after', '@homepage')) ?>
 				  </span>
-				  
+				  <?php echo $form['_csrf_token'] ?>
 				</form>
     </div>
   </div>
