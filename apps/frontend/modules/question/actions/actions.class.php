@@ -164,6 +164,24 @@ class questionActions extends sfActions
     }
   }
 
+  /**
+   * Return the autocomplete values.
+   * 
+   * @param sfWebRequest $request
+   * @return json $tags
+   */
+  public function executeAutocomplete($request)
+	{
+	    $this->getResponse()->setContentType('application/json');
+
+      $tags = Doctrine::getTable('Tag')->getForAutocomplete(
+        $request->getParameter('term'),
+	      $request->getParameter('limit')
+	    );
+
+	    return $this->renderText(json_encode($tags));
+	}
+
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
   	// Include external Library for Purifier HTML Tag and convert Markdwon into HTML Tag
@@ -180,8 +198,13 @@ class questionActions extends sfActions
     $config_purifier->set('HTML.Doctype', 'XHTML 1.0 Strict');
     $purifier = new HTMLPurifier($config_purifier);
     
-    // Purifier Html of Mrkdown Output htm
+    // Html Purifier on Markdown output
     $values["body_html"] = $purifier->purify(Markdown($values["body"]));
+
+    // Take off the tags from the form, parse and store them
+    Tagged::addTags($values['tags']);
+    die;
+    unset($values['tags']);    
 
     // Put id of logged user that have asked question
     $values["user_id"] = $this->getUser()->getGuardUser()->getId();

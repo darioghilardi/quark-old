@@ -92,6 +92,12 @@ accept_answer:
     id: \d+
     sf_method: [get]
 
+# Autocomplete widget
+autocomplete:
+  url:     /question/autocomplete
+  class:   sfRequestRoute
+  param:   { module: question, action: autocomplete }
+
 # Show the homepage
 homepage:
   url:   /
