@@ -8,14 +8,16 @@
 	  
 	  <div id="user-info">
       <ul>
-	      <li><?php echo $user->getFirst_name();?></li>
-	      <li><?php echo $user->getLast_name();?></li>
-	      <li><?php echo $user->getEmail_address();?></li>
-	      <li><?php echo gravatar($user->getEmail_address(), 128);
-
-	      echo gravatar_profile($user->getEmail_address(), 'Edit Gravatar')?></li>
+	      <li><?php echo gravatar($user->getEmail_address(), 128);?></li>
+	      <li><?php echo gravatar_profile($user->getEmail_address(), 'Edit Gravatar')?></li>
         <li><?php echo link_to('Edit own profile', '@settings');?></li>
         <li><?php echo link_to('Change password', '@reset');?></li>
+        
+        <li><?php echo $userprofile->getFirstname(); ?></li>
+        <li><?php echo $userprofile->getLastname(); ?></li>
+        
+        
+        
 	    </ul>
 	  </div>
 	  
