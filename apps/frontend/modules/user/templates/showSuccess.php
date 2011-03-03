@@ -6,19 +6,30 @@
 	<div id="user-single-content" class="col-18">
 	  <h1 id="page-title"><?php echo $user->getUsername(); ?></h1>
 	  
-	  <div id="user-info">
-      <ul>
-	      <li><?php echo gravatar($user->getEmail_address(), 128);?></li>
-	      <li><?php echo gravatar_profile($user->getEmail_address(), 'Edit Gravatar')?></li>
+	  <div id="user-info" class="clearfix">
+	  
+	    <ul id="options-user" class="nonespace nonelist col-18 boxleft">
+		    <li class="boxleft"><?php echo link_to('Edit own profile', '@settings');?></li>
+	      <li class="boxleft"><?php echo link_to('Change password', '@reset');?></li>
+	      <li class="boxleft"><?php echo gravatar_profile($user->getEmail_address(), 'Edit Gravatar')?></li>
+	    </ul>
+	    
+      <ul class="nonespace nonelist col-4 boxleft">
+        <li class="boxleft"><?php echo gravatar($user->getEmail_address(), 128);?></li>
+      </ul>
+      
+      <ul class="nonespace nonelist col-4 boxleft">
         <li><?php echo link_to('Edit own profile', '@settings');?></li>
         <li><?php echo link_to('Change password', '@reset');?></li>
-        
         <li><?php echo $userprofile->getFirstname(); ?></li>
         <li><?php echo $userprofile->getLastname(); ?></li>
-        
-        
-        
-	    </ul>
+      </ul>
+      <ul class="nonespace nonelist col-10 boxleft">
+        <li><?php echo link_to('Edit own profile', '@settings');?></li>
+        <li><?php echo link_to('Change password', '@reset');?></li>
+        <li><?php echo $userprofile->getFirstname(); ?></li>
+        <li><?php echo $userprofile->getLastname(); ?></li>
+      </ul>
 	  </div>
 	  
 	  <div id="user-questions">
