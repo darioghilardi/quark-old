@@ -7,28 +7,31 @@
 	  <h1 id="page-title"><?php echo $user->getUsername(); ?></h1>
 	  
 	  <div id="user-info" class="clearfix">
-	  
-	    <ul id="options-user" class="nonespace nonelist col-18 boxleft">
-		    <li class="boxleft"><?php echo link_to('Edit own profile', '@settings');?></li>
-	      <li class="boxleft"><?php echo link_to('Change password', '@reset');?></li>
-	      <li class="boxleft"><?php echo gravatar_profile($user->getEmail_address(), 'Edit Gravatar')?></li>
-	    </ul>
+
+	    <?php if ($sf_user->isAuthenticated()): ?>
+        <?php if ($sf_user->getGuardUser()->getId() === $user->getId()): ?>
+			    <ul id="options-user-info" class="nonespace nonelist col-18 boxleft">
+				    <li class="boxleft first"><?php echo link_to('Edit own profile', '@settings');?></li>
+			      <li class="boxleft"><?php echo link_to('Change password', '@reset');?></li>
+			      <li class="boxleft last"><?php echo gravatar_profile($user->getEmail_address(), 'Edit Gravatar')?></li>
+			    </ul>
+        <?php endif;?>
+      <?php endif;?>
 	    
-      <ul class="nonespace nonelist col-4 boxleft">
+      <ul id="avatar-user-sinfo" class="nonespace nonelist col-4 boxleft">
         <li class="boxleft"><?php echo gravatar($user->getEmail_address(), 128);?></li>
       </ul>
       
-      <ul class="nonespace nonelist col-4 boxleft">
-        <li><?php echo link_to('Edit own profile', '@settings');?></li>
-        <li><?php echo link_to('Change password', '@reset');?></li>
-        <li><?php echo $userprofile->getFirstname(); ?></li>
-        <li><?php echo $userprofile->getLastname(); ?></li>
+      <ul id="info-user-info" class="nonespace nonelist col-4 boxleft">
+        <li class="firstname"><?php echo $userprofile->getFirstname(); ?></li>
+        <li class="lastname"><?php echo $userprofile->getLastname(); ?></li>
+        <li class="lastname"><span class="label">Age</span> <?php echo rand(18,60)?></li>
+        <li class="lastname"><span class="label">Location</span> italy</li>
+        <li class="lastname"><span class="label">Web Site</span> <a href="http://www.kiuz.it">www.kiuz.it</a></li>
+        
       </ul>
-      <ul class="nonespace nonelist col-10 boxleft">
-        <li><?php echo link_to('Edit own profile', '@settings');?></li>
-        <li><?php echo link_to('Change password', '@reset');?></li>
-        <li><?php echo $userprofile->getFirstname(); ?></li>
-        <li><?php echo $userprofile->getLastname(); ?></li>
+      <ul id="other-user-info" class="nonespace nonelist col-10 boxleft">
+        <li>// TODO bio ...</li>
       </ul>
 	  </div>
 	  
