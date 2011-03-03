@@ -76,3 +76,10 @@ StaticContent:
     title:            {type: string(255), notnull: true}
     path:             {type: varchar(50), notnull: true, unique: true}
     body:             {type: string()}
+
+UserProfile:
+  inheritance:
+    type: column_aggregation
+    extends: sfGuardUserProfile
+  columns:
+    reputation:       {type: integer, notnull: true, default:0}

@@ -19,6 +19,8 @@ abstract class BasesfGuardUserProfileFormFilter extends BaseFormFilterDoctrine
       'lastname'    => new sfWidgetFormFilterInput(),
       'validate_at' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'validate'    => new sfWidgetFormFilterInput(),
+      'type'        => new sfWidgetFormFilterInput(),
+      'reputation'  => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'created_at'  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
@@ -30,6 +32,8 @@ abstract class BasesfGuardUserProfileFormFilter extends BaseFormFilterDoctrine
       'lastname'    => new sfValidatorPass(array('required' => false)),
       'validate_at' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'validate'    => new sfValidatorPass(array('required' => false)),
+      'type'        => new sfValidatorPass(array('required' => false)),
+      'reputation'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'created_at'  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
@@ -58,6 +62,8 @@ abstract class BasesfGuardUserProfileFormFilter extends BaseFormFilterDoctrine
       'lastname'    => 'Text',
       'validate_at' => 'Date',
       'validate'    => 'Text',
+      'type'        => 'Text',
+      'reputation'  => 'Number',
       'created_at'  => 'Date',
       'updated_at'  => 'Date',
     );

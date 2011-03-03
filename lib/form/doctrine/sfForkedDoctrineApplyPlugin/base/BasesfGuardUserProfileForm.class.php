@@ -22,6 +22,8 @@ abstract class BasesfGuardUserProfileForm extends BaseFormDoctrine
       'lastname'    => new sfWidgetFormInputText(),
       'validate_at' => new sfWidgetFormDateTime(),
       'validate'    => new sfWidgetFormInputText(),
+      'type'        => new sfWidgetFormInputText(),
+      'reputation'  => new sfWidgetFormInputText(),
       'created_at'  => new sfWidgetFormDateTime(),
       'updated_at'  => new sfWidgetFormDateTime(),
     ));
@@ -34,6 +36,8 @@ abstract class BasesfGuardUserProfileForm extends BaseFormDoctrine
       'lastname'    => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'validate_at' => new sfValidatorDateTime(array('required' => false)),
       'validate'    => new sfValidatorString(array('max_length' => 33, 'required' => false)),
+      'type'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'reputation'  => new sfValidatorInteger(array('required' => false)),
       'created_at'  => new sfValidatorDateTime(),
       'updated_at'  => new sfValidatorDateTime(),
     ));

@@ -11,6 +11,8 @@
  * @property string $lastname
  * @property timestamp $validate_at
  * @property string $validate
+ * @property string $type
+ * @property integer $reputation
  * @property sfGuardUser $User
  * 
  * @method integer            getUserId()      Returns the current record's "user_id" value
@@ -19,6 +21,8 @@
  * @method string             getLastname()    Returns the current record's "lastname" value
  * @method timestamp          getValidateAt()  Returns the current record's "validate_at" value
  * @method string             getValidate()    Returns the current record's "validate" value
+ * @method string             getType()        Returns the current record's "type" value
+ * @method integer            getReputation()  Returns the current record's "reputation" value
  * @method sfGuardUser        getUser()        Returns the current record's "User" value
  * @method sfGuardUserProfile setUserId()      Sets the current record's "user_id" value
  * @method sfGuardUserProfile setEmailNew()    Sets the current record's "email_new" value
@@ -26,6 +30,8 @@
  * @method sfGuardUserProfile setLastname()    Sets the current record's "lastname" value
  * @method sfGuardUserProfile setValidateAt()  Sets the current record's "validate_at" value
  * @method sfGuardUserProfile setValidate()    Sets the current record's "validate" value
+ * @method sfGuardUserProfile setType()        Sets the current record's "type" value
+ * @method sfGuardUserProfile setReputation()  Sets the current record's "reputation" value
  * @method sfGuardUserProfile setUser()        Sets the current record's "User" value
  * 
  * @package    quark
@@ -62,6 +68,15 @@ abstract class BasesfGuardUserProfile extends sfDoctrineRecord
              'type' => 'string',
              'length' => 33,
              ));
+        $this->hasColumn('type', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('reputation', 'integer', null, array(
+             'type' => 'integer',
+             'notnull' => true,
+             'default' => 0,
+             ));
 
 
         $this->index('user_id_unique', array(
@@ -70,6 +85,12 @@ abstract class BasesfGuardUserProfile extends sfDoctrineRecord
               0 => 'user_id',
              ),
              'type' => 'unique',
+             ));
+        $this->setSubClasses(array(
+             'UserProfile' => 
+             array(
+              'type' => 'UserProfile',
+             ),
              ));
     }
 
