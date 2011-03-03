@@ -201,25 +201,36 @@ class questionActions extends sfActions
     // Html Purifier on Markdown output
     $values["body_html"] = $purifier->purify(Markdown($values["body"]));
 
-    // Take off the tags from the form
-    
-
     // Put id of logged user that have asked question
     $values["user_id"] = $this->getUser()->getGuardUser()->getId();
     $form->bind($values);
 
     if ($form->isValid())
     {
-      $tags = $values['tags'];
+      $conn = Doctrine_Manager::getInstance()->getCurrentConnection();
+      $conn->beginTransaction();
+      try
+      {
+        $tags = $values['tags'];
 
-      // Store tags
-      $tags = Tagged::addTags($tags);
+        // Store tags
+        $tags = Tagged::addTags($tags);
 
-      // Store question
-      $question = $form->save();
+        // Store question
+        $question = $form->save();
 
-      // Store question relation with tags
-      Tagged::addQuestionTagsRelation($question, $tags);
+        // Store question relation with tags
+        Tagged::addQuestionTagsRelation($question, $tags);
+
+        // Commit the transaction
+        $conn->commit();
+      }
+      catch (Exception $e)
+      {
+        // Rollback and exception
+        $conn->rollBack();
+        throw $e;
+      }
       
       $this->redirect('question/show?id='.$question->getId().'&title_slug='.$question->getTitleSlug());
     }
