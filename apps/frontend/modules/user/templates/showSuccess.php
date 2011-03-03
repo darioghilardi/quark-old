@@ -23,8 +23,8 @@
       </ul>
       
       <ul id="info-user-info" class="nonespace nonelist col-4 boxleft">
-        <li class="firstname"><?php echo $userprofile->getFirstname(); ?></li>
-        <li class="lastname"><?php echo $userprofile->getLastname(); ?></li>
+        <li class="firstname"><?php //echo $userprofile->getFirstname(); ?></li>
+        <li class="lastname"><?php //echo $userprofile->getLastname(); ?></li>
         <li class="lastname"><span class="label">Age</span> <?php echo rand(18,60)?></li>
         <li class="lastname"><span class="label">Location</span> italy</li>
         <li class="lastname"><span class="label">Web Site</span> <a href="http://www.kiuz.it">www.kiuz.it</a></li>
