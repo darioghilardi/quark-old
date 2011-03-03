@@ -645,10 +645,33 @@ h3.sub-page-title{
 	
 }
 
+/*User*//*showSuccess*/
+#user-info ul#options-user-info li a{
+  color:#999;
+}
+#user-info ul#options-user-info li{
+  line-height: 100%;
+  margin-bottom: 7px;
+	padding-right:5px;
+	padding-left:5px;
+	border-right:1px solid #999;
+}
+
+
+#user-info ul#options-user-info li.first{
+	 padding-left:0px;
+}
+#user-info ul#options-user-info li.last{
+	border-right:none;
+}
+
+#user-info ul#info-user-info li{
+    font-size: 16px;
+    margin-bottom: 3px;
+}
 
 
 /*Override New User*/
-
 form#sf_apply_apply_form #username-apply,
 form#sf_apply_apply_form #lastname-apply,
 form#sf_apply_apply_form #firstname-apply{

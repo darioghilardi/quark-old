@@ -31,6 +31,8 @@ class userActions extends sfActions
   {
     //retrive user objects, if exist
     $this->forward404Unless($this->user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username')));
+    $this->forward404Unless($this->userprofile = Doctrine::getTable('sfGuardUserProfile')->find($this->user->getId()));
+  
   }
   
  /**
