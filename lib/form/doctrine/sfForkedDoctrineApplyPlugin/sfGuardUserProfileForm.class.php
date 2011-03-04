@@ -12,6 +12,12 @@ class sfGuardUserProfileForm extends PluginsfGuardUserProfileForm
 {
   public function configure()
   {
-    unset($this['reputation']);
+    unset(
+      $this['reputation'],
+      $this['biography'],
+      $this['location'],
+      $this['website'],
+      $this['age']
+    );
   }
 }
