@@ -9,6 +9,13 @@
 body{background:#eee;}
 #page{background:#fff;}
 
+h3.subtitle{
+	 border-bottom-color: #858585;
+   border-bottom-style: solid;
+   border-bottom-width: 1px;
+   color: #444444;}
+
+.fullwidth{width:100%;}
 /*Globals*//*Forms*/
 form .item > label {
     color: #333333;
@@ -674,6 +681,16 @@ h3.sub-page-title{
 }
 
 /*User*//*showSuccess*/
+#user-info{
+	margin-bottom:10px;
+}
+ul#avatar-user-sinfo{
+	width:128px;
+	margin-right:15px;
+}
+ul#info-user-info{
+width:417px;	
+}
 #user-info ul#options-user-info li a{
   color:#999;
 }
@@ -685,7 +702,6 @@ h3.sub-page-title{
 	border-right:1px solid #999;
 }
 
-
 #user-info ul#options-user-info li.first{
 	 padding-left:0px;
 }
@@ -694,10 +710,30 @@ h3.sub-page-title{
 }
 
 #user-info ul#info-user-info li{
-    font-size: 16px;
-    margin-bottom: 3px;
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 3px;
 }
 
+#user-info ul#info-user-info li .label{    color: #999999;
+    display: block;
+    float: left;
+    font-weight: bold;
+    margin-right: 4px;
+    width: 80px;}
+
+#user-info ul#info-user-info li.reputation {
+    font-weight: bold;
+    line-height: 25px;}
+
+#user-info ul#info-user-info li.reputation .label{
+	color:#FF9500;
+}
+#other-user-info .biography{
+	background:#efefef;
+	height:134px;
+	display:block;
+}
 
 /*Override New User*/
 form#sf_apply_apply_form #username-apply,
