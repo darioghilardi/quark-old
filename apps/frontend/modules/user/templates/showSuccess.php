@@ -48,6 +48,7 @@
 	  
 	  <div id="user-questions">
 	   <h3 class="subtitle"><span><?php echo $userquestion->count()?></span> Questions</h3>
+	   
 	     <?php foreach($userquestion as $question): ?>
 
 	     <div class="item clearfix question-listed">
