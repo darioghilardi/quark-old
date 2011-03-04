@@ -18,6 +18,8 @@
 	        <?php include_partial('sfApply/apply_item_form_register', array('item' => $form['email'],'class'=>'email')) ?>
 	        <?php include_partial('sfApply/apply_item_form_register', array('item' => $form['email2'],'class'=>'email2')) ?>
           
+          <div class="clearfix"></div>
+          
           <span id ="submit-apply" class="save boxright">
 				    <input type="submit" value="<?php echo __("Create My Account", array(), 'sfForkedApply') ?>" />
 				  </span>
