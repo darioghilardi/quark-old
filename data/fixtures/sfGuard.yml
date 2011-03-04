@@ -41,3 +41,14 @@ sfGuardPermission:
   Permission_authenticated:
     name:           authenticated
     description:    Authenticated permission
+
+sfGuardUserProfile:
+  kiuz_profile:
+    first_name:     Kiuz
+    last_name:      Zuik
+    reputation:     156
+    age:            25
+    website:        http://www.webrain.it
+    location:       Italy
+    biography:      Hello! I am Kiuz, a web developer.
+    User:           kiuz
