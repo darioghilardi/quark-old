@@ -82,4 +82,4 @@ UserProfile:
     type: column_aggregation
     extends: sfGuardUserProfile
   columns:
-    reputation:       {type: integer, notnull: true, default:0}
+    reputation:       {type: integer, notnull: true, default: 0}
