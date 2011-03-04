@@ -24,7 +24,7 @@ form .item > textarea{
     display: block;
     width: 99%;
 }
-
+.message-after-form .backto,
 form .backto{
     color: #444444;
     font-size: 15px;
@@ -63,6 +63,7 @@ ul.error_list{
 	margin-bottom:8px;
 	padding:0px;
 }
+/*
 ul.error_list li{
   list-style:none;
   list-style-image:none;
@@ -71,6 +72,33 @@ ul.error_list li{
   padding:5px;
 	margin:0px;
 }
+*/
+/*Same color and similar style .error below*/
+ul.error_list li{
+	list-style:none;
+  list-style-image:none;
+	padding: 2px 5px; margin-bottom: 1em; border: 2px solid #ddd; 
+  background: #fbe3e4; color: #8a1f11; border-color: #fbc2c4; }
+
+
+/* Success, info, notice and error boxes form GreenScreen css Framework
+----------------------------------------------------------------------- */
+
+.error,
+.notice,
+.success, 
+.info       { padding: 0.8em; margin-bottom: 1em; border: 2px solid #ddd; }
+
+.error      { background: #fbe3e4; color: #8a1f11; border-color: #fbc2c4; }
+.notice     { background: #fff6bf; color: #514721; border-color: #ffd324; }
+.success    { background: #e6efc2; color: #264409; border-color: #c6d880; }
+.info       { background: #d5edf8; color: #205791; border-color: #92cae4; }
+.error a    { color: #8a1f11; }
+.notice a   { color: #514721; }
+.success a  { color: #264409; }
+.info a     { color: #205791; }
+
+
 
 /*Global title pages*/
 #content h1#page-title{

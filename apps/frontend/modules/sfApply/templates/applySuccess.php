@@ -5,6 +5,7 @@
   <div id="apply-content" class="col-18">
     <div id="global-content">
       <h1 id="page-title"><?php echo __("Apply for an Account", array(), 'sfForkedApply') ?></h1>
+      
 				<form method="post" action="<?php echo url_for('sfApply/apply') ?>"name="sf_apply_apply_form" id="sf_apply_apply_form">
           
           <?php echo $form->renderGlobalErrors() ?>
