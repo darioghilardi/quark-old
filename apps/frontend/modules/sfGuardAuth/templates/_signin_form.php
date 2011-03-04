@@ -17,7 +17,7 @@
   </div>
   
 	<?php echo $form['_csrf_token'] ?>
-	<div id="signin-other">
+	<div id="signin-other" class="info">
 	  <?php if (isset($routes['sf_guard_forgot_password'])): ?>
 	    <a href="<?php echo url_for('@sf_guard_forgot_password') ?>">
 	      <?php echo __('Forgot your password?', null, 'sf_guard') ?>
