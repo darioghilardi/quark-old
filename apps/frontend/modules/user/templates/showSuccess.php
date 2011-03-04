@@ -47,7 +47,38 @@
 	  </div>
 	  
 	  <div id="user-questions">
-	   <h3 class="subtitle"><span><?php echo rand(1,99); ?></span> Questions</h3>
+	   <h3 class="subtitle"><span><?php echo $userquestion->count()?></span> Questions</h3>
+	     <?php foreach($userquestion as $question): ?>
+
+	     <div class="item clearfix question-listed">
+        <div class="first-group-fields boxleft">
+        
+		      <span class="field votes boxleft">
+		        <span class="count"><?php echo $question->getInterestedUsers() ?></span>
+		        <span class="desc">Votes</span>
+		      </span>
+		      <span class="field answers boxleft <?php echo $question->getAnswerCountClass() ?>">
+		        <span class="count"><?php echo $question->getAnswerCount(); ?></span>
+		        <span class="desc">Answers</span>
+		      </span>
+		      <span class="field views boxleft">
+		        <span class="count"><?php print $question->views; ?></span>
+		        <span class="desc">Views</span>
+		      </span>
+        
+        </div>
+        <div class="second-group-fields boxleft">
+          <span class="field title">
+            <h2><a href="<?php echo url_for('question_show', $question)?>"><?php echo $question->getTitle()?></a></h2>
+          </span>
+    
+			    <span class="tags boxleft txtleft">
+			      <?php include_partial('question/question_tags', array('tags' => $question->getQuestionTag())) ?>
+			    </span>
+        </div>
+      </div>
+      <?php endforeach; ?>
+
     </div>
     
     <div id="user-answers">
