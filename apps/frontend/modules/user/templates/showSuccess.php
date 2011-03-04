@@ -23,15 +23,26 @@
       </ul>
       
       <ul id="info-user-info" class="nonespace nonelist col-4 boxleft">
-        <li class="firstname"><?php //echo $userprofile->getFirstname(); ?></li>
-        <li class="lastname"><?php //echo $userprofile->getLastname(); ?></li>
-        <li class="lastname"><span class="label">Age</span> <?php echo rand(18,60)?></li>
-        <li class="lastname"><span class="label">Location</span> italy</li>
-        <li class="lastname"><span class="label">Web Site</span> <a href="http://www.kiuz.it">www.kiuz.it</a></li>
+        
+        <?php if($user->getProfile()->getFirstname() != ''): ?>
+          <li class="firstname"><?php print $user->getProfile()->getFirstname(); ?></li><?php endif; ?>
+        
+        <?php if($user->getProfile()->getLastname() != ''): ?>
+          <li class="lastname"><?php print $user->getProfile()->getLastname(); ?></li><?php endif; ?>
+
+        <?php if($user->getProfile()->getAge() != ''): ?>
+          <li class="lastname"><span class="label">Age</span> <?php print $user->getProfile()->getAge(); ?></li><?php endif; ?>
+        
+        <?php if($user->getProfile()->getLocation() != ''): ?>
+          <li class="lastname"><span class="label">Location</span> <?php print $user->getProfile()->getLocation(); ?></li><?php endif; ?>
+        
+        <?php if($user->getProfile()->getWebsite() != ''): ?>
+          <li class="lastname"><span class="label">Web Site</span> <?php print $user->getProfile()->getWebsite(); ?></li><?php endif; ?>
         
       </ul>
       <ul id="other-user-info" class="nonespace nonelist col-10 boxleft">
-        <li>// TODO bio ...</li>
+        <?php if($user->getProfile()->getBiography() != ''): ?>
+          <li><?php echo $user->getProfile()->getBiography(); ?></li><?php endif; ?>
       </ul>
 	  </div>
 	  
