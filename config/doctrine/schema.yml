@@ -83,3 +83,7 @@ UserProfile:
     extends: sfGuardUserProfile
   columns:
     reputation:       {type: integer, notnull: true, default: 0}
+    biography:        {type: string(500)}
+    location:         {type: string(75)}
+    website:          {type: string(100)}
+    age:              {type: integer}

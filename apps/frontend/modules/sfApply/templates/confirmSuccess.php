@@ -5,9 +5,10 @@
       <h1 id="page-title">Confirming your account</h1>
       
         <p class="success">
-        <?php echo __("Thank you for confirming your account! You are now logged into the site.", array(), 'sfForkedApply') ?>
+        <?php echo __("Thank you for confirming your account! You are now logged
+          into the site.", array(), 'sfForkedApply') ?>
         </p>
-        <?php include_partial('sfApply/continue') ?>
+        <?php include_partial('sfApply/continuetoprofile') ?>
     </div>
   </div>
 </div>

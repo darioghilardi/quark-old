@@ -13,6 +13,10 @@
  * @property string $validate
  * @property string $type
  * @property integer $reputation
+ * @property string $biography
+ * @property string $location
+ * @property string $website
+ * @property integer $age
  * @property sfGuardUser $User
  * 
  * @method integer            getUserId()      Returns the current record's "user_id" value
@@ -23,6 +27,10 @@
  * @method string             getValidate()    Returns the current record's "validate" value
  * @method string             getType()        Returns the current record's "type" value
  * @method integer            getReputation()  Returns the current record's "reputation" value
+ * @method string             getBiography()   Returns the current record's "biography" value
+ * @method string             getLocation()    Returns the current record's "location" value
+ * @method string             getWebsite()     Returns the current record's "website" value
+ * @method integer            getAge()         Returns the current record's "age" value
  * @method sfGuardUser        getUser()        Returns the current record's "User" value
  * @method sfGuardUserProfile setUserId()      Sets the current record's "user_id" value
  * @method sfGuardUserProfile setEmailNew()    Sets the current record's "email_new" value
@@ -32,6 +40,10 @@
  * @method sfGuardUserProfile setValidate()    Sets the current record's "validate" value
  * @method sfGuardUserProfile setType()        Sets the current record's "type" value
  * @method sfGuardUserProfile setReputation()  Sets the current record's "reputation" value
+ * @method sfGuardUserProfile setBiography()   Sets the current record's "biography" value
+ * @method sfGuardUserProfile setLocation()    Sets the current record's "location" value
+ * @method sfGuardUserProfile setWebsite()     Sets the current record's "website" value
+ * @method sfGuardUserProfile setAge()         Sets the current record's "age" value
  * @method sfGuardUserProfile setUser()        Sets the current record's "User" value
  * 
  * @package    quark
@@ -76,6 +88,21 @@ abstract class BasesfGuardUserProfile extends sfDoctrineRecord
              'type' => 'integer',
              'notnull' => true,
              'default' => 0,
+             ));
+        $this->hasColumn('biography', 'string', 500, array(
+             'type' => 'string',
+             'length' => 500,
+             ));
+        $this->hasColumn('location', 'string', 75, array(
+             'type' => 'string',
+             'length' => 75,
+             ));
+        $this->hasColumn('website', 'string', 100, array(
+             'type' => 'string',
+             'length' => 100,
+             ));
+        $this->hasColumn('age', 'integer', null, array(
+             'type' => 'integer',
              ));
 
 
