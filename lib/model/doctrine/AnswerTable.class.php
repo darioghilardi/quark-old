@@ -28,4 +28,18 @@ class AnswerTable extends Doctrine_Table
       ->where('a.id = ?',$aid)
       ->execute();
   }
+
+  /**
+   * Get the last 10 answers for a given user id.
+   */
+  public function getLastFiftyByUserId($user_id)
+  {
+    $q = Doctrine_Query::create()
+      ->select('q.title, a.votes')
+      ->from('Answer a')
+      ->innerJoin('a.Question q ON a.question_id = q.id')
+      ->where('a.user_id = ?', $user_id)
+      ->limit(50);
+    return $q->execute();
+  }
 }

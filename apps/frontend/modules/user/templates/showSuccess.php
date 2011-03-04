@@ -47,10 +47,9 @@
 	  </div>
 	  
 	  <div id="user-questions">
-	   <h3 class="subtitle"><span><?php echo $userquestion->count()?></span> Questions</h3>
+	   <h3 class="subtitle"><span><?php echo $nquestions ?></span> Questions</h3>
 	   
-	     <?php foreach($userquestion as $question): ?>
-
+	     <?php foreach($questions as $question): ?>
 	     <div class="item clearfix question-listed">
         <div class="first-group-fields boxleft">
         
@@ -83,11 +82,26 @@
     </div>
     
     <div id="user-answers">
-      <h3 class="subtitle"><span><?php echo rand(1,99); ?></span> Answers</h3>
+      <h3 class="subtitle"><span><?php echo $nanswers ?></span> Answers</h3>
+
+      <?php foreach($answers as $answer): ?>
+        <?php print $answer->getVotes() ?>
+        <?php print $answer->getQuestion()->getTitle() ?>
+      <?php endforeach; ?>
+    </div>
+
+    <div id="user-votes">
+      <h3 class="subtitle"><span><?php echo $nupquestion ?></span> Votes up on questions</h3>
+      <h3 class="subtitle"><span><?php echo $ndownquestion ?></span> Votes down on questions</h3>
+      <h3 class="subtitle"><span><?php echo $nupanswer ?></span> Votes up on answers</h3>
+      <h3 class="subtitle"><span><?php echo $ndownanswer ?></span> Votes down on answers</h3>
     </div>
 
     <div id="user-tags">
-      <h3 class="subtitle"><span><?php echo rand(1,99); ?></span> Tags</h3>
+      <h3 class="subtitle"><span><?php echo $ntags ?></span> Tags</h3>
+       <?php foreach($tags as $tag): ?>
+        <?php print $tag->getName() ?>
+      <?php endforeach; ?>
     </div>
     
 	</div>

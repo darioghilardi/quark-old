@@ -31,17 +31,26 @@ class userActions extends sfActions
   {
     //retrive user objects, if exist
     $this->forward404Unless($this->user = Doctrine::getTable('sfGuardUser')->findOneByUsername($request->getParameter('username')));
-      
-      /**$this->userquestion = Doctrine::getTable('question')
-      ->createQuery('q')
-      ->select('*')
-      ->where('q.user_id = ?', $this->user->getId())
-      ->limit(10);*/
-      
-      $this->useranswer = Doctrine::getTable('answer')->findByUser_id($this->user->getId());
-    
-    //TODO Retrive tags from Question user
+     
+    // Retrieve the total number of questions and the last 10 questions
+    $this->nquestions = Doctrine::getTable('question')->findByUser_id($this->user->getId())->count();
+    $this->questions = Doctrine::getTable('question')->getLastTenByUserId($this->user->getId());
 
+    // Retrieve the total number of answers and the last 10 answers
+    $this->nanswers = Doctrine::getTable('answer')->findByUser_id($this->user->getId())->count();
+    $this->answers = Doctrine::getTable('answer')->getLastFiftyByUserId($this->user->getId());
+
+    // Retrieve the total number of votes up and the total number of votes down on questions
+    $this->nupquestion = Doctrine::getTable('interest')->findByUser_idAndValue($this->user->getId(), 1)->count();
+    $this->ndownquestion = Doctrine::getTable('interest')->findByUser_idAndValue($this->user->getId(), -1)->count();
+
+    // Retrieve the total number of votes up and the total number of votes down on answers
+    $this->nupanswer = Doctrine::getTable('rating')->findByUser_idAndValue($this->user->getId(), 1)->count();
+    $this->ndownanswer = Doctrine::getTable('rating')->findByUser_idAndValue($this->user->getId(), -1)->count();
+
+    // Retrieve number of tags and user tags
+    $this->ntags = Doctrine::getTable('tag')->getNumberTagsByUserId($this->user->getId());
+    $this->tags = Doctrine::getTable('tag')->getTagsByUserId($this->user->getId());
   }
   
  /**

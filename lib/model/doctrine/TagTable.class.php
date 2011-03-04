@@ -59,4 +59,31 @@ class TagTable extends Doctrine_Table
     }
     return $tags;
   }
+
+  /**
+   * Get the tags assigned by a user id.
+   */
+  public function getTagsByUserId($user_id)
+  {
+    $q = Doctrine_Query::create()
+      ->from('Tag t')
+      ->innerJoin('t.QuestionTag qt ON qt.tag_id = t.id')
+      ->innerJoin('qt.Question q ON qt.question_id = q.id')
+      ->where('q.user_id = ?', $user_id)
+      ->limit(10);
+    return $q->execute();
+  }
+
+  /**
+   * Get the number of tags assigned by a user id.
+   */
+  public function getNumberTagsByUserId($user_id)
+  {
+    $q = Doctrine_Query::create()
+      ->from('Tag t')
+      ->innerJoin('t.QuestionTag qt ON qt.tag_id = t.id')
+      ->innerJoin('qt.Question q ON qt.question_id = q.id')
+      ->where('q.user_id = ?', $user_id);
+    return $q->count();;
+  }
 }

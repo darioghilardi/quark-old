@@ -20,7 +20,8 @@ class QuestionTable extends Doctrine_Table
   /**
    * Execute an update for the interested users counter.
    */
-  public function updateQuestionInterest($qid, $amount) {
+  public function updateQuestionInterest($qid, $amount)
+  {
     $q = Doctrine_Query::create()
       ->update('Question q')
       ->set('q.interested_users','q.interested_users + ?', $amount)
@@ -31,11 +32,24 @@ class QuestionTable extends Doctrine_Table
   /**
    * Get number of questions with at least an answer.
    */
-  public function getQuestionWithAnswer() {
+  public function getQuestionWithAnswer()
+  {
     $q = Doctrine_Query::create()
       ->select('DISTINCT a.question_id as qid')
       ->from('Answer a');
     $values = $q->fetchArray();
     return count($values);
+  }
+
+  /**
+   * Get the last 10 questions for a given user id.
+   */
+  public function getLastTenByUserId($user_id)
+  {
+    $q = Doctrine_Query::create()
+      ->from('Question q')
+      ->where('q.user_id = ?', $user_id)
+      ->limit(10);
+    return $q->execute();
   }
 }
