@@ -87,7 +87,9 @@
       <div id="question-user-votes" class="col-6">
       <div class="innerspace-left">
             <div class="statistics">
-              <div class="item"><?php echo $nquestions ?><span>Questions</span></div>
+              <div class="item spaced"><?php echo $nquestions ?><span>Total questions</span></div>
+              
+              <h4 class="block-title">Question's vote by <?php echo $user->getUsername(); ?></h4>
               <div class="item"><?php echo $nupquestion ?><span>Votes up</span></div>
               <div class="item"><?php echo $ndownquestion ?><span>Votes down</span></div>
             </div>

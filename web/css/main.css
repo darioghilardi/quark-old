@@ -739,9 +739,7 @@ width:417px;
 }
 
 
-#ueser-votes h4{}
-#ueser-votes h4 span{}
-
+#user-questions .statistics .item.spaced{margin-bottom:10px;}
 
 /*Override New User*/
 form#sf_apply_apply_form #username-apply,
