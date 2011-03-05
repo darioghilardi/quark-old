@@ -46,9 +46,11 @@
       </ul>
 	  </div>
 	  
-	  <div id="user-questions">
-	   <h3 class="subtitle"><span><?php echo $nquestions ?></span> Questions</h3>
-	   
+	  <div id="user-questions" class="clearfix">
+	   <h3 class="subtitle">Last Questions</h3>
+	     <div id="question-list-content" class="col-18">
+	     <div class="innerspace-right">
+	     
 	     <?php foreach($questions as $question): ?>
 	     <div class="item clearfix question-listed">
         <div class="first-group-fields boxleft">
@@ -77,24 +79,47 @@
 			    </span>
         </div>
       </div>
+      
       <?php endforeach; ?>
-
+      </div>
+      </div>
+      
+      <div id="question-user-votes" class="col-6">
+      <div class="innerspace-left">
+            <div class="statistics">
+              <div class="item"><?php echo $nquestions ?><span>Questions</span></div>
+              <div class="item"><?php echo $nupquestion ?><span>Votes up</span></div>
+              <div class="item"><?php echo $ndownquestion ?><span>Votes down</span></div>
+            </div>
+      </div>
+      </div>
+    
     </div>
     
-    <div id="user-answers">
+    <div id="user-answers" class="clearfix">
       <h3 class="subtitle"><span><?php echo $nanswers ?></span> Answers</h3>
-
+       
+      <div id="answer-list-content" class="col-18">
+      <div class="innerspace-right">
+       
       <?php foreach($answers as $answer): ?>
         <?php print $answer->getVotes() ?>
         <?php print $answer->getQuestion()->getTitle() ?>
       <?php endforeach; ?>
-    </div>
-
-    <div id="user-votes">
-      <h3 class="subtitle"><span><?php echo $nupquestion ?></span> Votes up on questions</h3>
-      <h3 class="subtitle"><span><?php echo $ndownquestion ?></span> Votes down on questions</h3>
-      <h3 class="subtitle"><span><?php echo $nupanswer ?></span> Votes up on answers</h3>
-      <h3 class="subtitle"><span><?php echo $ndownanswer ?></span> Votes down on answers</h3>
+      </div>
+      </div>
+      
+      <div id="answer-user-votes" class="col-6">
+      <div class="innerspace-left">
+      
+        <h3>Votes on answers</h3>
+            <div class="statistics">
+              <div class="item"><?php echo $nupanswer ?><span>Votes up</span></div>
+              <div class="item"><?php echo $ndownanswer ?><span>Votes down</span></div>
+            </div>
+      </div>
+      </div>
+      
     </div>
 
     <div id="user-tags">

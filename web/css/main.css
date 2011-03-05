@@ -16,6 +16,9 @@ h3.subtitle{
    color: #444444;}
 
 .fullwidth{width:100%;}
+.innerspace-right{margin-right:10px;}
+.innerspace-left{margin-left:10px;}
+
 /*Globals*//*Forms*/
 form .item > label {
     color: #333333;
@@ -734,6 +737,11 @@ width:417px;
 	height:134px;
 	display:block;
 }
+
+
+#ueser-votes h4{}
+#ueser-votes h4 span{}
+
 
 /*Override New User*/
 form#sf_apply_apply_form #username-apply,
