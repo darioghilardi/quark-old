@@ -20,6 +20,7 @@ abstract class BaseRatingForm extends BaseFormDoctrine
       'user_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('User'), 'add_empty' => false)),
       'value'      => new sfWidgetFormInputText(),
       'created_at' => new sfWidgetFormDateTime(),
+      'updated_at' => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -28,6 +29,7 @@ abstract class BaseRatingForm extends BaseFormDoctrine
       'user_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('User'))),
       'value'      => new sfValidatorInteger(),
       'created_at' => new sfValidatorDateTime(),
+      'updated_at' => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('rating[%s]');

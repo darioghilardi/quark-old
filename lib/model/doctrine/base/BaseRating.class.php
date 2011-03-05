@@ -8,22 +8,19 @@
  * @property integer $answer_id
  * @property integer $user_id
  * @property integer $value
- * @property timestamp $created_at
  * @property Answer $Answer
  * @property sfGuardUser $User
  * 
- * @method integer     getAnswerId()   Returns the current record's "answer_id" value
- * @method integer     getUserId()     Returns the current record's "user_id" value
- * @method integer     getValue()      Returns the current record's "value" value
- * @method timestamp   getCreatedAt()  Returns the current record's "created_at" value
- * @method Answer      getAnswer()     Returns the current record's "Answer" value
- * @method sfGuardUser getUser()       Returns the current record's "User" value
- * @method Rating      setAnswerId()   Sets the current record's "answer_id" value
- * @method Rating      setUserId()     Sets the current record's "user_id" value
- * @method Rating      setValue()      Sets the current record's "value" value
- * @method Rating      setCreatedAt()  Sets the current record's "created_at" value
- * @method Rating      setAnswer()     Sets the current record's "Answer" value
- * @method Rating      setUser()       Sets the current record's "User" value
+ * @method integer     getAnswerId()  Returns the current record's "answer_id" value
+ * @method integer     getUserId()    Returns the current record's "user_id" value
+ * @method integer     getValue()     Returns the current record's "value" value
+ * @method Answer      getAnswer()    Returns the current record's "Answer" value
+ * @method sfGuardUser getUser()      Returns the current record's "User" value
+ * @method Rating      setAnswerId()  Sets the current record's "answer_id" value
+ * @method Rating      setUserId()    Sets the current record's "user_id" value
+ * @method Rating      setValue()     Sets the current record's "value" value
+ * @method Rating      setAnswer()    Sets the current record's "Answer" value
+ * @method Rating      setUser()      Sets the current record's "User" value
  * 
  * @package    quark
  * @subpackage model
@@ -48,10 +45,6 @@ abstract class BaseRating extends sfDoctrineRecord
              'notnull' => true,
              'unsigned' => false,
              ));
-        $this->hasColumn('created_at', 'timestamp', null, array(
-             'type' => 'timestamp',
-             'notnull' => true,
-             ));
     }
 
     public function setUp()
@@ -66,5 +59,8 @@ abstract class BaseRating extends sfDoctrineRecord
              'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

@@ -5,9 +5,15 @@
 	<h1 id="page-title" class="boxleft">Question List</h1>
 	<div id="tabs-question-list">
     <ul id="order" class="nonelist clearfix nonespace">
-      <li class="boxright <?php ($order=='oldest') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=oldest') ?>"><span>Oldest</span></a></li>
-      <li class="boxright <?php ($order=='newest') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=newest') ?>"><span>Newest </span></a></li>
-      <li class="boxright <?php ($order=='rated') ? print 'selected' : print 'unselected';?>"><a href="<?php echo url_for('question/index?order=rated') ?>"><span>Votes</span></a></li>
+      <li class="boxright <?php ($order=='latest') ? print 'selected' : print 'unselected';?>">
+        <a title="The most recently asked questions" href="<?php echo url_for('question/index?order=latest') ?>"><span>Latest</span></a>
+      </li>
+      <li class="boxright <?php ($order=='views') ? print 'selected' : print 'unselected';?>">
+        <a title="The most viewed questions" href="<?php echo url_for('question/index?order=views') ?>"><span>Views </span></a>
+      </li>
+      <li class="boxright <?php ($order=='rated') ? print 'selected' : print 'unselected';?>">
+        <a title="Questions with the best positive rating" href="<?php echo url_for('question/index?order=rated') ?>"><span>Votes</span></a>
+      </li>
     </ul>
   </div>
 

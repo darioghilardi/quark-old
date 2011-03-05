@@ -13,8 +13,6 @@
  * @property integer $views
  * @property integer $interested_users
  * @property integer $answer_count
- * @property timestamp $created_at
- * @property timestamp $updated_at
  * @property sfGuardUser $User
  * @property Doctrine_Collection $QuestionTag
  * @property Doctrine_Collection $ask_question
@@ -29,8 +27,6 @@
  * @method integer             getViews()            Returns the current record's "views" value
  * @method integer             getInterestedUsers()  Returns the current record's "interested_users" value
  * @method integer             getAnswerCount()      Returns the current record's "answer_count" value
- * @method timestamp           getCreatedAt()        Returns the current record's "created_at" value
- * @method timestamp           getUpdatedAt()        Returns the current record's "updated_at" value
  * @method sfGuardUser         getUser()             Returns the current record's "User" value
  * @method Doctrine_Collection getQuestionTag()      Returns the current record's "QuestionTag" collection
  * @method Doctrine_Collection getAskQuestion()      Returns the current record's "ask_question" collection
@@ -44,8 +40,6 @@
  * @method Question            setViews()            Sets the current record's "views" value
  * @method Question            setInterestedUsers()  Sets the current record's "interested_users" value
  * @method Question            setAnswerCount()      Sets the current record's "answer_count" value
- * @method Question            setCreatedAt()        Sets the current record's "created_at" value
- * @method Question            setUpdatedAt()        Sets the current record's "updated_at" value
  * @method Question            setUser()             Sets the current record's "User" value
  * @method Question            setQuestionTag()      Sets the current record's "QuestionTag" collection
  * @method Question            setAskQuestion()      Sets the current record's "ask_question" collection
@@ -99,14 +93,6 @@ abstract class BaseQuestion extends sfDoctrineRecord
              'type' => 'integer',
              'default' => 0,
              ));
-        $this->hasColumn('created_at', 'timestamp', null, array(
-             'type' => 'timestamp',
-             'notnull' => true,
-             ));
-        $this->hasColumn('updated_at', 'timestamp', null, array(
-             'type' => 'timestamp',
-             'notnull' => true,
-             ));
     }
 
     public function setUp()
@@ -132,5 +118,8 @@ abstract class BaseQuestion extends sfDoctrineRecord
         $this->hasMany('Accept', array(
              'local' => 'id',
              'foreign' => 'question_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

@@ -10,7 +10,6 @@
  * @property integer $user_id
  * @property string $body
  * @property string $body_html
- * @property timestamp $created_at
  * @property integer $votes
  * @property boolean $accepted
  * @property Question $Question
@@ -23,7 +22,6 @@
  * @method integer             getUserId()      Returns the current record's "user_id" value
  * @method string              getBody()        Returns the current record's "body" value
  * @method string              getBodyHtml()    Returns the current record's "body_html" value
- * @method timestamp           getCreatedAt()   Returns the current record's "created_at" value
  * @method integer             getVotes()       Returns the current record's "votes" value
  * @method boolean             getAccepted()    Returns the current record's "accepted" value
  * @method Question            getQuestion()    Returns the current record's "Question" value
@@ -35,7 +33,6 @@
  * @method Answer              setUserId()      Sets the current record's "user_id" value
  * @method Answer              setBody()        Sets the current record's "body" value
  * @method Answer              setBodyHtml()    Sets the current record's "body_html" value
- * @method Answer              setCreatedAt()   Sets the current record's "created_at" value
  * @method Answer              setVotes()       Sets the current record's "votes" value
  * @method Answer              setAccepted()    Sets the current record's "accepted" value
  * @method Answer              setQuestion()    Sets the current record's "Question" value
@@ -76,10 +73,6 @@ abstract class BaseAnswer extends sfDoctrineRecord
              'notnull' => true,
              'length' => 10000,
              ));
-        $this->hasColumn('created_at', 'timestamp', null, array(
-             'type' => 'timestamp',
-             'notnull' => true,
-             ));
         $this->hasColumn('votes', 'integer', null, array(
              'type' => 'integer',
              'default' => 0,
@@ -110,5 +103,8 @@ abstract class BaseAnswer extends sfDoctrineRecord
         $this->hasMany('Accept', array(
              'local' => 'id',
              'foreign' => 'answer_id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

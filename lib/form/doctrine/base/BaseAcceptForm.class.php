@@ -19,6 +19,7 @@ abstract class BaseAcceptForm extends BaseFormDoctrine
       'question_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Question'), 'add_empty' => false)),
       'answer_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Answer'), 'add_empty' => false)),
       'created_at'  => new sfWidgetFormDateTime(),
+      'updated_at'  => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -26,6 +27,7 @@ abstract class BaseAcceptForm extends BaseFormDoctrine
       'question_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Question'))),
       'answer_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Answer'))),
       'created_at'  => new sfValidatorDateTime(),
+      'updated_at'  => new sfValidatorDateTime(),
     ));
 
     $this->validatorSchema->setPostValidator(

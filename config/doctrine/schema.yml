@@ -1,4 +1,6 @@
 Question:
+  actAs:
+    Timestampable: ~
   columns:
     id:								{type: integer, notnull: true, autoincrement: true, primary: true}
     user_id:					{type: integer, notnull: true}
@@ -7,9 +9,7 @@ Question:
     body_html:        {type: string(10000), notnull: true}
     views:            {type: integer, notnull: true, default: 0}
     interested_users:	{type: integer, default: 0}
-    answer_count:     {type: integer, default: 0}
-    created_at:				{type: timestamp, notnull: true}
-    updated_at:				{type: timestamp, notnull: true}    
+    answer_count:     {type: integer, default: 0}    
   relations:
     User:							{onDelete: CASCADE, local: user_id, class: sfGuardUser}
 
@@ -28,13 +28,14 @@ Tag:
     name:           {type: string(100), notnull: true, unique: true}
 
 Answer:
+  actAs:
+    Timestampable: ~
   columns:
     id:							{type: integer, notnull: true, autoincrement: true, primary: true}
     question_id:		{type: integer, notnull: true}
     user_id:				{type: integer, notnull: true}
     body:           {type: string(10000), notnull: true}
     body_html:      {type: string(10000), notnull: true}
-    created_at:			{type: timestamp, notnull: true}
     votes:					{type: integer, default:0}
     accepted:       {type: boolean, default: false}
   relations:
@@ -42,35 +43,40 @@ Answer:
     User:						{onDelete: CASCADE, local: user_id, class: sfGuardUser}
 
 Interest:
+  actAs:
+    Timestampable: ~
   columns:
     question_id:		{type: integer, notnull: true}
     user_id:				{type: integer, notnull: true}
-    value:          {type: integer, notnull: true, unsigned: false}
-    created_at:			{type: timestamp, notnull: true}    
+    value:          {type: integer, notnull: true, unsigned: false}    
   relations:
     Question:				{onDelete: CASCADE, local: question_id, foreign: id}
     User:						{onDelete: CASCADE, local: user_id, class: sfGuardUser}
 
 Rating:
+  actAs:
+    Timestampable: ~
   columns:
     answer_id:			{type: integer, notnull: true}
     user_id:				{type: integer, notnull: true}
     value:          {type: integer, notnull: true, unsigned: false}
-    created_at:			{type: timestamp, notnull: true}
   relations:
     Answer:					{onDelete: CASCADE, local: answer_id, foreign: id}
     User:						{onDelete: CASCADE, local: user_id, class: sfGuardUser}
 
 Accept:
+  actAs:
+    Timestampable: ~
   columns:
     question_id:    {type: integer, notnull: true, unique: true}
     answer_id:      {type: integer, notnull: true, unique: true}
-    created_at:     {type: timestamp, notnull: true}
   relations:
     Question:				{onDelete: CASCADE, local: question_id, foreign: id}
     Answer:         {onDelete: CASCADE, local: answer_id, foreign: id}
 
 StaticContent:
+  actAs:
+    Timestampable: ~
   columns:
     id:               {type: integer, notnull: true, autoincrement: true, primary: true}
     title:            {type: string(255), notnull: true}

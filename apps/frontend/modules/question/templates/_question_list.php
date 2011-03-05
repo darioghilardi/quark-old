@@ -1,11 +1,3 @@
-<?php 
-/* ## Parzial ##
- * ### List of Questions ###
- * 
- * Deleted form original: $question->getDateTimeObject('updated_at')->format('H:i d/m/Y')
-**/
-?>
-
   <?php foreach ($pager->getResults() as $question): ?>
 
   <div class="item clearfix question-listed">
@@ -39,7 +31,7 @@
     </span>
     
     <span class="submitted boxright txtright">
-      <?php include_partial('question/question_submitted', array('user_id' => $question->getUser_id())) ?>
+      <?php include_partial('question/question_submitted', array('user_id' => $question->getUser_id(), 'created_at' => $question->getCreatedAt())) ?>
     </span>
     
     </div>

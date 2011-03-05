@@ -4,22 +4,22 @@ Question:
     title: How old are you?
     body: Hello, i wanna ask how old are you. Thanks.
     body_html: <p>Hello, i wanna ask how old are you. Thanks.</p>
-    created_at: '2011-01-23'
-    updated_at: '2011-01-23'
+    created_at: '<?php echo date('Y-m-d H:i:s', time() - rand(60, 1000)) ?>'
+    updated_at: '<?php echo date('Y-m-d H:i:s', time() - rand(60, 1000)) ?>'
   symfony:
     User: ingo
     title: What is Symfony?
     body: Hello, what is symfony? Which language does it uses?
     body_html: Hello, what is symfony? <br /> <strong>Which language does it uses?</strong>
-    created_at: '2011-01-22'
-    updated_at: '2011-01-23'
+    created_at: '<?php echo date('Y-m-d H:i:s', time() - rand(60, 1000)) ?>'
+    updated_at: '<?php echo date('Y-m-d H:i:s', time() - rand(60, 1000)) ?>'
   php:
     User: kiuz
     title: What does php mean?
     body: Hello, what does php mean?
     body_html: <p>Hello, what does php <strong>mean</strong>?</p>
-    created_at: '2011-01-25'
-    updated_at: '2011-01-25'
+    created_at: '<?php echo date('Y-m-d H:i:s', time() - rand(60, 1000)) ?>'
+    updated_at: '<?php echo date('Y-m-d H:i:s', time() - rand(60, 1000)) ?>'
     answer_count: 2
 <?php for ($i = 0; $i <= 55; $i++): ?>
   question_<?php echo $i ?>:
@@ -27,8 +27,8 @@ Question:
     title: Question_<?php echo $i."\n" ?>
     body: Hello, what does php mean?
     body_html: Hello, <br />what does php mean?
-    created_at: '2011-01-25 12:<?php echo $i ?>'
-    updated_at: '2011-01-25 13:<?php echo $i ?>'
+    created_at: '<?php echo date('Y-m-d H:i:s', time() - rand(60, 1000)) ?>'
+    updated_at: '<?php echo date('Y-m-d H:i:s', time() - rand(60, 1000)) ?>'
 <?php endfor ?>
 
 Tag:

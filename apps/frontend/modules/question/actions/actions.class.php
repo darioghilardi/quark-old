@@ -11,18 +11,20 @@ class questionActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->pager = new sfDoctrinePager('Question', sfConfig::get('app_default_question_for_page'));
-    $this->order = $request->getParameter('order', 'oldest');
-    if ($this->order == 'oldest')
+    $this->order = $request->getParameter('order', 'latest');
+    //$this->tags = explode('+', $request->getParameter('tags', NULL));
+    
+    if ($this->order == 'latest')
     {
-      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('created_at ASC'));
+      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('a.created_at DESC'));
     } 
-    elseif($this->order == 'newest')
+    elseif($this->order == 'views')
     {
-      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('created_at DESC'));
+      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('a.views DESC'));
     }
     elseif($this->order == 'rated')
     {
-      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('interested_users DESC'));
+      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('a.interested_users DESC'));
     }
 
     $this->pager->setPage($request->getParameter('page', 1));

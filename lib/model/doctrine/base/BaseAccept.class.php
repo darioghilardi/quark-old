@@ -7,20 +7,17 @@
  * 
  * @property integer $question_id
  * @property integer $answer_id
- * @property timestamp $created_at
  * @property Question $Question
  * @property Answer $Answer
  * 
- * @method integer   getQuestionId()  Returns the current record's "question_id" value
- * @method integer   getAnswerId()    Returns the current record's "answer_id" value
- * @method timestamp getCreatedAt()   Returns the current record's "created_at" value
- * @method Question  getQuestion()    Returns the current record's "Question" value
- * @method Answer    getAnswer()      Returns the current record's "Answer" value
- * @method Accept    setQuestionId()  Sets the current record's "question_id" value
- * @method Accept    setAnswerId()    Sets the current record's "answer_id" value
- * @method Accept    setCreatedAt()   Sets the current record's "created_at" value
- * @method Accept    setQuestion()    Sets the current record's "Question" value
- * @method Accept    setAnswer()      Sets the current record's "Answer" value
+ * @method integer  getQuestionId()  Returns the current record's "question_id" value
+ * @method integer  getAnswerId()    Returns the current record's "answer_id" value
+ * @method Question getQuestion()    Returns the current record's "Question" value
+ * @method Answer   getAnswer()      Returns the current record's "Answer" value
+ * @method Accept   setQuestionId()  Sets the current record's "question_id" value
+ * @method Accept   setAnswerId()    Sets the current record's "answer_id" value
+ * @method Accept   setQuestion()    Sets the current record's "Question" value
+ * @method Accept   setAnswer()      Sets the current record's "Answer" value
  * 
  * @package    quark
  * @subpackage model
@@ -42,10 +39,6 @@ abstract class BaseAccept extends sfDoctrineRecord
              'notnull' => true,
              'unique' => true,
              ));
-        $this->hasColumn('created_at', 'timestamp', null, array(
-             'type' => 'timestamp',
-             'notnull' => true,
-             ));
     }
 
     public function setUp()
@@ -60,5 +53,8 @@ abstract class BaseAccept extends sfDoctrineRecord
              'local' => 'answer_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

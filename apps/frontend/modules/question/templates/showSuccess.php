@@ -26,7 +26,7 @@
         </span>
     
 		    <span class="submitted boxright txtright">
-		      <?php include_partial('question/question_submitted', array('user_id'=>$question->getUser_id())) ?>
+		      <?php include_partial('question/question_submitted', array('user_id'=>$question->getUser_id(), 'created_at' => $question->getCreatedAt())) ?>
 		    </span>
       </div>
       <div class="options clearfix clear">

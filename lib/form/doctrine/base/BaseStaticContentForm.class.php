@@ -15,17 +15,21 @@ abstract class BaseStaticContentForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'id'    => new sfWidgetFormInputHidden(),
-      'title' => new sfWidgetFormInputText(),
-      'path'  => new sfWidgetFormInputText(),
-      'body'  => new sfWidgetFormTextarea(),
+      'id'         => new sfWidgetFormInputHidden(),
+      'title'      => new sfWidgetFormInputText(),
+      'path'       => new sfWidgetFormInputText(),
+      'body'       => new sfWidgetFormTextarea(),
+      'created_at' => new sfWidgetFormDateTime(),
+      'updated_at' => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
-      'id'    => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
-      'title' => new sfValidatorString(array('max_length' => 255)),
-      'path'  => new sfValidatorPass(),
-      'body'  => new sfValidatorString(array('required' => false)),
+      'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'title'      => new sfValidatorString(array('max_length' => 255)),
+      'path'       => new sfValidatorPass(),
+      'body'       => new sfValidatorString(array('required' => false)),
+      'created_at' => new sfValidatorDateTime(),
+      'updated_at' => new sfValidatorDateTime(),
     ));
 
     $this->validatorSchema->setPostValidator(
