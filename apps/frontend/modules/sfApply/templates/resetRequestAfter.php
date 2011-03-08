@@ -5,7 +5,7 @@
 <div id="applyResetRequestAfter">
   <div id="apply-content" class="col-18">
     <div id="global-content">
-      <h1 id="page-title">New password request Succesfull!</h1>
+      <h1 id="page-title">Okay! New password request succesful</h1>
       
       <p class="success">
 				<?php echo __('
