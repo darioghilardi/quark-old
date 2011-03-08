@@ -5,14 +5,14 @@
   <?php echo $form->renderGlobalErrors() ?>
   
   <div id="username-signin" class="item">
+    <?php echo $form['username']->renderLabel() ?>
 	  <?php echo $form['username']->renderError() ?>
-	  <?php echo $form['username']->renderLabel() ?>
 	  <?php echo $form['username'] ?>
   </div>
   
   <div id="password-signin" class="item">
+    <?php echo $form['password']->renderLabel() ?>
 	  <?php echo $form['password']->renderError() ?>
-	  <?php echo $form['password']->renderLabel() ?>
 	  <?php echo $form['password'] ?>
   </div>
   
