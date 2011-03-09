@@ -1,3 +1,4 @@
+<?php use_helper('Gravatar') ?>
 <?php slot('sf_apply_login') ?>
 <?php use_stylesheets_for_form( $form ) ?>
 <?php end_slot() ?>
@@ -7,9 +8,15 @@
 <div id="settingsSuccess">
   <div id="apply-content" class="col-18">
     <div id="global-content">
-      <h1 id="page-title"><?php echo $sf_user->getGuardUser()->getUsername(); ?> &rsaquo;  Edit Profile</h1>
+      <h1 id="page-title"><?php echo link_to($sf_user->getGuardUser()->getUsername(),'@user_profile?username=' . $sf_user->getGuardUser()->getUsername()) ?> &rsaquo; Edit Profile</h1>
 
-<form method="post" action="<?php echo url_for("sfApply/settings") ?>" name="sf_apply_settings_form" id="sf_apply_settings_form">
+      <ul id="options-user-info" class="nonespace nonelist clearfix fullwidth boxleft">
+        <li class="boxleft first"><?php echo link_to('Edit own profile', '@settings');?></li>
+        <li class="boxleft"><?php echo link_to('Change password', '@reset');?></li>
+        <li class="boxleft last"><?php echo gravatar_profile($sf_user->getGuardUser()->getEmail_address(), 'Edit Gravatar')?></li>
+      </ul>
+
+      <form method="post" action="<?php echo url_for("sfApply/settings") ?>" name="sf_apply_settings_form" id="sf_apply_settings_form">
           <?php echo $form->renderGlobalErrors() ?>
           <?php include_partial('sfApply/apply_item_form_register', array('item' => $form['firstname'],'class'=>'firstname')) ?>
           <?php include_partial('sfApply/apply_item_form_register', array('item' => $form['lastname'],'class'=>'lastname')) ?>
