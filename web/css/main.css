@@ -698,10 +698,10 @@ ul#avatar-user-sinfo{
 ul#info-user-info{
 width:417px;	
 }
-#user-info ul#options-user-info li a{
+ul#options-user-info li a{
   color:#999;
 }
-#user-info ul#options-user-info li{
+ul#options-user-info li{
   line-height: 100%;
   margin-bottom: 7px;
 	padding-right:5px;
@@ -709,10 +709,10 @@ width:417px;
 	border-right:1px solid #999;
 }
 
-#user-info ul#options-user-info li.first{
+ul#options-user-info li.first{
 	 padding-left:0px;
 }
-#user-info ul#options-user-info li.last{
+ul#options-user-info li.last{
 	border-right:none;
 }
 
@@ -778,4 +778,13 @@ form#sf_apply_reset_request{
     overflow-x: hidden;
     overflow-y: hidden;
 		border:none;
+}
+
+form#sf_apply_reset_form .item{
+  width:346px;
+	float:left;
+}
+
+form #password2-apply{
+	margin-left:18px;
 }
