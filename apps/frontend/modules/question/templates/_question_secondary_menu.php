@@ -4,7 +4,7 @@
             </li>
             
             <li class="boxleft txtright">
-              <a href="<?php echo url_for('@homepage') ?>">Question</a>
+              <a href="<?php echo url_for('@homepage') ?>">Questions</a>
             </li>
             
             <li class="boxleft txtright">

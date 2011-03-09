@@ -23,7 +23,7 @@
       </ul>
       
       <ul id="info-user-info" class="nonespace nonelist col-4 boxleft">
-        <li class="reputation"><span class="label">Reputation</span><?php echo rand(200,200000)?></li>
+        <li class="reputation"><span class="label">Reputation</span><?php print $user->getProfile()->getReputation(); ?></li>
         <?php if($user->getProfile()->getFirstname() != ''): ?>
           <li class="firstname"><span class="label">First name</span><?php print $user->getProfile()->getFirstname(); ?></li><?php endif; ?>
         

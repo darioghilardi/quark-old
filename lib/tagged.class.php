@@ -79,6 +79,27 @@ class Tagged
     else
       return null;
   }
+
+  /**
+   * Adds the current tag to the url (if not already existent) to enable tags filtering
+   */
+  public static function addTagsToUrl($request, $tag_name)
+  {
+    $tags_string = $request->get('tags');
+    if ($tags_string)
+    {
+      $tags = str_replace('+', ' ', $tags_string);
+      $tags = Tagged::smartExplode(' ', $tags);
+      if (in_array($tag_name, $tags))
+        return url_for('@question_list_tags?tags='.$tags_string);
+      else
+        return url_for('@question_list_tags?tags='.$tags_string.'+'.$tag_name);
+    }
+    else
+    {
+      return url_for('@question_list_tags?tags='.$tag_name);
+    }
+  }
 }
 
 ?>

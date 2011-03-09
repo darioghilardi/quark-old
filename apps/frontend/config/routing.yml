@@ -34,7 +34,7 @@ question_list_tags:
 
 # Show the question page
 question_show:
-  url:	/question/:id/:title_slug/
+  url:	/questions/:id/:title_slug/
   class:   sfDoctrineRoute
   options: { model: Question, type: object }
   param: { module: question, action: show }
@@ -53,7 +53,7 @@ increase_view_count:
 
 # question vote
 question_vote:
-  url: /question/vote/:id/:type/:token
+  url: /questions/vote/:id/:type/:token
   param: {module: question, action: vote}
   class: sfRequestRoute
   requirements:
@@ -63,7 +63,7 @@ question_vote:
 
 # question undo an existing vote
 undo_question_vote:
-  url: /question/vote/undo/:id/:type/:token
+  url: /questions/vote/undo/:id/:type/:token
   param: {module: question, action: undovote}
   class: sfRequestRoute
   requirements:
@@ -102,7 +102,7 @@ accept_answer:
 
 # Autocomplete widget
 autocomplete:
-  url:     /question/autocomplete
+  url:     /questions/autocomplete
   class:   sfRequestRoute
   param:   { module: question, action: autocomplete }
 
