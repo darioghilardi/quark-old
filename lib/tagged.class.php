@@ -66,6 +66,19 @@ class Tagged
       $qt->save();
     }
   }
+
+  /**
+   * Prepare tags for the filtering query
+   */
+  public static function prepareTags($tag_string)
+  {
+    $tag_string = str_replace('+', ' ', $tag_string);
+    $tags = Tagged::smartExplode(' ', $tag_string);
+    if ($tags)
+      return $tags;
+    else
+      return null;
+  }
 }
 
 ?>

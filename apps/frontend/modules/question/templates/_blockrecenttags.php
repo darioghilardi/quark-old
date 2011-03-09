@@ -3,7 +3,7 @@
   <div>
   <ul class="nonelist nonespace">
     <?php foreach ($tags as $tag): ?>
-      <li><a href=""><?php echo $tag['name']; ?></a>X <?php echo $tag['COUNT']; ?></li>
+      <li><a href="<?php echo url_for('@question_list_tags?tags='.$tag['name']); ?>"><?php echo $tag['name']; ?></a>X <?php echo $tag['COUNT']; ?></li>
     <?php endforeach; ?>
   </ul>
   </div>

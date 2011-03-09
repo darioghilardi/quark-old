@@ -12,21 +12,11 @@ class questionActions extends sfActions
   {
     $this->pager = new sfDoctrinePager('Question', sfConfig::get('app_default_question_for_page'));
     $this->order = $request->getParameter('order', 'latest');
-    //$this->tags = explode('+', $request->getParameter('tags', NULL));
-    
-    if ($this->order == 'latest')
-    {
-      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('a.created_at DESC'));
-    } 
-    elseif($this->order == 'views')
-    {
-      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('a.views DESC'));
-    }
-    elseif($this->order == 'rated')
-    {
-      $this->pager->setQuery(Doctrine_Core::getTable('Question')->createQuery('a')->orderBy('a.interested_users DESC'));
-    }
+    $this->tags = $request->getParameter('tags', NULL);
 
+    $q = Doctrine_Core::getTable('Question')->getQueryQuestionByTags($this->tags, $this->order);
+    
+    $this->pager->setQuery($q);
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->init();
   }

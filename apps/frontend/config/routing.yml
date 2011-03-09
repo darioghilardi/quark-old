@@ -1,7 +1,6 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
-# rules
 question:
   class:   sfDoctrineRouteCollection
   options: { model: Question }
@@ -24,9 +23,18 @@ static_show:
     id: \d+
     sf_method: [get]
 
+# Show the question list
+question_list_tags:
+  url:  /questions/tagged/:tags
+  class:  sfDoctrineRoute
+  options: { model: Question, type: list }
+  param:  { module: question, action: index }
+  requirements:
+    sf_method: [get]
+
 # Show the question page
 question_show:
-  url:	/question/:id/:title_slug
+  url:	/question/:id/:title_slug/
   class:   sfDoctrineRoute
   options: { model: Question, type: object }
   param: { module: question, action: show }
@@ -102,15 +110,6 @@ autocomplete:
 homepage:
   url:   /
   param: { module: question, action: index }
-
-# generic rules
-# please, remove them by adding more specific rules
-#default_index:
-#  url:   /:module
-#  param: { action: index }
-#
-#default:
-#  url:   /:module/:action/*
 
 sf_guard_signin:
   url:   /login

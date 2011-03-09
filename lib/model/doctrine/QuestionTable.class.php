@@ -7,15 +7,58 @@
  */
 class QuestionTable extends Doctrine_Table
 {
-    /**
-     * Returns an instance of this class.
-     *
-     * @return object QuestionTable
-     */
-    public static function getInstance()
-    {
-        return Doctrine_Core::getTable('Question');
+  /**
+   * Returns an instance of this class.
+   *
+   * @return object QuestionTable
+   */
+  public static function getInstance()
+  {
+      return Doctrine_Core::getTable('Question');
+  }
+
+  /**
+   * Build the query necessary to make the search by tags
+   */
+  public function getQueryQuestionByTags($tags, $order)
+  {
+    // Define ordering
+    if ($order == 'latest')
+      $order = 'q.created_at DESC';
+    elseif($order == 'views')
+      $order = 'q.views DESC';
+    elseif($order == 'rated')
+      $order = 'q.interested_users DESC';
+
+    // Build the query
+    $q = Doctrine_Query::create()
+      ->select()
+      ->from('Question q')
+      ->leftJoin('q.QuestionTag qt')
+      ->leftJoin('qt.Tag t');
+
+    // Define tags, if existing
+    if (!empty($tags))
+      $tags = Tagged::prepareTags($tags);
+    else
+      $tags = null;
+    
+    if (count($tags) > 1)
+    {      
+      $num_tags = count($tags);
+      $q->whereIn('t.name', $tags);
+      $q->groupBy('t.name');
+      $q->having('COUNT(*) = ?', $num_tags);
     }
+    elseif(count($tags) == 1)
+    {
+      $q->where('t.name = ?', $tags);
+    }
+    
+    $q->orderBy($order);
+    
+    return $q;
+  }
 
   /**
    * Execute an update for the interested users counter.
