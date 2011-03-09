@@ -20,6 +20,10 @@ h3.subtitle{
 .innerspace-left{margin-left:10px;}
 
 /*Globals*//*Forms*/
+form {
+    clear: both;
+    display: block;
+}
 form .item > label {
     color: #333333;
     display: block;
@@ -760,3 +764,18 @@ form#sf_apply_apply_form #password-apply{
 	margin-right:18px;
 }
 
+/*Override Edit User profile*/
+form#sf_apply_settings_form .item{
+	width:346px;
+}
+form#sf_apply_settings_form #biography-apply{
+  width:100%;
+}
+form#sf_apply_reset_request{
+    font-weight: bold;
+    line-height: 26px;
+    margin-top: 15px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+		border:none;
+}
