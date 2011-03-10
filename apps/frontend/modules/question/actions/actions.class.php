@@ -14,11 +14,23 @@ class questionActions extends sfActions
     $this->order = $request->getParameter('order', 'latest');
     $this->tags = $request->getParameter('tags', NULL);
 
-    $q = Doctrine_Core::getTable('Question')->getQueryQuestionByTags($this->tags, $this->order);
+    $q = Doctrine_Core::getTable('Question')->getQuestionByTagsQuery($this->tags, $this->order);
     
-    $this->pager->setQuery($q);
-    $this->pager->setPage($request->getParameter('page', 1));
-    $this->pager->init();
+    if ($q == false)
+    {
+      $this->pager = false;
+    }
+    else
+    {
+      $this->pager->setQuery($q);
+      $this->pager->setPage($request->getParameter('page', 1));
+      $this->pager->init();
+    }
+  }
+
+  public function executeNoResults(sfWebRequest $request)
+  {
+    
   }
 
   public function executeShow(sfWebRequest $request)

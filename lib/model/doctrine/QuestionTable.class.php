@@ -20,7 +20,7 @@ class QuestionTable extends Doctrine_Table
   /**
    * Build the query necessary to make the search by tags
    */
-  public function getQueryQuestionByTags($tags, $order)
+  public function getQuestionByTagsQuery($tags, $order)
   {
     // Define ordering
     if ($order == 'latest')
@@ -30,34 +30,56 @@ class QuestionTable extends Doctrine_Table
     elseif($order == 'rated')
       $order = 'q.interested_users DESC';
 
-    // Build the query
+    $values = $this->getQuestionIdByTagsArray($tags, $order);    
+
+    // Return false if there're no results
+    if(empty($values))
+      return false;
+
+    // Build the full query
+    foreach ($values as $id)
+      $ids[] = $id['id'];
+
     $q = Doctrine_Query::create()
-      ->select()
+      ->from('Question q')
+      ->leftJoin('q.QuestionTag qt')
+      ->leftJoin('qt.Tag t')
+      ->whereIn('q.id', $ids)
+      ->orderBy($order);
+    
+    return $q;
+  }
+
+  /**
+   * Get the question ids by tags, called by the previous function
+   */
+  public function getQuestionIdByTagsArray($tags, $order)
+  {
+    $sub = Doctrine_Query::create()
+      ->select('q.id')
       ->from('Question q')
       ->leftJoin('q.QuestionTag qt')
       ->leftJoin('qt.Tag t');
 
-    // Define tags, if existing
     if (!empty($tags))
       $tags = Tagged::prepareTags($tags);
     else
       $tags = null;
-    
+
     if (count($tags) > 1)
-    {      
+    {
       $num_tags = count($tags);
-      $q->whereIn('t.name', $tags);
-      $q->groupBy('t.name');
-      $q->having('COUNT(*) = ?', $num_tags);
+      $sub->whereIn('t.name', $tags);
+      $sub->groupBy('t.name');
+      $sub->having('COUNT(*) = ?', $num_tags);
     }
     elseif(count($tags) == 1)
     {
-      $q->where('t.name = ?', $tags);
+      $sub->where('t.name = ?', $tags);
     }
-    
-    $q->orderBy($order);
-    
-    return $q;
+
+    $sub->orderBy($order);
+    return $sub->fetchArray();
   }
 
   /**
