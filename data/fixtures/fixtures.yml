@@ -56,13 +56,13 @@ QuestionTag:
 Answer:
   hypertext:
     Question: php
-    User: admin
+    User: kiuz
     body: It means "Hypertext PreProcessor".
     body_html: It means <strong>"Hypertext PreProcessor"</strong>.
     created_at: '2011-01-25'
   don_t_know:
     Question: php
-    User: admin
+    User: ingo
     body: I don't know.
     body_html: I don't know.
     created_at: '2011-01-26'

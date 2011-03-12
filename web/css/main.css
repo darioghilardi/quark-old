@@ -361,6 +361,22 @@ ul#secondary-menu li a:hover{
   background: url('/images/tagsback-hover.jpg');
 }
 
+a.withadd{
+	margin-right:0px !important;	
+}
+
+a.addtags{
+	margin-left:0px !important;
+}
+
+span.etichetta a.withadd{
+  background:url('/images/tag-tags.png') left -2px !important;
+	 padding-left: 18px !important;
+}
+span.etichetta a.withadd:hover{
+	  background:url('/images/tag-tags.png') left -26px !important;
+		
+}
 /*Pager*/
 #pagination{
 	margin-top:15px;
