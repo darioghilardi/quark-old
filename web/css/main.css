@@ -349,8 +349,6 @@ ul#secondary-menu li a:hover{
 .block.populartags ul li a, /*See Block*/
 .tags > a {
   font-family: "Tahoma", "Geneva", sans-serif;
-  background: url('/images/tagsback.jpg');
-  padding: 1px 6px 3px 6px;
   color:#fff;
   margin-right: 4px;
 	border-radius: 4px;
@@ -358,7 +356,6 @@ ul#secondary-menu li a:hover{
 .block.populartags ul li a:hover,
 .tags > a:hover {
   text-decoration: none;
-  background: url('/images/tagsback-hover.jpg');
 }
 
 a.withadd{
@@ -370,13 +367,24 @@ a.addtags{
 }
 
 span.etichetta a.withadd{
+  padding: 1px 6px 3px 6px;
   background:url('/images/tag-tags.png') left -2px !important;
-	 padding-left: 18px !important;
+	padding-left: 18px !important;
 }
 span.etichetta a.withadd:hover{
-	  background:url('/images/tag-tags.png') left -26px !important;
-		
+	background:url('/images/tag-tags.png') left -26px !important;		
 }
+
+span.etichetta a.addtags{
+  background:url('/images/tag-add.png') left !important;
+  padding: 1px 4px 3px 6px;
+  color: grey;
+}
+span.etichetta a.addtags:hover{
+	background:url('/images/tag-add-hover.png') left !important;
+  color: black;
+}
+
 /*Pager*/
 #pagination{
 	margin-top:15px;

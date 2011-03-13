@@ -35,6 +35,7 @@ class questionActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
+    $this->getUser()->checkPermission('pippo');
     $this->question = $this->getRoute()->getObject();
 
     // if the user is not who make the question or is anonymous add the img tag

@@ -4,5 +4,35 @@
 # default values
 
 all:
-  default_question_for_page: 20
-  default_user_for_page: 50
+  # Pager settings
+  default_question_for_page:                  20
+  default_user_for_page:                      50
+
+  # Reputation settings
+  #answer_is_voted_up:                         10
+  #question_is_voted_up:                       5
+  #answer_is_accepted:                         15
+  #accept_answer:                              2
+  #question_is_voted_down:                     -2
+  #answer_is_voted_down:                       -2
+  #vote_question_down:                         -1
+  #vote_answer_down:                           -1
+
+  #max_votes_per_user_per_day:                 30
+  #max_rep_per_day:                            200
+
+  # Privileges
+  #vote_up:                                    15
+  #flag_offensive:                             15
+  #leave_comments:                             50
+  #edit_community_wiki_posts:                  100
+  #vote_down:                                  125
+  #vote_to_close_reopen_your_question:         250
+  #retag_questions:                            500
+  #show_total_up_down_vote_counts:             1000
+  #create_new_tags:                            1500
+  #edit_other_people_questions:                2000
+  #vote_to_close_reopen_any_question:          3000
+  #vote_to_delete_closed_questions:            10000
+  #prevent_new_answers_to_questions:           15000
+  #vote_to_delete_negatively_voted_answer:     20000
