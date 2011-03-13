@@ -344,44 +344,49 @@ ul#secondary-menu li a:hover{
 }
 .field > .desc {
   font-size: 11px;
-	text-transform:lowercase;}
+	text-transform:lowercase;
+}
 
-.block.populartags ul li a, /*See Block*/
+.block.populartags ul li { /*See Block*/
+  margin-bottom: 5px;
+}
+
+.block.populartags ul li a, 
 .tags > a {
   font-family: "Tahoma", "Geneva", sans-serif;
   color:#fff;
   margin-right: 4px;
 	border-radius: 4px;
 }
+
 .block.populartags ul li a:hover,
 .tags > a:hover {
   text-decoration: none;
 }
 
-a.withadd{
-	margin-right:0px !important;	
-}
-
-a.addtags{
-	margin-left:0px !important;
-}
-
-span.etichetta a.withadd{
-  padding: 1px 6px 3px 6px;
+.block.populartags ul li span.etichetta a.withadd{
+  padding: 1px 5px 3px 5px;
   background:url('/images/tag-tags.png') left -2px !important;
 	padding-left: 18px !important;
+  margin-right: 0;
 }
-span.etichetta a.withadd:hover{
+.block.populartags ul li span.etichetta a.withadd:hover{
 	background:url('/images/tag-tags.png') left -26px !important;		
 }
 
-span.etichetta a.addtags{
-  background:url('/images/tag-add.png') left !important;
-  padding: 1px 4px 3px 6px;
+.block.populartags ul li span.etichetta a.addtags{
+  background: #fff !important;
+  border: 1px solid #e1e1e1;
+  border-left:none;
+  padding: 0px 4px 2px 5px;
   color: grey;
+  margin-left: 0;
+  font-weight:bold;
 }
-span.etichetta a.addtags:hover{
-	background:url('/images/tag-add-hover.png') left !important;
+.block.populartags ul li span.etichetta a.addtags:hover{
+	background: #ff9500 !important;
+  border: none;
+  padding: 1px 5px 3px 5px;
   color: black;
 }
 
