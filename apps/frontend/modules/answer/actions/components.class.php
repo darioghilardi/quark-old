@@ -17,10 +17,18 @@ class answerComponents extends sfComponents
     // Istantiate the voting class
     $v = new voting($aid, $user_id);
 
-    // Check for user permissions and existing votes.
+    // Check for user permissions and existing votes if the user is logged in.
     // Return the values for up and down that needs to ba passed to the template.
-    $this->up = ($this->getUser()->canVoteUpAnswer($user_id)) ? $v->preprocessAnswerVoteUp($av) : false;
-    $this->down = ($this->getUser()->canVoteDownAnswer($user_id)) ? $v->preprocessAnswerVoteDown($av) : false;
+    if ($user_id == 'anonymous')
+    {
+      $this->up = 'anonymous';
+      $this->down = 'anonymous';
+    }
+    else
+    {
+      $this->up = ($this->getUser()->checkPermission('vote_up')) ? $v->preprocessAnswerVoteUp($av) : false;
+      $this->down = ($this->getUser()->checkPermission('vote_down')) ? $v->preprocessAnswerVoteDown($av) : false;
+    }
   }
 
   /**

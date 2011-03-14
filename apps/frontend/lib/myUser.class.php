@@ -7,62 +7,14 @@ class myUser extends sfGuardSecurityUser
    */
   public function checkPermission($perm_name)
   {
-    print sfConfig::get('app_default_question_for_page');
-  }
-
-  /**
-   * Check if a user can vote up on questions
-   */
-  public function canVoteUpQuestion($user_id)
-  {
-    if ($user_id != 'anonymous')
+    if ($this->isAuthenticated())
     {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
-
-  /**
-   * Check if a user can vote down on questions
-   */
-  public function canVoteDownQuestion($user_id)
-  {
-    if ($user_id != 'anonymous')
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
-
-    /**
-   * Check if a user can vote up on answers
-   */
-  public function canVoteUpAnswer($user_id)
-  {
-    if ($user_id != 'anonymous')
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
-
-  /**
-   * Check if a user can vote down on answer
-   */
-  public function canVoteDownAnswer($user_id)
-  {
-    if ($user_id != 'anonymous')
-    {
-      return true;
+      $reputation = $this->getGuardUser()->getProfile()->getReputation();
+      $requirement = sfConfig::get('app_'.$perm_name);
+      if ($reputation >= $requirement)
+        return true;
+      else
+        return false;
     }
     else
     {

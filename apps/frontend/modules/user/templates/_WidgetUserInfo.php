@@ -4,5 +4,5 @@
   <?php echo link_to(gravatar($user->getEmail_address(), $size_avatar), 'user/show?username=' . $user->getUsername()) ?>
   <?php echo link_to($user->getUsername(), 'user/show?username=' . $user->getUsername()) ?>
 </span>
-<span class="points"><?php print rand(299,2000); ?>
+<span class="points"><?php print $user->getProfile()->getReputation();?></span>
 

@@ -8,7 +8,7 @@ class questionComponents extends sfComponents
   public function executeQuestionVoteWidget()
   {
     // Take user_id and question_id
-    $user_id = (!$this->getUser()->isAuthenticated()) ? "anonymous": $this->getUser()->getGuardUser()->getId();
+    $user_id = (!$this->getUser()->isAuthenticated()) ? 'anonymous': $this->getUser()->getGuardUser()->getId();
     $qid = $this->question->getId();
 
     // Check if a vote already exists
@@ -17,10 +17,18 @@ class questionComponents extends sfComponents
     // Istantiate the voting class
     $v = new voting($qid, $user_id);
 
-    // Check for user permissions and existing votes.
+    // Check for user permissions and existing votes if the user is logged in.
     // Return the values for up and down that needs to ba passed to the template.
-    $this->up = ($this->getUser()->canVoteUpQuestion($user_id)) ? $v->preprocessQuestionVoteUp($av) : false;
-    $this->down = ($this->getUser()->canVoteDownQuestion($user_id)) ? $v->preprocessQuestionVoteDown($av) : false;
+    if ($user_id == 'anonymous')
+    {
+      $this->up = 'anonymous';
+      $this->down = 'anonymous';
+    }
+    else
+    {
+      $this->up = ($this->getUser()->checkPermission('vote_up')) ? $v->preprocessQuestionVoteUp($av) : false;
+      $this->down = ($this->getUser()->checkPermission('vote_down')) ? $v->preprocessQuestionVoteDown($av) : false;
+    }
   }
 
   /**

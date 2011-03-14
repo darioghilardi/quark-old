@@ -7,7 +7,7 @@ all:
   # Pager settings
   default_question_for_page:                  20
   default_user_for_page:                      50
-
+  
   # Reputation settings
   #answer_is_voted_up:                         10
   #question_is_voted_up:                       5
@@ -22,11 +22,11 @@ all:
   #max_rep_per_day:                            200
 
   # Privileges
-  #vote_up:                                    15
+  vote_up:                                    15
   #flag_offensive:                             15
   #leave_comments:                             50
   #edit_community_wiki_posts:                  100
-  #vote_down:                                  125
+  vote_down:                                  125
   #vote_to_close_reopen_your_question:         250
   #retag_questions:                            500
   #show_total_up_down_vote_counts:             1000
