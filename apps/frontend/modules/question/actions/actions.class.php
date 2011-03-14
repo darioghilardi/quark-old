@@ -57,6 +57,10 @@ class questionActions extends sfActions
     // Get the accepted answer
     //$accepted = $this->question->getAccept();
     $this->accepted = NULL;
+
+    // Permissions
+    // Disable editing for all except the user who maked the question
+    $this->caneditquestion = ($userid == $this->question->getUser()->id) ? true : false;
   }
 
   public function executeNew(sfWebRequest $request)

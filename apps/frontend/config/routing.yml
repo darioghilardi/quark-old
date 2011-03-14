@@ -42,6 +42,16 @@ question_show:
     id: \d+
     sf_method: [get]
 
+# Short version of the question page url for permalink
+question_show_short:
+  url:	/questions/:id
+  class:   sfDoctrineRoute
+  options: { model: Question, type: object }
+  param: { module: question, action: show }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
 # Increase the views counter for the question page.
 increase_view_count:
   url: /post/:id/:token

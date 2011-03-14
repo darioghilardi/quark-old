@@ -31,9 +31,11 @@
       </div>
       <div class="options clearfix clear">
 	      <ul class="nonelist nonespace">
-		      <li class="boxleft"><a href="##">Link</a></li>
-          <li class="boxleft"><a href="<?php echo url_for('question/edit?id=' . $question->getId()) ?>">Edit</a></li>
-          <li class="boxleft"><a href="##">Flag</a></li>
+		      <li class="boxleft"><a title="Short permalink to the question" href="<?php echo url_for('@question_show_short?id='. $question->getId()) ?>">Link</a></li>
+          <?php if ($caneditquestion): ?>
+            <li class="boxleft"><a href="<?php echo url_for('question/edit?id='. $question->getId()) ?>">Edit</a></li>
+          <?php endif; ?>
+          <!-- li class="boxleft"><a href="##">Flag</a></li -->
 	      </ul>
       </div>
       
@@ -45,6 +47,7 @@
     <h3 class="sub-page-title">Answer List</h3>
   <?php endif;?>
     <?php foreach ($question->getAskQuestion() as $answer): ?>
+      <a name="<?php print $answer->getId()?>"></a>
       <div class="answer item clearfix">
         <div class="col-2">
          <div class="vote answer-<?php print $answer->getId() ?>">
@@ -61,14 +64,16 @@
   	    </div>
   	    
 		    <span class="submitted txtright boxright">
-	        <?php include_partial('question/question_answers_submitted', array('user_id'=>$question->getUser_id())) ?>
+	        <?php include_partial('question/question_answers_submitted', array('user_id' => $answer->getUserId(), 'created_at' => $question->getCreatedAt())) ?>
 		    </span>
 		    
 			  <div class="options clearfix clear">
 	        <ul class="nonelist nonespace">
-	          <li class="boxleft"><a href="##">Link</a></li>
-	          <li class="boxleft"><a href="<?php echo url_for('answer/edit?id=' . $question->getId()) ?>">Edit</a></li>
-	          <li class="boxleft"><a href="##">Flag</a></li>
+	          <li class="boxleft"><a title="Permalink to the answer" href="<?php echo url_for('@question_show?id='. $question->getId().'&title_slug='. $question->getTitleSlug() .'#'.$answer->getId()) ?>">Link</a></li>
+            <?php if ($sf_user->getGuardUser()->id == $answer->getUserId()): ?>
+              <li class="boxleft"><a href="<?php echo url_for('answer/edit?id=' . $answer->getId()) ?>">Edit</a></li>
+            <?php endif; ?>
+	          <!-- li class="boxleft"><a href="##">Flag</a></li -->
 	        </ul>
 	      </div>
       
