@@ -81,6 +81,15 @@ undo_question_vote:
     type: (up|down)
     sf_method: [get]
 
+# No results
+error:
+  url: /error/:type
+  param: {module: question, action: error}
+  class: sfRequestRoute
+  requirements:
+    type: (noperms)
+    sf_method: [get]
+    
 # answer vote
 answer_vote:
   url: /answer/vote/:id/:type/:token

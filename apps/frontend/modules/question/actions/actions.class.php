@@ -28,9 +28,12 @@ class questionActions extends sfActions
     }
   }
 
-  public function executeNoResults(sfWebRequest $request)
+  public function executeError(sfWebRequest $request)
   {
-    
+    if ($request->getParameter('type') == 'noperms')
+      $this->message = "Permission denied.";
+    else
+      $this->message = 'Error';
   }
 
   public function executeShow(sfWebRequest $request)
@@ -80,8 +83,14 @@ class questionActions extends sfActions
   }
 
   public function executeEdit(sfWebRequest $request)
-  {
+  {    
     $this->forward404Unless($question = Doctrine_Core::getTable('Question')->find(array($request->getParameter('id'))), sprintf('Object question does not exist (%s).', $request->getParameter('id')));
+    
+    // If the current user is not the owner of the question redirect to the error page
+    $userid = ($this->getUser()->isAuthenticated() ? $this->getUser()->getGuardUser()->getId() : "anonymous");
+    if ($userid != $question->getUserId())
+      $this->redirect('@error?type=noperms');
+    
     $this->form = new QuestionForm($question);
   }
 
