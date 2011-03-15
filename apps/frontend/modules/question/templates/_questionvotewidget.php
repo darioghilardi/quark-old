@@ -5,7 +5,7 @@
 <div class="up-vote">
   <a class="button-up" href="<?php echo url_for('question/vote?id='.$question->getId().'&type=up&token='.generateToken($sf_user));?>">Up</a>
 <?php elseif($up == "undo"): ?>
-<div class="up-vote">
+<div class="up-undovote">
   <a class="button-up" href="<?php echo url_for('question/undovote?id='.$question->getId().'&type=up&token='.generateToken($sf_user));?>">Up</a>
 <?php elseif($up == 'anonymous'): ?>
 <div class="up-none-vote">
@@ -23,7 +23,7 @@
 <div class="down-vote">
   <a class="button-down" href="<?php echo url_for('question/vote?id='.$question->getId().'&type=down&token='.generateToken($sf_user));?>">Down</a>
 <?php elseif($down == "undo"): ?>
-<div class="down-vote">
+<div class="down-undovote">
   <a class="button-down" href="<?php echo url_for('question/undovote?id='.$question->getId().'&type=down&token='.generateToken($sf_user));?>">Down</a>
 <?php elseif($down == 'anonymous'): ?>
 <div class="down-none-vote">

@@ -594,6 +594,9 @@ form#signin-form{
 }
 
 /*Question Vote Widget*/
+
+.vote .up-undovote,
+.vote .down-undovote,
 .vote .up-vote,
 .vote .down-vote,
 .vote .up-none-vote,
@@ -607,6 +610,8 @@ form#signin-form{
     font-weight: bold;
 }
 
+.vote .down-undovote,
+.vote .up-undovote,
 .vote .down-none-vote,
 .vote .down-vote,
 .vote .up-none-vote,
@@ -637,6 +642,7 @@ form#signin-form{
 .vote .up-vote:hover{
   background-position: right top !important;
 }
+.vote .up-undovote,
 .vote .up-vote:active{
   background-position: left top !important;
 }
@@ -649,10 +655,14 @@ form#signin-form{
 .vote .down-vote:hover{
   background-position: right bottom !important;
 }
+
+.vote .down-undovote,
 .vote .down-vote:active{
 	  background-position: left bottom !important;
 }
 
+.vote .down-undovote a,
+.vote .up-undovote a,
 .vote .down-none-vote a,
 .vote .down-vote a,
 .vote .up-vote a,
