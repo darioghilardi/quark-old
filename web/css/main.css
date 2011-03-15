@@ -706,7 +706,42 @@ h3.sub-page-title{
     font-weight: bold;
 }
 
+.accept-answer{
+	text-align:center;
+}
 
+.accept-answer a,
+.accept-answer .accepted{
+  display:block;
+  text-indent:-9999px;
+  width: 35px;
+  height: 18px;
+}
+
+.accept-answer a,
+.accept-answer .accept,
+.accept-answer .accepted{
+  height: 31px;
+  width: 35px;
+}
+.accept-answer .accept,
+.accept-answer .accepted{
+  margin: 1px auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+	background:url('/images/accepted.png');
+	background-position: left -31px;
+}
+
+.accept-answer .accept:hover{
+	 background-position: left -62px;
+}
+
+.accept-answer .accept:active,
+.accept-answer .accepted{
+   background-position: left 0px !important;
+}
 /*User*/
 /*listSuccess*/
 

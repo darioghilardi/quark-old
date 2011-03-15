@@ -53,7 +53,7 @@
          <div class="vote answer-<?php print $answer->getId() ?>">
            <?php include_component('answer', 'answerVoteWidget', array('answer' => $answer)); ?>
          </div>
-         <div class="accept answer-<?php print $answer->getId() ?>">
+         <div class="accept-answer">
            <?php include_component('answer', 'answerAcceptWidget', array('answer' => $answer)); ?>
          </div>
         </div>
