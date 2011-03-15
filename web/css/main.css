@@ -856,7 +856,7 @@ form#sf_apply_apply_form #email2-apply{
 	float:left;
 }
 form#sf_apply_apply_form #email-apply,
-form#sf_apply_apply_form #password-apply{
+#password-apply{
 	margin-right:18px;
 }
 
@@ -882,5 +882,5 @@ form#sf_apply_reset_form .item{
 }
 
 form #password2-apply{
-	margin-left:18px;
+	/*margin-left:18px;*/
 }
