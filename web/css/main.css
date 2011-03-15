@@ -707,8 +707,11 @@ h3.sub-page-title{
 }
 
 .accept-answer{
-	text-align:center;
+  text-align: center;
+  margin-bottom: 5px;
+  margin-top: 15px;
 }
+
 
 .accept-answer a,
 .accept-answer .accepted{
