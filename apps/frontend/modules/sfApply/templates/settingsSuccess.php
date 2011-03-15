@@ -6,7 +6,7 @@
 
 
 <div id="settingsSuccess">
-  <div id="apply-content" class="col-24">
+  <div id="apply-content" class="col-18">
     <div id="global-content">
       <h1 id="page-title"><?php echo link_to($sf_user->getGuardUser()->getUsername(),'@user_profile?username=' . $sf_user->getGuardUser()->getUsername()) ?> &rsaquo; Edit Profile</h1>
 
@@ -16,7 +16,7 @@
         <li class="boxleft last"><?php echo gravatar_profile($sf_user->getGuardUser()->getEmail_address(), 'Edit Gravatar')?></li>
       </ul>
 
-      <form method="post" action="<?php echo url_for("sfApply/settings") ?>" name="sf_apply_settings_form" id="sf_apply_settings_form" class="col-18">
+      <form method="post" action="<?php echo url_for("sfApply/settings") ?>" name="sf_apply_settings_form" id="sf_apply_settings_form">
           <?php echo $form->renderGlobalErrors() ?>
           <?php include_partial('sfApply/apply_item_form_register', array('item' => $form['firstname'],'class'=>'firstname')) ?>
           <?php include_partial('sfApply/apply_item_form_register', array('item' => $form['lastname'],'class'=>'lastname')) ?>
@@ -39,7 +39,7 @@
  
 </form>
 
-<form method="GET" action="<?php echo url_for("sfApply/resetRequest") ?>" name="sf_apply_reset_request" id="sf_apply_reset_request" class="notice col-18">
+<form method="GET" action="<?php echo url_for("sfApply/resetRequest") ?>" name="sf_apply_reset_request" id="sf_apply_reset_request" class="notice">
 
   <?php echo __('Click the button below to change your password.', array(), 'sfForkedApply'); ?>
 
