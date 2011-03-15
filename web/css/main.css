@@ -367,9 +367,10 @@ ul#secondary-menu li a:hover{
 .block.populartags ul li span.etichetta a.withadd,
 .tags > a.withadd {
   padding: 1px 5px 3px 5px;
-  background:url('/images/tag-tags.png') left -2px !important;
+  background:url('/images/tag-tags.png') left -3px !important;
 	padding-left: 18px !important;
   margin-right: 0;
+	font-size:10px;
 }
 .block.populartags ul li span.etichetta a.withadd:hover
 .tags > a.withadd:hover {
@@ -378,6 +379,7 @@ ul#secondary-menu li a:hover{
 
 .block.populartags ul li span.etichetta a.addtags,
 .tags > a.addtags {
+	font-size:10px;
   background: #fff !important;
   border: 1px solid #e1e1e1;
   border-left:none;
@@ -393,7 +395,7 @@ ul#secondary-menu li a:hover{
   padding: 1px 5px 3px 5px;
   color: black;
 }
-
+.etichetta{font-size:10px;}
 /*Pager*/
 #pagination{
 	margin-top:15px;
