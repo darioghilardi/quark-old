@@ -596,6 +596,8 @@ form#signin-form{
 /*Question Vote Widget*/
 .vote .up-vote,
 .vote .down-vote,
+.vote .up-none-vote,
+.vote .down-none-vote,
 .vote .count{
 	 text-align:center;
 }
@@ -605,7 +607,9 @@ form#signin-form{
     font-weight: bold;
 }
 
-.vote .down-vote ,
+.vote .down-none-vote,
+.vote .down-vote,
+.vote .up-none-vote,
 .vote .up-vote {
     background-color: transparent;
     background-image: url("/images/vote-updown.png");
@@ -624,7 +628,10 @@ form#signin-form{
     width: 35px;
 }
 
-.vote .up-vote{
+.vote .up-vote,
+.vote .up-none-vote,
+.vote .up-none-vote:hover,
+.vote .up-none-vote:active{
   background-position: center top !important;
 }
 .vote .up-vote:hover{
@@ -633,7 +640,10 @@ form#signin-form{
 .vote .up-vote:active{
   background-position: left top !important;
 }
-.vote .down-vote{
+.vote .down-vote,
+.vote .down-none-vote,
+.vote .down-none-vote:active,
+.vote .down-none-vote:hover{
   background-position: center bottom !important;
 }
 .vote .down-vote:hover{
@@ -642,12 +652,17 @@ form#signin-form{
 .vote .down-vote:active{
 	  background-position: left bottom !important;
 }
+
+.vote .down-none-vote a,
 .vote .down-vote a,
 .vote .up-vote a,
+.vote .up-none-vote a,
 .vote .down-vote a:visited,
 .vote .up-vote a:visited,
 .vote .down-vote a:active,
-.vote .up-vote a:active{
+.vote .up-vote a:active,
+.vote .up-none-vote a:active,
+.vote .down-none-vote a:active{
   display:block;
   text-indent:-9999px;
   width: 35px;

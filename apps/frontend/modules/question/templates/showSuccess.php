@@ -70,8 +70,10 @@
 			  <div class="options clearfix clear">
 	        <ul class="nonelist nonespace">
 	          <li class="boxleft"><a title="Permalink to the answer" href="<?php echo url_for('@question_show?id='. $question->getId().'&title_slug='. $question->getTitleSlug() .'#'.$answer->getId()) ?>">Link</a></li>
-            <?php if ($sf_user->getGuardUser()->id == $answer->getUserId()): ?>
-              <li class="boxleft"><a href="<?php echo url_for('answer/edit?id=' . $answer->getId()) ?>">Edit</a></li>
+            <?php if ($sf_user->isAuthenticated()): ?>
+		          <?php if ($sf_user->getGuardUser()->id == $answer->getUserId()): ?>
+	              <li class="boxleft"><a href="<?php echo url_for('answer/edit?id=' . $answer->getId()) ?>">Edit</a></li>
+	            <?php endif; ?>
             <?php endif; ?>
 	          <!-- li class="boxleft"><a href="##">Flag</a></li -->
 	        </ul>
