@@ -13,9 +13,7 @@
 	    
 	    <div class="options clearfix clear">
 	      <ul class="nonelist nonespace">
-	        <li class="boxleft"><a href="##">Link</a></li>
 	        <li class="boxleft"><a href="<?php echo url_for('static/edit?id='.$static_content->getId()) ?>">Edit</a></li>
-	        <li class="boxleft"><a href="##">Flag</a></li>
 	      </ul>
 	    </div>
     
@@ -24,6 +22,5 @@
   </div>
       
   <div id="sidebar" class="col-6">
-    //....
   </div>
 </div>

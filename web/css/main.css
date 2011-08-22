@@ -367,14 +367,14 @@ ul#secondary-menu li a:hover{
 .block.populartags ul li span.etichetta a.withadd,
 .tags > a.withadd {
   padding: 1px 5px 3px 5px;
-  background:url('/images/tag-tags.png') left -3px !important;
+  background:url('/quark-old/web/images/tag-tags.png') left -3px !important;
 	padding-left: 18px !important;
   margin-right: 0;
 	font-size:10px;
 }
 .block.populartags ul li span.etichetta a.withadd:hover
 .tags > a.withadd:hover {
-	background:url('/images/tag-tags.png') left -26px !important;		
+	background:url('/quark-old/web/images/tag-tags.png') left -26px !important;		
 }
 
 .block.populartags ul li span.etichetta a.addtags,
@@ -619,7 +619,7 @@ form#signin-form{
 .vote .up-none-vote,
 .vote .up-vote {
     background-color: transparent;
-    background-image: url("/images/vote-updown.png");
+    background-image: url("/quark-old/web/images/vote-updown.png");
     background-repeat: no-repeat;
     display: block;
     
@@ -745,7 +745,7 @@ h3.sub-page-title{
   overflow-x: hidden;
   overflow-y: hidden;
 
-	background:url('/images/accepted.png');
+	background:url('/quark-old/web/images/accepted.png');
 	background-position: left -31px;
 }
 

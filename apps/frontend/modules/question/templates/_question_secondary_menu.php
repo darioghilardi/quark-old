@@ -5,11 +5,7 @@
             
             <li class="boxleft txtright">
               <a href="<?php echo url_for('@homepage') ?>">Questions</a>
-            </li>
-            
-            <li class="boxleft txtright">
-              <a href="">Tags</a>
-            </li>
+            </li>          
             
             <li class="boxleft txtright">
               <a href="<?php echo url_for('@user_list') ?>">Users</a>

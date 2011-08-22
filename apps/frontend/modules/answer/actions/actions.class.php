@@ -165,8 +165,11 @@ class answerActions extends sfActions
 
     $question_id = $values["question_id"];
     $values["user_id"] = $this->getUser()->getGuardUser()->getId();
+    $values["updated_at"] = time();
     $form->bind($values);
-
+    
+    //print_r($form);
+    
     if ($form->isValid())
     {
       // Start a transaction
@@ -179,7 +182,7 @@ class answerActions extends sfActions
         $question->updateAnswerCount(1);
 
         // Commit the transaction
-        $conn->commit();
+        $conn->commit();        
       }
       catch (Exception $e)
       {

@@ -4,7 +4,7 @@
     <title><?php include_slot('title', 'Quark - Open Source Question and Answer software.') ?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
     <?php include_stylesheets() ?>
   </head>
   <body>
@@ -56,9 +56,7 @@
         <div class="container">
         
             <span class="symfony">
-              <img src="/images/quark-mini.png" alt="Quark" />
-              powered by <a href="http://www.symfony-project.org/">
-              <img src="/images/symfony.gif" alt="symfony framework" />
+              &copy; <?php print date('Y');?> Quark Project
               </a>
           </span>
           

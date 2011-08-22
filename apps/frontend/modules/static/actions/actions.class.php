@@ -73,7 +73,7 @@ class staticActions extends sfActions
     {
       $static_content = $form->save();
 
-      $this->redirect('static/edit?id='.$static_content->getId());
+      $this->redirect('static/show?path='.$static_content->getPath());      
     }
   }
 }

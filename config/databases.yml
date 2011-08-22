@@ -2,13 +2,13 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=localhost;dbname=quark;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock'
-      username: quark
-      password: quark
+      dsn: 'mysql:host=localhost;dbname=quark_old;unix_socket=/var/run/mysqld/mysqld.sock'
+      username: quark_old
+      password: quark_old
 test:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=localhost;dbname=quark;unix_socket=/Applications/MAMP/tmp/mysql/mysql.sock'
-      username: quark
-      password: quark
+      dsn: 'mysql:host=localhost;dbname=quark_old;unix_socket=/var/run/mysqld/mysqld.sock'
+      username: quark_old
+      password: quark_old

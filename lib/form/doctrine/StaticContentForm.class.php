@@ -12,5 +12,10 @@ class StaticContentForm extends BaseStaticContentForm
 {
   public function configure()
   {
+    $this->widgetSchema['created_at'] = new sfWidgetFormInputHidden();
+    $this->setDefault('created_at', time());
+    
+    $this->widgetSchema['updated_at'] = new sfWidgetFormInputHidden();
+    $this->setDefault('updated_at', time());
   }
 }

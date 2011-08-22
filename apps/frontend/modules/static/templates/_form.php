@@ -9,10 +9,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('static/index') ?>">Back to list</a>
-          <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'static/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
-          <?php endif; ?>
+          &nbsp;<a href="<?php echo url_for('static/show?path='.$form->getObject()->getPath()); ?>">Back</a>
           <input type="submit" value="Save" />
         </td>
       </tr>

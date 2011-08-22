@@ -43,6 +43,16 @@ sfGuardPermission:
     description:    Authenticated permission
 
 sfGuardUserProfile:
+  dario_profile:
+    first_name:     Dario
+    last_name:      Ghilardi
+    reputation:     200
+    age:            25
+    website:        http://www.webrain.it
+    location:       Italy
+    biography:      Hello! I am Dario.
+    User:           admin
+  
   kiuz_profile:
     first_name:     Kiuz
     last_name:      Zuik
@@ -50,5 +60,5 @@ sfGuardUserProfile:
     age:            25
     website:        http://www.webrain.it
     location:       Italy
-    biography:      Hello! I am Kiuz, a web developer.
+    biography:      Hello! I am Kiuz.
     User:           kiuz

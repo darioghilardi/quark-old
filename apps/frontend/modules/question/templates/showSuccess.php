@@ -32,7 +32,7 @@
       <div class="options clearfix clear">
 	      <ul class="nonelist nonespace">
 		      <li class="boxleft"><a title="Short permalink to the question" href="<?php echo url_for('@question_show_short?id='. $question->getId()) ?>">Link</a></li>
-          <?php if ($caneditquestion): ?>
+          <?php if ($caneditquestion || ($sf_user->getUsername() == 'admin')): ?>
             <li class="boxleft"><a href="<?php echo url_for('question/edit?id='. $question->getId()) ?>">Edit</a></li>
           <?php endif; ?>
           <!-- li class="boxleft"><a href="##">Flag</a></li -->

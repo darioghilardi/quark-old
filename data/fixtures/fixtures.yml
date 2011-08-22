@@ -118,11 +118,17 @@ StaticContent:
   about:
     title: About
     path: about
-    body: Hello, i wanna ask how old are you. Thanks.
+    body: >
+      Hello, welcome to the Quark Project. Quark is a question and answer 
+      software written in PHP on top of the Symfony Framework 1.4. It is 
+      inspired on StackOverflow and licensed under the GPL v.2 license.
   faq:
     title: Faq
     path: faq
-    body: Hello, what is symfony? Which language does it uses?
+    body: >
+      What is Quark?
+      Quark is a question and answer software written in PHP on top of the 
+      Symfony Framework.
   privacy:
     title: Privacy and Policy
     path: privacy

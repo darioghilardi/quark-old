@@ -2,7 +2,7 @@
 
 	<div id="question-list-content" class="col-18">
 	<div id="global-content">
-	<h1 id="page-title" class="boxleft">Question List</h1>
+	<h1 id="page-title" class="boxleft">Questions List</h1>
 	<div id="tabs-question-list">
     <ul id="order" class="nonelist clearfix nonespace">
       <li class="boxright <?php ($order=='latest') ? print 'selected' : print 'unselected';?>">

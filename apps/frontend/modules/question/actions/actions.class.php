@@ -88,10 +88,12 @@ class questionActions extends sfActions
     
     // If the current user is not the owner of the question redirect to the error page
     $userid = ($this->getUser()->isAuthenticated() ? $this->getUser()->getGuardUser()->getId() : "anonymous");
-    if ($userid != $question->getUserId())
+    if ($userid == $question->getUserId() || ($userid == '1'))
+      $this->form = new QuestionForm($question);
+    else
       $this->redirect('@error?type=noperms');
     
-    $this->form = new QuestionForm($question);
+    
   }
 
   public function executeUpdate(sfWebRequest $request)
