@@ -12,4 +12,22 @@
  */
 class QuestionTag extends BaseQuestionTag
 {
+    // Get tags from db
+    public static function getQuestionTagIds($question) 
+    {
+      $q = Doctrine_Query::create()
+        ->from('QuestionTag qt')
+        ->where('qt.question_id = ?', $question);
+      return $q->fetchArray();
+    }
+    
+    // Remove tag association from db
+    public static function removeRemovedTags($question, $tag)
+    {
+      $q = Doctrine_Query::create()
+        ->delete('QuestionTag qt')
+        ->where('qt.tag_id = ?', $tag)
+        ->andWhere('qt.question_id = ?', $question);
+      $q->execute();
+    }
 }

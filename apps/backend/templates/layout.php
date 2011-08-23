@@ -9,6 +9,18 @@
     <?php include_javascripts() ?>
   </head>
   <body>
+      <h1 style="font-size: 24px;">Quark</h1>
+      <div id="menu">
+        <ul class ="backendmenu">
+          <li>
+            <?php echo link_to('Question', 'question') ?>
+          </li>
+          <li>
+            <?php echo link_to('Tags', 'tag') ?>
+          </li>
+        </ul>
+      </div>
+      
     <?php echo $sf_content ?>
   </body>
 </html>

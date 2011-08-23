@@ -16,4 +16,20 @@ class QuestionTagTable extends Doctrine_Table
   {
       return Doctrine_Core::getTable('QuestionTag');
   }
+  
+  /**
+   * Avoid duplicated into this table.
+   */
+  public static function avoidDuplicated($question, $tag)
+  {
+    $q = Doctrine_Query::create()
+      ->from('QuestionTag qt')
+      ->where('qt.question_id = ?', $question)
+      ->andWhere('qt.tag_id = ?', $tag);
+    $array = $q->fetchArray();
+    if (!$array)
+      return true;
+    else
+      return false;
+  }
 }

@@ -24,4 +24,17 @@ class Tag extends BaseTag
 
     return $q['id'];
   }
+  
+  /**
+   * Extract the name from the corresponding tag id.
+   */
+  public static function getTagNameByid($id)
+  {
+    $q = Doctrine_Query::create()
+      ->from('Tag t')
+      ->where('t.id = ?', $id)
+      ->fetchOne();
+
+    return $q['name'];
+  }
 }

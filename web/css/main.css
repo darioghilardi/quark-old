@@ -880,9 +880,33 @@ form#sf_apply_reset_request{
 
 form#sf_apply_reset_form .item{
   width:346px;
-	float:left;
+  float:left;
 }
 
 form #password2-apply{
-	/*margin-left:18px;*/
+  /*margin-left:18px;*/
+}
+
+/* Admin Styles */
+#sf_admin_content {
+  float:left;
+  width:800px;
+}
+
+#sf_admin_content table {
+  width: 100%;
+}
+
+.backendmenu {
+  font-size: 14px;
+}
+
+.backendmenu li {
+  display: inline;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.backendmenu a {
+  color: black;
 }

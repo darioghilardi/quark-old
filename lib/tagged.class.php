@@ -56,14 +56,32 @@ class Tagged
   /**
    * Add the QuestionTag relation between provided tags and question.
    */
-  public static function addQuestionTagsRelation($question, $tags)
-  {
-    foreach ($tags as $tag)
+  public static function addRemoveQuestionTagsRelation($question, $tags)
+  {  
+    // Convert all tags in tags ids
+    foreach ($tags as $tag) {
+      $tagids[] = Tag::getTagIdByName($tag);
+    }   
+    
+    // Remove old tags
+    // Get existing tags from db
+    $existings = QuestionTag::getQuestionTagIds($question->id);
+    foreach ($existings as $existing)
     {
-      $qt = new QuestionTag();
-      $qt->question_id = $question->id;
-      $qt->tag_id = Tag::getTagIdByName($tag);
-      $qt->save();
+        if (!in_array($existing['tag_id'], $tagids)) {
+          QuestionTag::removeRemovedTags($existing['question_id'], $existing['tag_id']);
+        }
+    }
+      
+    // Add new tags  
+    foreach ($tagids as $tag)
+    {
+      if (Doctrine::getTable('QuestionTag')->avoidDuplicated($question->id, $tag)) {
+        $qt = new QuestionTag();
+        $qt->question_id = $question->id;
+        $qt->tag_id = $tag;
+        $qt->save();
+      }
     }
   }
 

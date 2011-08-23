@@ -117,4 +117,24 @@ class QuestionTable extends Doctrine_Table
       ->limit(10);
     return $q->execute();
   }
+  
+  /**
+   * Get the tags assigned to a question.
+   */
+  public function getTagsForQuestion($question)
+  {
+    // Get tag id for the question
+    $q = Doctrine_Query::create()
+      ->from('QuestionTag qt')
+      ->where('qt.question_id = ?', $question);
+    $tagsArray = $q->fetchArray();
+    
+    // Get tag name from the id
+    $tags = '';
+    foreach ($tagsArray as $tag) {
+      $tags .= Tag::getTagNameByid($tag['tag_id'])." ";
+    }
+    
+    return $tags;
+  }
 }

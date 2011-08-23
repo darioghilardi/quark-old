@@ -64,6 +64,8 @@ class questionActions extends sfActions
     // Permissions
     // Disable editing for all except the user who maked the question
     $this->caneditquestion = ($userid == $this->question->getUser()->id) ? true : false;
+    // Pass the current userid
+    $this->userid = $userid;
   }
 
   public function executeNew(sfWebRequest $request)
@@ -88,11 +90,14 @@ class questionActions extends sfActions
     
     // If the current user is not the owner of the question redirect to the error page
     $userid = ($this->getUser()->isAuthenticated() ? $this->getUser()->getGuardUser()->getId() : "anonymous");
-    if ($userid == $question->getUserId() || ($userid == '1'))
+    if ($userid == $question->getUserId() || ($userid == '1')) {
       $this->form = new QuestionForm($question);
-    else
+      $tags = Doctrine_Core::getTable('Question')->getTagsForQuestion($question->getId());
+      $this->form->setDefault('tags',$tags);
+    }
+    else {
       $this->redirect('@error?type=noperms');
-    
+    }
     
   }
 
@@ -239,7 +244,7 @@ class questionActions extends sfActions
         $question = $form->save();
 
         // Store question relation with tags
-        Tagged::addQuestionTagsRelation($question, $tags);
+        Tagged::addRemoveQuestionTagsRelation($question, $tags);
 
         // Commit the transaction
         $conn->commit();
